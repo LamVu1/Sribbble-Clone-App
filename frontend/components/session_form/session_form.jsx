@@ -36,26 +36,22 @@ class SessionForm extends React.Component {
   }
 
   render() {
-    const signup = this.props.formType==='signup';
-    const  email=
-        <label>Email:
-              <input type="text" value={this.state.email}
+    let email;
+    if(this.props.formType==='signup'){
+      email =
+        <div>
+          <label>email:
+            <input type="text" value={this.state.email}
                 onChange={this.update('email')}
                 className="login-input"/>
-        </label>
-    const notamember=    
-        <div>
-        Not a member?  <Link to="/signup">sign up now</Link>
+          </label>
+        </div>
       
-       </div>
-    
+    }
     return (
       <div className="login-form-container">
         <form onSubmit={this.handleSubmit} className="login-form-box">
-          <h2>
-          {signup ? 'Sign Up' : 'Sign In'}
-          </h2>
-       
+         
           <div className="login-form">
             <br/>
             <label>Username or Email
@@ -76,8 +72,7 @@ class SessionForm extends React.Component {
               />
             </label>
             <br/>
-            {signup ? email : notamember}
-            {this.renderErrors()}
+            {email}
             <input className="session-submit" type="submit" value={this.props.formType} />
             
           </div>
