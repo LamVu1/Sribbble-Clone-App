@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-class SessionForm extends React.Component {
+class SignupForm
+ extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -11,7 +12,7 @@ class SessionForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  update(field) {
+  handleUpdate(field) {
     return e => this.setState({
       [field]: e.currentTarget.value
     });
@@ -20,7 +21,7 @@ class SessionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
-    this.props.processForm(user);
+    this.props.signup(user);
   }
 
   renderErrors() {
@@ -36,29 +37,33 @@ class SessionForm extends React.Component {
   }
 
   render() {
-    let email;
-    if(this.props.formType==='signup'){
-      email =
-        <div>
-          <label>email:
-            <input type="text" value={this.state.email}
-                onChange={this.update('email')}
-                className="login-input"/>
-          </label>
-        </div>
+    // let email;
+    // if(this.props.formType==='Sign Up'){
+    //   email =
+    //     <div>
+    //       <label>email:
+    //         <input type="text" value={this.state.email}
+    //             onChange={this.handleUpdate('email')}
+    //             className="login-input"/>
+    //       </label>
+    //     </div>
       
-    }
+    // }
     return (
-      <div className="login-form-container">
+      <div className="signup-form-container">
+        <div className="signup-header">
+          <span>JOIN THE SCRIBBLEZ COMMUNITY</span>
+        </div>
         <form onSubmit={this.handleSubmit} className="login-form-box">
          
           <div className="login-form">
+          {this.renderErrors()}
             <br/>
             <label>Username or Email
               <br/>
               <input type="text"
                 value={this.state.username}
-                onChange={this.update('username')}
+                onChange={this.handleUpdate('username')}
                 className="login-input"
               />
             </label>
@@ -67,13 +72,19 @@ class SessionForm extends React.Component {
               <br/>
               <input type="password"
                 value={this.state.password}
-                onChange={this.update('password')}
+                onChange={this.handleUpdate('password')}
                 className="login-input"
               />
             </label>
             <br/>
-            {email}
-            <input className="session-submit" type="submit" value={this.props.formType} />
+            <div>
+             <label>email:
+            <input type="text" value={this.state.email}
+                onChange={this.handleUpdate('email')}
+                className="login-input"/>
+            </label>
+            </div>
+            <input className="session-submit" type="submit" value='Create Account' />
             
           </div>
         </form>
@@ -82,4 +93,4 @@ class SessionForm extends React.Component {
   }
 }
 
-export default SessionForm;
+export default SignupForm;
