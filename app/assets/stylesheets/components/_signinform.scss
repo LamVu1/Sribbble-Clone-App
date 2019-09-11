@@ -8,11 +8,26 @@
   color: #CFCFCF;
   justify-content: center;
   align-items: center; 
+  
+}
+
+.signin-form-box{
+    margin: 0 auto;
+    max-width: 400px;
+    padding: 60px 20px;
 }
 
 .signin-form-header{
-    font: normal 2.8em "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 30px;
     text-align: center;
+    font-style: normal;
+    font-variant-ligatures: normal;
+    font-variant-caps: normal;
+    font-variant-numeric: normal;
+    font-variant-east-asian: normal;
+    font-weight: normal;
+    font-stretch: normal;
     margin: 0 auto;
     display: block;
 }
@@ -63,6 +78,7 @@
 }
 
 .signin-redirect-link{
+    font-family: Helvetica, Arial, sans-serif;
     margin: 20px 0 0 0;
     font-size: 13px;
     line-height: 1.5;
@@ -71,4 +87,13 @@
     a:link, a:visited {
         color: #999;
     }
+}
+
+.signin-logo{
+    width: 200px;
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 5px;
+
 }

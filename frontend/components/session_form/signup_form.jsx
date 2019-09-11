@@ -36,24 +36,19 @@ class SignupForm
     );
   }
 
+  componentWillUnmount(){
+    this.props.clearErrors();
+  }
+
   render() {
-    // let email;
-    // if(this.props.formType==='Sign Up'){
-    //   email =
-    //     <div>
-    //       <label>email:
-    //         <input type="text" value={this.state.email}
-    //             onChange={this.handleUpdate('email')}
-    //             className="login-input"/>
-    //       </label>
-    //     </div>
-      
-    // }
+
     return (
       <div className="signup-form-container">
         <div className="signup-header">
-          <span>JOIN THE SCRIBBLEZ COMMUNITY</span>
+          <h2 className="signup-header-span">JOIN THE SCRIBBLEZ COMMUNITY</h2>
+          <h2 className="signup-header-h2">Sign Up</h2>
         </div>
+
         <form onSubmit={this.handleSubmit} className="login-form-box">
          
           <div className="login-form">

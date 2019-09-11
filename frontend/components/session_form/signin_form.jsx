@@ -35,13 +35,17 @@ class SigninForm extends React.Component {
     );
   }
 
+  componentWillUnmount(){
+    this.props.clearErrors();
+  }
   render() {
 
     return (
       <div className="signin-form-container">
         
         <form onSubmit={this.handleSubmit} className="signin-form-box">
-          <Link to='/'>Home</Link>
+          <Link to='/'>
+          <img className='signin-logo' src={window.img2} /></Link>
         <h2 className="signin-form-header">Sign in</h2>
           <div className="signin-form">
             <br/>
