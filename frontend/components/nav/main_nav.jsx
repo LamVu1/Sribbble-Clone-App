@@ -28,8 +28,10 @@ class Nav extends React.Component {
 
     return(
     <div className="Main-nav">
+        <div  className='main-nav-logo-cont'>
         <Link to='/'>
-          <img className='main-nav-logo' src={window.img2} /></Link>
+          <img src={window.img2} className='main-nav-logo'/></Link>
+        </div>
         {sessionLinks}
     </div>
         )

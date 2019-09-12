@@ -33,7 +33,7 @@ class SigninForm extends React.Component {
     return(
       <ul>
         {this.props.errors.map((error, i) => (
-          <li key={`error-${i}`}>
+          <li className="errors" key={`error-${i}`}>
             {error}
           </li>
         ))}

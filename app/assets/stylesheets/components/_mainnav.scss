@@ -1,5 +1,5 @@
 .Main-nav{
-    background-color: aqua;
+    background-color: #FF5555;
     margin: 0 auto;
     padding: 0 10px 0 30px;
     display: flex;
@@ -8,7 +8,11 @@
     font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
+.main-nav-logo-cont{
+    border: blue solid;
+}
 .main-nav-logo{
+    border: green solid;
     width: 76px;
     height: 56px;
 }

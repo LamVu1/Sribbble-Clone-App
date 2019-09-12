@@ -28,7 +28,7 @@ class SignupForm
     return(
       <ul>
         {this.props.errors.map((error, i) => (
-          <li key={`error-${i}`}>
+          <li className='errors' key={`error-${i}`}>
             {error}
           </li>
         ))}
@@ -59,7 +59,7 @@ class SignupForm
             <p className="tag">The go-to destination for discovering and connecting with designers and creative talent around the globe.</p>
           {this.renderErrors()}
             <br/>
-            <label className="signup-label">Username
+            <label className="signup-label">Username</label>
               <br/>
               <input type="text"
                 value={this.state.username}
@@ -67,7 +67,7 @@ class SignupForm
                 className="login-input"
               />
               <p className="tag2">Your Dribbble URL: https://dribbble.com/<strong>USERNAME</strong></p>
-            </label>
+            
             <br/>
             <div>
              <label className="signup-label">Email
