@@ -3,23 +3,27 @@ import { Link } from 'react-router-dom';
 
 
 
-const Landing = ({ currentUser, logout }) => {
-  const sessionLinks = () => (
-    <nav className="login-signup">
+
+class LandingPage extends React.Component {
+  constructor(props) {
+    super(props);
     
-      <Link to="/login">Sign in</Link>
-      <Link to="/signup">Sign Up</Link>
-    </nav>
-  );
-  const personalGreeting = () => (
-    <hgroup className="header-group">
-      <h2 className="header-name">Hi, {currentUser.username}!</h2>
-      <button className="header-button" onClick={logout}>Log Out</button>
-    </hgroup>
-  );
+  }
 
-  return currentUser ? personalGreeting() : sessionLinks();
-};
+  render(){
+ 
+  return(
+  <div>
+    <div className="main-banner">
+      <div className="image-container">
+    <img src="https://cdn.dribbble.com/assets/art-banners/cactus4x3-00b2c882ddc01c9d5ebe19c886dc2c87bd18ef7aa1cdc1c53980fc305bcecfca.jpg" className='main-nav-logo'/>
+      </div>
+    </div>
+  </div>
+  )   
+  }
+}
 
 
-export default Landing;
+
+export default LandingPage;

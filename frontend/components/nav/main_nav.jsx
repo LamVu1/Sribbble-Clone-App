@@ -21,8 +21,10 @@ class Nav extends React.Component {
     }
     else{
         sessionLinks= <nav className="main-nav">
-        <Link to="/login">Sign in</Link>
-        <Link to="/signup">Sign Up</Link>
+        <Link to="/login" className="main-nav-signin">Sign in</Link>
+        <button className="nav-signup-btn">
+        <Link to="/signup" className="main-nav-signup">Sign Up</Link>
+        </button>
          </nav>
     }
 

@@ -2,17 +2,35 @@
     background-color: #FF5555;
     margin: 0 auto;
     padding: 0 10px 0 30px;
+    max-height: 50px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-.main-nav-logo-cont{
-    border: blue solid;
+.main-nav-container{
+    height: 100%;
 }
+
 .main-nav-logo{
-    border: green solid;
-    width: 76px;
-    height: 56px;
+    margin: 13px 5px 5px 5px;
+    height: 50%;
+}
+
+
+
+.main-nav-signin{
+    text-decoration: none;
+    margin: 5px 5px 5px 5px;
+}
+
+.main-nav-signup{
+    text-decoration: none;
+    margin: 5px 5px 5px 5px;
+}
+
+.main-nav-signup-btn{
+    border-radius: 4px;
+    background-color: rgb(102, 220, 250)
 }
