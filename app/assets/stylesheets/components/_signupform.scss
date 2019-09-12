@@ -3,12 +3,13 @@
     background-color: rgba(255,255,255,0.85);
     display: flex;
     flex-direction: column;
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
     height: 100%;
     font-weight: 500;
     width: 100%;
     color: black;
     justify-content: center;
-    border: black solid;
+    // border: black solid;
     align-items: center;
 }
 
@@ -16,84 +17,107 @@
     margin: 0 auto;
     padding: 0;
     border: 0;
-    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
     background: #9da3a5;
     width: 100%;
     height: 30%;
     font-size: 15px;
-    font-weight: 500;
-
-    // padding: 18px 0 60px 0;
+    padding: 18px 0 60px 0;
     display: inherit;
     flex-direction: inherit;
-    border: black solid;   
+    // border: black solid;   
     align-items: inherit;
 }
 
 .signup-header{
-    border: black solid;
+    // border: black solid;
     width: 65%;
 }
 
 .signup-header-head1{
     color: rgba(0,0,0,0.5);
-    // display: block;
-    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 15px;
-    font-weight: 500;
     letter-spacing: .03em;
     line-height: 1;
     margin: 0 0 5px 0;
     font-display: inherit;
+    font-weight: bold;
     text-transform: uppercase;
 }
 
 .signup-header-head2{
 
-    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #fff;
     font-size: 78px;
     font-weight: bold;
     letter-spacing: -.02em;
     line-height: 1;
-    margin: -5px 0 6px 0;
+    margin: -5px 0 20px 0;
 }
 
-.login-form-box{
+.signup-form-box{
     margin: 0 auto;
     padding: 0;
     border: 0;
-    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
     background: #F4F4F4;
-    border: olive solid;
     width: 100%;
     // padding: 18px 0 60px 0;
     display: inherit;
     flex-direction: inherit;
-    border: black solid;   
+    // border: black solid;   
     align-items: inherit;
+   
 }
 
-.login-form-box-inner{
+.signup-form-box-center{
+    // border: black solid;
+    width: 65%;
+
+}
+
+
+.signup-form-box-inner{
     font-size: 15px;
     line-height: 1;
-    // margin-top: -76px;
-    font-display: inherit;
-    text-transform: uppercase;
-    border:red solid;
+    width: 50%;
+    margin: 0 0 30px 0;
+    padding: 50px;
+    margin-top: -60px;
+    border-radius: 10px;
+    background-color: white;
+    // border:red solid;
+    
 }
 
 .signup-form-h2{
     font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 26px;
     margin-bottom: 5px;
-    font-weight: 500;
     line-height: 1.3;
     color: #444;    
+    text-align: center;
+
 }
 
-.p-tag{
-    font-size: 18px;
-    color: #757575;
-    margin-bottom: 30px;
+.tag{
+    font-size: 16px;
+    color: #999;
+    text-align: center;
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    line-height: 1.3;
+ 
+}
+
+.signup-label{
+    margin: 5px 0;
+    font-size: 15px;
+    line-height: 1.5em;
+    font-weight: bold;
+}
+
+.tag2{
+    font-size: 13px;
+    color: #999;
+    margin: 4px 0 0 0;
+    font-size: 13px;
+    line-height: 1.5;
 }

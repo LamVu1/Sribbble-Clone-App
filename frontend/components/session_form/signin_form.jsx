@@ -9,6 +9,7 @@ class SigninForm extends React.Component {
       password: '',
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDemo = this.handleDemo.bind(this);
   }
 
   handleUpdate(field) {
@@ -23,6 +24,11 @@ class SigninForm extends React.Component {
     this.props.signin(user);
   }
 
+  handleDemo(){
+    let demo = {username:'demo', password:'password'}
+    this.props.signin(demo)
+  }
+
   renderErrors() {
     return(
       <ul>
@@ -35,6 +41,7 @@ class SigninForm extends React.Component {
     );
   }
 
+
   componentWillUnmount(){
     this.props.clearErrors();
   }
@@ -42,7 +49,6 @@ class SigninForm extends React.Component {
 
     return (
       <div className="signin-form-container">
-        
         <form onSubmit={this.handleSubmit} className="signin-form-box">
           <Link to='/'>
           <img className='signin-logo' src={window.img2} /></Link>
@@ -68,7 +74,9 @@ class SigninForm extends React.Component {
               />
             </label>
             <br/>
+           
             <input className="session-submit" type="submit" value={this.props.formType} />
+            <button onClick={this.handleDemo} className="signin-demo-btn">Demo Login</button>
            <p className="signin-redirect-link">Not a member?   {this.props.navLink}
              </p> 
           </div>

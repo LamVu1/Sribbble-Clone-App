@@ -51,32 +51,35 @@ class SignupForm
           </div>
         </div>
 
-        <form onSubmit={this.handleSubmit} className="login-form-box">
-         <div className="login-form-box-inner">
-          <div className="login-form">
+        <form onSubmit={this.handleSubmit} className="signup-form-box">
+          <div className="signup-form-box-center">
+         <div className="signup-form-box-inner">
+          <div className="signup-form">
             <h2 className="signup-form-h2">Discover the worlds top designers & creatives</h2>
-            <p className="p-tag">The go-to destination for discovering and connecting with designers and creative talent around the globe.</p>
+            <p className="tag">The go-to destination for discovering and connecting with designers and creative talent around the globe.</p>
           {this.renderErrors()}
             <br/>
-            <label>Username
+            <label className="signup-label">Username
               <br/>
               <input type="text"
                 value={this.state.username}
                 onChange={this.handleUpdate('username')}
                 className="login-input"
               />
-              <p>Your Dribbble URL: https://dribbble.com/USERNAME</p>
+              <p className="tag2">Your Dribbble URL: https://dribbble.com/<strong>USERNAME</strong></p>
             </label>
             <br/>
             <div>
-             <label>email:
+             <label className="signup-label">Email
                <br/>
             <input type="text" value={this.state.email}
                 onChange={this.handleUpdate('email')}
                 className="login-input"/>
             </label>
+            <br/>
+            <br/>
             </div>
-            <label>Password
+            <label className="signup-label">Password
               <br/>
               <input type="password"
                 value={this.state.password}
@@ -84,9 +87,10 @@ class SignupForm
                 className="login-input"
               />
             </label>
-            <p>Minimum 6 characters</p>
+            <p className="tag2">Minimum 6 characters</p>
             <br/>
             <input className="session-submit" type="submit" value='Create Account' />
+            </div>
             </div>
           </div>
         </form>
