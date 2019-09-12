@@ -4,55 +4,96 @@
     display: flex;
     flex-direction: column;
     height: 100%;
+    font-weight: 500;
     width: 100%;
-    position: absolute;
-    color: #CFCFCF;
+    color: black;
     justify-content: center;
     border: black solid;
     align-items: center;
 }
 
-.signup-header{
+.signup-header-container{
     margin: 0 auto;
     padding: 0;
-    font-size: 100%;
     border: 0;
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
     background: #9da3a5;
-    border: olive solid;
     width: 100%;
-    padding: 18px 0 60px 0;
+    height: 30%;
+    font-size: 15px;
+    font-weight: 500;
+
+    // padding: 18px 0 60px 0;
     display: inherit;
     flex-direction: inherit;
     border: black solid;   
     align-items: inherit;
 }
 
-.signup-header-span{
+.signup-header{
+    border: black solid;
+    width: 65%;
+}
+
+.signup-header-head1{
     color: rgba(0,0,0,0.5);
     // display: block;
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 15px;
     font-weight: 500;
     letter-spacing: .03em;
     line-height: 1;
     margin: 0 0 5px 0;
+    font-display: inherit;
     text-transform: uppercase;
-    // position: relative;
 }
 
-.signup-header-h2{
+.signup-header-head2{
 
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #fff;
     font-size: 78px;
     font-weight: bold;
     letter-spacing: -.02em;
     line-height: 1;
     margin: -5px 0 6px 0;
-    
-    position: relative;
 }
 
 .login-form-box{
-    display: block;
-    border: solid black;
-    position: relative;
+    margin: 0 auto;
+    padding: 0;
+    border: 0;
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background: #F4F4F4;
+    border: olive solid;
+    width: 100%;
+    // padding: 18px 0 60px 0;
+    display: inherit;
+    flex-direction: inherit;
+    border: black solid;   
+    align-items: inherit;
+}
+
+.login-form-box-inner{
+    font-size: 15px;
+    line-height: 1;
+    // margin-top: -76px;
+    font-display: inherit;
+    text-transform: uppercase;
+    border:red solid;
+}
+
+.signup-form-h2{
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 26px;
+    margin-bottom: 5px;
+    font-weight: 500;
+    line-height: 1.3;
+    color: #444;    
+}
+
+.p-tag{
+    font-size: 18px;
+    color: #757575;
+    margin-bottom: 30px;
 }
