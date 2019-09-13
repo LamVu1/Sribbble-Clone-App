@@ -11,16 +11,23 @@
     height: 30%;
     border: green solid;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
 }
 .image-container{
+    display: flex;
+    flex-direction: row;
     width: 40%;
     height: 100%;
     border: red solid;
 }
 
 .main-page-img{
-    width: 100%;
+    width: 30%;
     height: 100%;
 }
+
+// .main-banner-container{
+//     display: flex;
+//     flex-direction: column;
+// }
