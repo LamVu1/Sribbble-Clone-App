@@ -14,7 +14,7 @@ import Navcontainer from './nav/main_nav_container'
 import { AuthRoute, ProtectedRoute } from '../utils/route_util';
 
 const App = () => (
-  <div>
+  <div className="main-div">
      <Navcontainer />
       {/* <header>
       <Link to="/" className="header-link">
