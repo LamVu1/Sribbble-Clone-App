@@ -1,5 +1,4 @@
 .main-page-container{
-    border: black solid;
     max-width: 100%;
     height: 100vh;
     display: flex;
@@ -14,12 +13,22 @@
     flex-direction: column;
     justify-content: center;
 }
+
+.main-banner-container{
+    border: red solid;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+
 .image-container{
     display: flex;
     flex-direction: row;
     width: 40%;
     height: 100%;
-    border: red solid;
+    border: blue solid;
+
 }
 
 .main-page-img{
@@ -27,7 +36,15 @@
     height: 100%;
 }
 
-// .main-banner-container{
-//     display: flex;
-//     flex-direction: column;
-// }
+.image-credit-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    border:pink solid;
+    
+}
+
+.image-credit{
+    width: 40%;
+    border: purple solid;
+}
