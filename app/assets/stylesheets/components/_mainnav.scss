@@ -7,6 +7,7 @@
     flex-direction: row;
     justify-content: space-between;
     font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    z-index: 100;
 }
 
 .main-nav-container{
@@ -33,4 +34,10 @@
 .main-nav-signup-btn{
     border-radius: 4px;
     background-color: rgb(102, 220, 250)
+}
+
+.header-button{
+    border: blue solid;
+    z-index: 2;
+    display: block;
 }

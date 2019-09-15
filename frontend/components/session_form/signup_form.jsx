@@ -64,7 +64,7 @@ class SignupForm
               <input type="text"
                 value={this.state.username}
                 onChange={this.handleUpdate('username')}
-                className="login-input"
+                className="signup-input"
               />
               <p className="tag2">Your Dribbble URL: https://dribbble.com/<strong>USERNAME</strong></p>
             
@@ -74,7 +74,7 @@ class SignupForm
                <br/>
             <input type="text" value={this.state.email}
                 onChange={this.handleUpdate('email')}
-                className="login-input"/>
+                className="signup-input"/>
             </label>
             <br/>
             <br/>
@@ -84,7 +84,7 @@ class SignupForm
               <input type="password"
                 value={this.state.password}
                 onChange={this.handleUpdate('password')}
-                className="login-input"
+                className="signup-input"
               />
             </label>
             <p className="tag2">Minimum 6 characters</p>

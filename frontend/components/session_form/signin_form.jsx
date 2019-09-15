@@ -25,7 +25,7 @@ class SigninForm extends React.Component {
   }
 
   handleDemo(){
-    let demo = {username:'demo', password:'password'}
+    let demo = {username:'Demo', password:'password'}
     this.props.signin(demo)
   }
 

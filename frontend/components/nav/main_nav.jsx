@@ -6,7 +6,13 @@ import { Link } from 'react-router-dom';
 class Nav extends React.Component {
     constructor(props) {
       super(props);
+      this.handleSubmit = this.handleSubmit.bind(this);
       
+    }
+
+    handleSubmit(e){
+        e.preventDefault();
+        this.props.logout();
     }
 
     render(){
@@ -14,11 +20,8 @@ class Nav extends React.Component {
     if(this.props.currentUser){
         sessionLinks = <hgroup className="header-group">
         <h2 className="header-name">Hi, {this.props.currentUser.username}!</h2>
-        <button className="header-button" onClick={this.props.logout}>Log Out</button>
+        <button className="header-button" onClick={this.handleSubmit}>Log Out</button>
     </hgroup>}
-    else if(window.location.href==="http://localhost:3000/#/login"){
-        sessionLinks
-    }
     else{
         sessionLinks= <nav className="main-nav">
         <Link to="/login" className="main-nav-signin">Sign in</Link>
