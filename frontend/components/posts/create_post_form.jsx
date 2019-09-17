@@ -21,8 +21,6 @@ class CreatePostForm extends React.Component {
     formData.append('post[title]', this.state.title);
     formData.append('post[description]', this.state.description);
     formData.append('post[image]', this.state.image);
-    // console.log(formData);
-  
     this.props.createPost(formData).then(()=> this.props.history.push('/'))
   }
 

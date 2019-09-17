@@ -23,6 +23,7 @@ class Nav extends React.Component {
                 <h2 className="nav-name">
                     Hi, {this.props.currentUser.username}!
                 </h2>
+                <Link to="/posts/new">Create Post</Link>
                 <button className="nav-logout-btn" onClick={this.handleSubmit}>
                     Log Out
                 </button>

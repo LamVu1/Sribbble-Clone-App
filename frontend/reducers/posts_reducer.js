@@ -2,6 +2,7 @@ import {RECEIVE_ALL_POSTS, RECEIVE_POST, REMOVE_POST} from '../actions/posts_act
 import merge from 'lodash/merge';
 
 const postsReducer = (oldstate={}, action)=>{
+    
     Object.freeze(oldstate);
     let nextState;
     switch(action.type){

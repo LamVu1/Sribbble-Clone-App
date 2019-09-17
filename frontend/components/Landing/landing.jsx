@@ -12,11 +12,22 @@ class LandingPage extends React.Component {
 
 
   getImage(){
-    return(Math.floor(Math.random()*2))}
+    return(Math.floor(Math.random()*2))
+  }
 
+  componentDidMount(){
+    this.props.fetchPosts()
+  }
 
-  render() {
-    const idx= this.getImage();
+  render(){
+    const idx= this.getImage()
+    let posts = Object.values(this.props.posts)
+  
+    const images = posts.map((url,idx) => {
+      return (
+          <img key={idx} src={url.imageURL}/>
+      );
+  }); 
     return (
       <div className="main-page-container">
         <div className="main-banner" style={{backgroundColor: image[idx].color}}>
@@ -37,6 +48,10 @@ class LandingPage extends React.Component {
             </div>
           </div>
         </div>
+        <div className="main-content"></div>
+        <ul>
+            {images}
+        </ul>
       </div>
     )
   }

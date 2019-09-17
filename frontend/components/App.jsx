@@ -7,7 +7,7 @@ import {
     Link,
     HashRouter
   } from 'react-router-dom';
-import LandingContainer from './Landing/landing';
+import LandingContainer from './Landing/landing_container';
 import SignUpFormContainer from './session_form/signup_form_container';
 import SignInFormContainer from './session_form/signin_form_container';
 import Navcontainer from './nav/main_nav_container'

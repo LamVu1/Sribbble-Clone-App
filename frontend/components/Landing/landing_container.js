@@ -1,19 +1,21 @@
 import { connect } from 'react-redux';
 
 import { logout } from '../../actions/session_actions';
-import Landing from './landing';
+import {fetchPosts} from '../../actions/posts_actions'
+import LandingPage from './landing';
 
-const mapStateToProps = ({ session, entities: { users } }) => {
+const mapStateToProps = state=>{
+  let posts = Object.values(state.entities.posts)
+  return({
+    posts: posts
+  })
+}
+const mapDispatchToProps = dispatch => {
+  
   return {
-    currentUser: users[session.id]
-  };
+  fetchPosts: ()=>dispatch(fetchPosts())}
 };
 
-const mapDispatchToProps = dispatch => ({
-  logout: () => dispatch(logout())
-});
-
 export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Landing);
+mapStateToProps,  mapDispatchToProps
+)(LandingPage);
