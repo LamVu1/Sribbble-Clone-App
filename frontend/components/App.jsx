@@ -16,6 +16,7 @@ import CreatePostFormContainer from './posts/create_post_form_container';
 
 const App = () => (
   <div className="main-div">
+    
      <Navcontainer />
       {/* <header>
       <Link to="/" className="header-link">

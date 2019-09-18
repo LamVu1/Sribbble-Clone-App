@@ -29,20 +29,27 @@ class CreatePostForm extends React.Component {
   }
 
   render () {
-    // console.log(this.props.createPost)
-    // console.log(this.props.test)
+   
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
+      <div className="CreateForm-Container">
+        <form className="CreateForm" onSubmit={this.handleSubmit}>
+          <div className="Form-Text">
           <label> Title:
-          <input type="text" value={this.state.title} onChange={this.handleUpdate("title")} />
+              <input className="Form-Input" type="text" value={this.state.title} onChange={this.handleUpdate("title")} />
           </label>
+          
           <label> Description:
-          <textarea type="text" value={this.state.description} onChange={this.handleUpdate("description")}></textarea>
+              <textarea className="Form-Input"  type="text" value={this.state.description} onChange={this.handleUpdate("description")}></textarea>
           </label>
+          </div>
+          <button className="Input-File">
+
           <input type="file" onChange={this.handleFile}/>
-          <input type="submit" value="Create Post"/>
-         </form>
+          </button>
+          <button className="Publish">
+          <input type="submit" value="Publish"/>
+          </button>
+        </form>
       </div>
     );
   }

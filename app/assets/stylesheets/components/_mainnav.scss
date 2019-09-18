@@ -57,6 +57,9 @@
     cursor: pointer;
 }
 
+.Upload-btn:hover{
+    background: #645c5c;
+}
 
 .nav-logout-btn{
     text-decoration: none;
@@ -74,6 +77,10 @@
     cursor: pointer;
 }
 
+.nav-logout-btn:hover{
+    background: #0cca05;
+
+}
 .nav-signin{
     font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 15px;

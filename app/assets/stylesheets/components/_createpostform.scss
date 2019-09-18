@@ -1,0 +1,80 @@
+.CreateForm-Container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+   width: 100%;
+    height: 600px;
+}
+
+.CreateForm{
+    width: 700px;
+    height: 600px;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+
+}
+
+.Form-Text{
+    display: flex;
+    flex-direction: column;
+    margin: 5px 0;
+    font-size: 15px;
+    line-height: 1.5em;
+    font-weight: 500;
+}
+
+.Form-Input{
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    border: 1px black solid;
+    border-radius: 4px;
+    font: 18px "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    padding: 8px 10px;
+    margin: 0 8px 15px 0;
+    color: #444;
+    background-color: rgba(245, 246, 247, 0.815);
+    outline: none;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+
+}
+
+.Publish{
+    text-decoration: none;
+    display: inherit;
+    flex-direction: row;
+    justify-content: center;
+    height: 27px;
+    width: 83px;
+    font-size: 14px;
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background: #333333;
+    border: 1px solid #999;
+    border-radius: 4px;
+    color: #fff;
+    margin-top:3px;
+    cursor: pointer;
+}
+
+.Input-File{
+    text-decoration: none;
+    display: inherit;
+    flex-direction: row;
+    justify-content: center;
+    height: 27px;
+    width: 83px;
+    font-size: 14px;
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background: #333333;
+    border: 1px solid #999;
+    border-radius: 4px;
+    color: #fff;
+    margin-top:3px;
+    cursor: pointer;
+}

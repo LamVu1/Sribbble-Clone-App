@@ -6,7 +6,7 @@ import { createPost } from '../../actions/posts_actions';
 
 
 const mapStateToProps = state => {
-    console.log(state)
+    
     return({
 
         post: {title:"", description:""}
