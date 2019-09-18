@@ -23,19 +23,24 @@ class Nav extends React.Component {
                 <h2 className="nav-name">
                     Hi, {this.props.currentUser.username}!
                 </h2>
-                <Link to="/posts/new">Create Post</Link>
+                <button className="Upload-btn">
+                <i class="fas fa-cloud-upload-alt">
+
+                    <Link to="/posts/new" style={{ textDecoration: 'none', color: '#999' }}>Upload</Link>
+                </i>
+                </button>
                 <button className="nav-logout-btn" onClick={this.handleSubmit}>
                     Log Out
                 </button>
             </hgroup>}
     else{
         sessionLinks= 
-        <nav className="nav-group">
+        <nav className="nav-group-a">
             <Link to="/login" className="nav-signin">
-                Sign in
+                Sign In
             </Link>
             <button className="nav-signup-btn">
-                <Link to="/signup"  className="main-nav-signup">
+                <Link to="/signup"  style={{ textDecoration: 'none', color: '#999' }}className="main-nav-signup">
                     Sign Up
                 </Link>
             </button>

@@ -12,7 +12,7 @@ class LandingPage extends React.Component {
 
 
   getImage(){
-    return(Math.floor(Math.random()*2))
+    return(Math.floor(Math.random()*5))
   }
 
   componentDidMount(){
@@ -25,7 +25,7 @@ class LandingPage extends React.Component {
   
     const images = posts.map((url,idx) => {
       return (
-          <img key={idx} src={url.imageURL}/>
+          <img className="main-post" key={idx} src={url.imageURL}/>
       );
   }); 
     return (
@@ -33,25 +33,27 @@ class LandingPage extends React.Component {
         <div className="main-banner" style={{backgroundColor: image[idx].color}}>
           
           <div className="main-banner-container">
-            <div className="image-container">
-              <div className="image-text">
-                <h1>Discover the world's top designers & creatives</h1>
-                <p>Scribbble is the leading destination to find & showcase creative work and home to the world's best design professionals.</p>
+            <div className="image-text">
+              <div className="image-text-top">
+              <h1 className="image-text-top-a" style={{color: image[idx].tcolor1}}>
+                Discover the world's top designers & creatives
+              </h1>
+              <p className="image-text-top-b" style={{color: image[idx].tcolor2}}>
+                Scribbble is the leading destination to find & showcase creative work and home to the world's best design professionals.
+              </p>
               </div>
-              <img src={image[idx].img} className='main-page-img' />
+              <p className="image-credit-text" style={{color: image[idx].tcolor2, height: 5}}>Art by {image[idx].author}</p>
             </div>
-
-          </div>
-          <div className="image-credit-container">
-            <div className="image-credit">
-              <p>Art by {image[idx].author}</p>
+            <div className="image-container">
+                <img src={image[idx].img} className='main-page-img' />
             </div>
           </div>
         </div>
-        <div className="main-content"></div>
+        <div className="main-content">
         <ul>
             {images}
         </ul>
+        </div>
       </div>
     )
   }

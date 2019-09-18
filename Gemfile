@@ -26,6 +26,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
 gem 'pry-rails'
 gem 'jquery-rails'
+gem 'font-awesome-sass', '~> 5.9.0'
 
 
 # Use ActiveStorage variant
