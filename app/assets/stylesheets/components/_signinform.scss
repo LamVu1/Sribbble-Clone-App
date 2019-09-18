@@ -76,7 +76,13 @@
     margin: 0 8px 10px 0;
     color: #fff;
     cursor: pointer;
+    text-align: center;
 }
+
+.session-submit:hover{
+    background: #eb216e;
+}
+
 .errors{
     color: red;
 }
@@ -94,7 +100,11 @@
     margin: 0 8px 0px 0;
     color: #fff;
     cursor: pointer;
-    
+    text-align: center;
+}
+
+.signin-demo-btn:hover{
+    background: #06d121;
 }
 
 .signin-redirect-link{
@@ -110,7 +120,8 @@
 }
 
 .signin-logo{
-    width: 200px;
+    height: 50px;
+    width: 190px;
     display: block;
     text-align: center;
     margin: 0 auto;
