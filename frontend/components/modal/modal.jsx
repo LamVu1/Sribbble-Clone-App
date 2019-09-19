@@ -1,20 +1,29 @@
 import React from 'react';
+import closeModal from '../../actions/modal_action';
+import PostIndexContainer from '../posts/post_index_container';
+import PostDetail from '../posts/post_detail';
 
 
-const Modal=({ modal, closeModal })=>{
-    let component;
+function Modal({ modal, closeModal, data }){
+   let component;
    switch(modal){
-    case    something:
-        component = < />
+    case 'PostDetail':
+        component = <div>
+                        <div onClick={()=>closeModal()} className="close-x">X</div>
+                        <PostDetail post={data}/>
+                        
+                    </div>
         break;
     default:
         return null;
    }
 
    return(
-       <div onClick={event => event.stopPropagation()}>
-           {component}
-       </div>
+    <div className="modal-background" onClick={closeModal}>
+    <div className="modal-child" onClick={e => e.stopPropagation()}>
+      { component }
+    </div>
+  </div>
    )
 }
 

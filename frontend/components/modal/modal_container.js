@@ -1,17 +1,18 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import {closeMODAL} from '../../actions/modal_action';
+import {closeModal} from '../../actions/modal_action';
 import Modal from './modal';
 
 const mapStateToProps=state=>{
     return({
-        modal: state.ui.modal
+        modal: state.ui.modal.modal,
+        data: state.ui.modal.data
     })
 }
 
 const mapDispatchToProps=dispatch=>{
     return({
-        closeMODAL: ()=>{dispatch(closeMODAL())}
+        closeModal: ()=>{dispatch(closeModal())}
     })
 }
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { image } from './images';
-
+import PostIndexContainer from '../posts/post_index_container';
 
 
 class LandingPage extends React.Component {
@@ -15,19 +15,15 @@ class LandingPage extends React.Component {
     return(Math.floor(Math.random()*5))
   }
 
-  componentDidMount(){
-    this.props.fetchPosts()
-  }
-
   render(){
     const idx= this.getImage()
-    let posts = Object.values(this.props.posts)
+  //   let posts = Object.values(this.props.posts)
   
-    const images = posts.map((url,idx) => {
-      return (
-          <img className="main-post" key={idx} src={url.imageURL}/>
-      );
-  }); 
+  //   const images = posts.map((url,idx) => {
+  //     return (
+  //         <img className="main-post" key={idx} src={url.imageURL}/>
+  //     );
+  // }); 
     return (
       <div className="main-page-container">
         <div className="main-banner" style={{backgroundColor: image[idx].color}}>
@@ -51,10 +47,7 @@ class LandingPage extends React.Component {
         </div>
         <div className="main-content">
 
-          <ul className="main-post-container">
-              {images}
-          </ul>
-       
+        < PostIndexContainer />
         </div>
       </div>
     )

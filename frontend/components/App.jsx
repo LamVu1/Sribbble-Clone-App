@@ -13,9 +13,11 @@ import SignInFormContainer from './session_form/signin_form_container';
 import Navcontainer from './nav/main_nav_container'
 import { AuthRoute, ProtectedRoute } from '../utils/route_util';
 import CreatePostFormContainer from './posts/create_post_form_container';
+import Modal from './modal/modal_container';
 
 const App = () => (
   <div className="main-div">
+    <Modal />
     
      <Navcontainer />
       {/* <header>
