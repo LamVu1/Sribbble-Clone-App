@@ -1,0 +1,36 @@
+.Post-index{
+      background-color: red;
+}
+
+
+.Post-index-title{
+    margin: 0 0 4px;
+    padding: 0;
+    font-size: 35px;
+    font-weight: 500;
+    line-height: 1.2;   
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #444;
+}
+
+.Post-index-description{
+    color: #555;
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.Post-index-item{
+    background-color: white;
+    height: 300px;
+    width: 400px;
+    margin: 20px;
+    padding: 20px;
+}
+
+.Post-Index{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}

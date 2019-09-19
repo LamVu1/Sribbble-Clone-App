@@ -1,13 +1,24 @@
 import React from 'react';
 
-const PostDetail =(props)=>{
-    return(
-        <div className="Post-index">
-            <p>{props.post.title}</p>
-            <img src={props.post.imageURL} />
-            <p>{props.post.description}</p>
-        </div>
-    )
+class PostDetail extends React.Component{
+    constructor(props) {
+        super(props);
+    }
+
+
+    render(){
+        
+        return(
+            <div className="Post-index">
+                <p className="Post-index-title">{this.props.post.title}</p>
+                <img src={this.props.post.imageURL} />
+                <br/>
+                <p className="Post-index-description">{this.props.post.description}</p>
+            </div>
+        )
+    }
+
 }
+
 
 export default PostDetail;

@@ -1,17 +1,18 @@
 import React from 'react';
 import closeModal from '../../actions/modal_action';
 import PostIndexContainer from '../posts/post_index_container';
-import PostDetail from '../posts/post_detail';
+import PostDetailContainer from '../posts/post_detail_container';
 
 
 function Modal({ modal, closeModal, data }){
    let component;
    switch(modal){
     case 'PostDetail':
-        component = <div>
-                        <div onClick={()=>closeModal()} className="close-x">X</div>
-                        <PostDetail post={data}/>
-                        
+        component = <div className="PostContainer">
+                        <div onClick={()=>closeModal()} className="close-x">
+                          X
+                        </div>
+                        <PostDetailContainer post={data}/>
                     </div>
         break;
     default:

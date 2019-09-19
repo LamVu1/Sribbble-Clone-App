@@ -17,13 +17,7 @@ class LandingPage extends React.Component {
 
   render(){
     const idx= this.getImage()
-  //   let posts = Object.values(this.props.posts)
-  
-  //   const images = posts.map((url,idx) => {
-  //     return (
-  //         <img className="main-post" key={idx} src={url.imageURL}/>
-  //     );
-  // }); 
+
     return (
       <div className="main-page-container">
         <div className="main-banner" style={{backgroundColor: image[idx].color}}>
@@ -47,7 +41,7 @@ class LandingPage extends React.Component {
         </div>
         <div className="main-content">
 
-        < PostIndexContainer />
+        < PostIndexContainer className="Post-Index"/>
         </div>
       </div>
     )
