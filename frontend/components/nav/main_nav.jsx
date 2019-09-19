@@ -24,7 +24,7 @@ class Nav extends React.Component {
                     Hi, {this.props.currentUser.username}!
                 </h2>
                 <button className="Upload-btn">
-                <i class="fas fa-cloud-upload-alt">
+                <i className="fas fa-cloud-upload-alt">
 
                     <Link to="/posts/new" style={{ textDecoration: 'none', color: '#999' }}>Upload</Link>
                 </i>

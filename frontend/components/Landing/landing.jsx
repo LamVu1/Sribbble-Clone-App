@@ -51,7 +51,7 @@ class LandingPage extends React.Component {
         </div>
         <div className="main-content">
 
-          <ul>
+          <ul className="main-post-container">
               {images}
           </ul>
        

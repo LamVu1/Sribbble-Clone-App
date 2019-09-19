@@ -1,15 +1,21 @@
 import React from 'react';
 
 
-class Modal extends React.Component{
-    render(){
+const Modal=({ modal, closeModal })=>{
+    let component;
+   switch(modal){
+    case    something:
+        component = < />
+        break;
+    default:
+        return null;
+   }
 
-        return(
-            <div>
-
-            </div>
-        )
-    }
+   return(
+       <div onClick={event => event.stopPropagation()}>
+           {component}
+       </div>
+   )
 }
 
 export default Modal

@@ -1,18 +1,18 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import {closeMODAL} from '../../actions/modal_action';
-import Modal from './modal';
+import PostIndex from './post_index';
 
 const mapStateToProps=state=>{
     return({
-        modal: state.ui.modal
+        posts: state.entities.posts,
     })
 }
 
 const mapDispatchToProps=dispatch=>{
     return({
-        closeMODAL: ()=>{dispatch(closeMODAL())}
+        openModal: (modal)=>dispatch(openModal(modal))
     })
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Modal)
+export default connect(mapStateToProps, mapDispatchToProps)(PostIndex)
