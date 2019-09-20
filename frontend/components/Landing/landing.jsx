@@ -32,7 +32,7 @@ class LandingPage extends React.Component {
                 Scribbble is the leading destination to find & showcase creative work and home to the world's best design professionals.
               </p>
               </div>
-              <p className="image-credit-text" style={{color: image[idx].tcolor2, height: 5}}>Art by {image[idx].author}</p>
+              <p className="image-credit-text" style={{color: image[idx].tcolor2}}>Art by {image[idx].author}</p>
             </div>
             <div className="image-container">
                 <img src={image[idx].img} className='main-page-img' />

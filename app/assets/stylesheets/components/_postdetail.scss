@@ -1,6 +1,3 @@
-.Post-index{
-      background-color: red;
-}
 
 
 .Post-index-title{
@@ -27,6 +24,14 @@
     margin: 20px;
     padding: 20px;
 }
+
+
+.Post-index-item:hover{
+    padding: 30px;
+    margin: 10px;
+    cursor: pointer;
+}
+
 
 .Post-Index{
     display: flex;

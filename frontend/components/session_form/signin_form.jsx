@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+
 class SigninForm extends React.Component {
   constructor(props) {
     super(props);
@@ -24,8 +25,10 @@ class SigninForm extends React.Component {
     this.props.signin(user);
   }
 
-  handleDemo(){
+  handleDemo(e){
+    e.preventDefault();
     let demo = {username:'Demo', password:'password'}
+
     this.props.signin(demo)
   }
 
@@ -41,21 +44,22 @@ class SigninForm extends React.Component {
     );
   }
 
-
   componentWillUnmount(){
     this.props.clearErrors();
   }
+
   render() {
  
     return (
       <div className="signin-form-container">
+        {this.renderErrors()}
         <form onSubmit={this.handleSubmit} className="signin-form-box">
           <Link to='/'>
           <img className='signin-logo' src={window.img2} /></Link>
         <h2 className="signin-form-header">Sign in</h2>
           <div className="signin-form">
             <br/>
-            {this.renderErrors()}
+            
             <label className="signin-label">Username or Email
               <br/>
               <input type="text"
@@ -77,13 +81,18 @@ class SigninForm extends React.Component {
            
             <input className="session-submit" type="submit" value={this.props.formType} />
             <button onClick={this.handleDemo} className="signin-demo-btn">Demo Login</button>
-           <p className="signin-redirect-link">Not a member?   {this.props.navLink}
-             </p> 
+            <p className="signin-redirect-link-cont">
+            <Link className="signin-redirect-link" to="/signup">Not a member? Sign up now</Link>
+            </p>
+            
           </div>
+       
         </form>
       </div>
     );
   }
+
+
 }
 
 export default SigninForm;

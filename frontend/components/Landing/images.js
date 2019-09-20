@@ -5,7 +5,7 @@ export const image={0:{
     tcolor2: "#A93D14",
     author: "Tim Boelaars in Amsterdam"
 },
-1:{img: "https://cdn.dribbble.com/assets/art-banners/spacecade_800-ac05f08953a5e2c2ec2d8bc4f0624aa2221b567d2eb0f41af472711b17109c11.png", color: "#2A1A03", tcolor1: "#FFFFFF", tcolor2: "#C75525", author: "Skinny Ships in Portland, OR"
+1:{img: "https://cdn.dribbble.com/assets/art-banners/spaceman-b6754ff469f369e504a98de09e34a6749b6e3536dfa07e4ae4637b6ac02afdad.png", color: "#FFFFFF", tcolor1: "#6393D2", tcolor2: "#B8B8B8", author: "Eddie Lobanovskiy in Sarasota, FL"
 },
 2:{img: "https://cdn.dribbble.com/assets/art-banners/botw-c092192e602abaa8d6a18c807d25a5f84d57e52eb907d3fa820fb83d29554e37.png", 
 color: "#F5EBC9", tcolor1: "#37055A", tcolor2: "#E63F4B", author: "Marie Bergeron in Montreal, Qc, Canada"},

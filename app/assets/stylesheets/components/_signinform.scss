@@ -62,6 +62,10 @@
     display: inline-block;
 }
 
+.signin-input:hover{
+    background-color: rgb(228, 229, 151);
+}
+
 .session-submit {
 
     display: block;
@@ -107,16 +111,23 @@
     background: #06d121;
 }
 
-.signin-redirect-link{
+.signin-redirect-link-cont{
     font-family: Helvetica, Arial, sans-serif;
     margin: 20px 0 0 0;
     font-size: 13px;
     line-height: 1.5;
     text-align: center;
+}
+.signin-redirect-link{
     color: #999;
     a:link, a:visited {
         color: #999;
     }
+}
+
+
+.signin-redirect-link:hover{
+ color: #ea4c88;
 }
 
 .signin-logo{
@@ -127,4 +138,9 @@
     margin: 0 auto;
     margin-bottom: 5px;
 
+}
+
+.signin-logo:hover{
+    
+        filter: invert(40%);
 }

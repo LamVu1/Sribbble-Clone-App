@@ -14,19 +14,13 @@ import Navcontainer from './nav/main_nav_container'
 import { AuthRoute, ProtectedRoute } from '../utils/route_util';
 import CreatePostFormContainer from './posts/create_post_form_container';
 import Modal from './modal/modal_container';
-
+import AwesomeComponent from './loading';
 const App = () => (
   <div className="main-div">
     <Modal />
     
      <Navcontainer />
-      {/* <header>
-      <Link to="/" className="header-link">
-        <h1>Scribbble</h1>
-      </Link>
-      </header> */}
-      
-
+     
       <Switch>
       <AuthRoute exact path="/login" component={SignInFormContainer}/>
       <AuthRoute exact path="/signup" component={SignUpFormContainer} />
