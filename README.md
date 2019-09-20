@@ -1,24 +1,14 @@
-# README
+# Scribbble
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Scribbble taking application based on the functionality of Dribbble.
 
-Things you may want to cover:
+# Technologies
+ - Database: Postgresql
+- Backend: Ruby on Rails
+- Frontend Components: React
+- Frontend State: Redux
 
-* Ruby version
+# Features
+- Users are able to log in, sign up, and log out.
+- Users are allowed to create posts and view posts.
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
