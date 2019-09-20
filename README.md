@@ -8,8 +8,7 @@ Scribbble taking application based on the functionality of Dribbble.
 - Frontend Components: React
 - Frontend State: Redux
 
-Features
-Users are able to log in, sign up, and log out.
-
-Users are allowed to create posts and view posts.
+# Features
+- Users are able to log in, sign up, and log out.
+- Users are allowed to create posts and view posts.
 
