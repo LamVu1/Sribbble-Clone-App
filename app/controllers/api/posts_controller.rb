@@ -6,7 +6,7 @@ class Api::PostsController < ApplicationController
         @post.author_id = current_user.id
         
         if @post.save
-            render "api/posts/index"
+            render "api/posts/show"
         else
             render json:
             @post.errors.full_messages, status: 422
@@ -14,8 +14,14 @@ class Api::PostsController < ApplicationController
     end
 
     def index
-        @posts = Post.all
+        @post = Post.all
         render :index
+    end
+
+    def destroy
+        @post = Post.find(params[:id])
+        @post.destroy
+        render "api/posts/show"
     end
 
     private

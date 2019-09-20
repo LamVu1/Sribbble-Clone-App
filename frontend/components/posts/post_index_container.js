@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import {closeModal, openModal} from '../../actions/modal_action';
 import PostIndex from './post_index';
-import {fetchPosts} from '../../actions/posts_actions';
+import {fetchPosts, deletePost} from '../../actions/posts_actions';
 
 const mapStateToProps=state=>{
 
@@ -16,6 +16,7 @@ const mapDispatchToProps=dispatch=>{
     return({
       openModal:(modal,data)=>dispatch(openModal(modal, data)),
       fetchPosts: ()=>dispatch(fetchPosts()),
+      deletePost: (id)=>dispatch(deletePost(id)),
       closeModal: ()=>dispatch(closeModal())
     })
 }
