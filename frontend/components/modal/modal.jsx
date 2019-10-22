@@ -9,8 +9,8 @@ function Modal({ modal, closeModal, data }){
    switch(modal){
     case 'PostDetail':
         component = <div className="PostContainer">
-                        <div onClick={()=>closeModal()} className="close-x">
-                          X
+                        <div onClick={()=>closeModal()} className="close-x">        
+                        x     
                         </div>
                         <PostDetailContainer post={data}/>
                     </div>
