@@ -15,8 +15,8 @@ const receiveComment = (comment)=>({
 });
 
 
-const removeComment = (CommentId)=>({
-    CommentId: CommentId,
+const removeComment = (comment)=>({
+    comment: comment,
     type: REMOVE_COMMENT
 })
 
