@@ -22,14 +22,16 @@ class PostDetail extends React.Component{
         return(
             <div className="Post-index">
                 <h1 className="Post-index-title">{this.props.post.title}</h1>
-                <p>by {this.props.post.author}</p>
+                <p className="Post-index-author">by {this.props.post.author}</p>
                 <img src={this.props.post.imageURL} />
                 <br/>
-                <p className="Post-index-description">{this.props.post.description}</p>
                 <button onClick={()=>this.handleDelete(this.props.post.id)}>Delete</button>
-                <CommentIndex
-                PostId={this.props.post.id}
-                />
+                <div className="Post-index-container">
+                    <p className="Post-index-description">{this.props.post.description}</p>
+                    <CommentIndex
+                    PostId={this.props.post.id}
+                    />
+                </div>
             </div>
         )
     }

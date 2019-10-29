@@ -5,5 +5,7 @@
        json.user_id comment.user_id
        json.author comment.user.username
        json.post_id comment.post_id
+       json.create_at comment.created_at
+       json.updated_at comment.updated_at
     end
 end
