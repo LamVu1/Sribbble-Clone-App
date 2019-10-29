@@ -1,6 +1,6 @@
 import React from 'react';
 import {withRouter} from 'react-router-dom';
-
+import {calcTime} from '../../utils/calculate_time';
 
 class CommentIndex extends React.Component{
     constructor(props) {
@@ -32,10 +32,12 @@ class CommentIndex extends React.Component{
      
     render(){
         let comments = this.props.comments.map((comment, idx)=>{
+    
             return(
-                <li key={idx}>
-                   <p>{comment.author}</p>
-                    <p>{comment.body}</p>
+                <li key={idx} className="Comment-Container">
+                   <p className="Comment-Author">{comment.author}</p>
+                    <p className="Comment-Body">{comment.body}</p>
+                    <p className="Comment-Time">{calcTime(comment.create_at)}</p>
                     <button onClick={()=>this.handleDelete(comment)}>Delete Comment</button>
                 </li>
             )
@@ -43,7 +45,7 @@ class CommentIndex extends React.Component{
 
         return(
             <div>
-                <h1>Responses</h1>
+                <h1>{comments.length} Responses</h1>
                 <ul>
                     {comments}
                 </ul>

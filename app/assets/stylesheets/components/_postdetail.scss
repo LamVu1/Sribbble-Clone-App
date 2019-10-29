@@ -3,18 +3,36 @@
 .Post-index-title{
     margin: 0 0 4px;
     padding: 0;
-    font-size: 35px;
+    font-size: 20px;
     font-weight: 500;
     line-height: 1.2;   
     font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: #444;
+    color: black;
+}
+
+.Post-index-author{
+    margin: 0 0 4px;
+    padding: 0;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.3;   
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #999;
+}
+
+.Post-index-container{
+    margin: 10px;
 }
 
 .Post-index-description{
     color: #555;
     font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 500;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ddd;
 }
 
 .Post-index-item{
