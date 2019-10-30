@@ -1,0 +1,22 @@
+.selected i {
+    // color: #DF3E7B;
+    text-shadow: 1px 1px 1px #ccc;
+     font-size: 1.5em;
+}
+
+.unselected i {
+    // color: #919191;
+    text-shadow: 1px 1px 1px #ccc;
+     font-size: 1.5em;
+}
+
+#Like-Btn.selected {
+    color: #FFFFFF;
+    background-color: #DF3E7B ;
+    border: #DF3E7B solid;
+}
+#Like-Btn.unselected{
+    background-color: #FFFFFF;
+    border: #919191 solid;
+    color: #919191;
+}
