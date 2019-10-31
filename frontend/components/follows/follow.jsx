@@ -6,26 +6,23 @@ class FollowIndex extends React.Component{
     constructor(props) {
         super(props);
         
-        this.handleUpdate=this.handleUpdate.bind(this)
-    }
 
-    componentDidMount(){
-        this.props.fetchFollows(this.props.author_id) 
-    }
+        }
+
+        
       
-    handleUpdate(){
-        this.props.createFollow(this.props.author_id)
-        this.props.fetchFollows(this.props.author_id) 
-
-    }
-
-
     render(){
-        console.log(this.props.follows)
+        
+        
         return(
             <div>
                <h1>Follows</h1>
-               <button onClick={this.handleUpdate}>Follow Me</button>
+                <div>
+                    {(this.props.follows.filter(follow=>follow.follower_id===this.props.currentuser_id).length===0)
+                    ?<h1>NO</h1>:<h1>YES</h1>
+            
+                }
+                </div>
             </div>
         )
     }

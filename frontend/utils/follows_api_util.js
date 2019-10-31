@@ -22,12 +22,12 @@ export const createFollow = (author_id)=>{
     )
 }
 
-export const deleteFollow = (follow)=>{
+export const deleteFollow = (id)=>{
     return(
         $.ajax(
             {
                 method: 'DELETE',
-                url: `/api/follows/${follow.id}`
+                url: `/api/follows/${id}`
             }
         )
     )
