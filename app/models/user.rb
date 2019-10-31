@@ -18,6 +18,22 @@ class User < ApplicationRecord
     primary_key: :id,
     foreign_key: :user_id,
     class_name: :Like
+
+    has_many :comment_likes,
+    primary_key: :id,
+    foreign_key: :user_id,
+    class_name: :CommentLike
+
+    has_many :authors,
+    primary_key: :id,
+    foreign_key: :user_id,
+    class_name: :Follow
+
+    has_many :followers,
+    primary_key: :id,
+    foreign_key: :follower_id,
+    class_name: :Follow
+
   
     attr_reader :password
 

@@ -44,12 +44,12 @@ class CommentIndex extends React.Component{
         })
 
         return(
-            <div>
+            <div className="Comment-Section">
                 <h1>{comments.length} Responses</h1>
                 <ul>
                     {comments}
                 </ul>
-                <form onSubmit={this.handleSubmit}>
+                <form className="Comment-Form" onSubmit={this.handleSubmit}>
                     <label>Add Comment:
                         <textarea type="text" value={this.state.body} onChange={this.handleUpdate('body')}></textarea>
                     </label>
