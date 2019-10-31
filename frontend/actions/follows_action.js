@@ -28,6 +28,6 @@ export const createFollow = (author_id)=>(dispatch)=>(
     APIUtil.createFollow(author_id).then(follow=> dispatch(receiveFollow(follow)))
     )
 
-export const deleteFollow = (follow)=> (dispatch)=>(
-    APIUtil.deleteFollow(follow).then( follow =>dispatch(removeFollow(follow)))
+export const deleteFollow = (id)=> (dispatch)=>(
+    APIUtil.deleteFollow(id).then( follow =>dispatch(removeFollow(follow)))
 )

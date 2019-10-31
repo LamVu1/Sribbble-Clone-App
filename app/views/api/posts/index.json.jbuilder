@@ -5,6 +5,7 @@
        json.description post.description
        json.author_id post.author_id
        json.author post.author.username
+       json.follower_id post.author.followers
        if post.image.attached?
           json.imageURL url_for(post.image)
        end

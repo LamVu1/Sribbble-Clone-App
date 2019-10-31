@@ -8,8 +8,9 @@ const mapStateToProps=(state, ownProps)=>{
 
     
     return({
+        currentuser_id : state.session.id,
         author_id   : ownProps.post.author_id,
-        follows: Object.values(state.entities.follows)
+        follows: ownProps.follows
     })
 }
 
@@ -17,7 +18,7 @@ const mapDispatchToProps=dispatch=>{
     return({
         fetchFollows: (author_id) => dispatch(fetchFollows(author_id)),
         createFollow: (author_id) => dispatch(createFollow(author_id)),
-        deleteFollow: (follow) => dispatch(deleteFollow(follow))
+        deleteFollow: (id) => dispatch(deleteFollow(id))
     })
 }
 

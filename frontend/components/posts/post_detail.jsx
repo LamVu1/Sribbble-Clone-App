@@ -11,6 +11,10 @@ class PostDetail extends React.Component{
     this.handleDelete = this.handleDelete.bind(this)
     }
 
+    componentDidMount(){
+        this.props.fetchFollows(this.props.post.author_id)
+    }
+
 
     handleDelete(id){
         this.props.deletePost(id)
@@ -25,7 +29,7 @@ class PostDetail extends React.Component{
             <div className="Post-index">
                 <h1 className="Post-index-title">{this.props.post.title}</h1>
                 <p className="Post-index-author">by {this.props.post.author}</p>
-                <FollowIndex post={this.props.post}/>
+                <FollowIndex post={this.props.post} follows={this.props.follows}/>
                 <LikeIndex 
                     PostId = {this.props.post.id}
                     />
