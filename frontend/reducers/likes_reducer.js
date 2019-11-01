@@ -12,7 +12,6 @@ const likesReducer = (oldstate={}, action)=>{
         case RECEIVE_LIKE:
             nextState = {...oldstate};
             nextState[action.like.id] = action.like
-            // nextState = Object.assign({}, oldstate, {[action.comment.id]: action.comment})
             return nextState;
         case REMOVE_LIKE:
             nextState = Object.assign({}, oldstate)

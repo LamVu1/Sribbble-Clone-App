@@ -2,8 +2,8 @@ import React from 'react';
 import PostIndexItem from '../posts/post_index_item';
 
 
-
 class PostIndex extends React.Component{
+    
     constructor(props) {
         super(props);
         
@@ -14,25 +14,34 @@ class PostIndex extends React.Component{
      
     render(){
         
-        let posts = this.props.posts.map( (post, idx)=>{
-            return(
-                <PostIndexItem
-                key= {idx}
-                post={post}
-                closeModal={this.props.closeModal}
-                deletePost = {this.props.deletePost}
-                openModal={this.props.openModal}
-                />
-            )
-        })
+        let posts = this.props.posts.map((post, idx)=>
+            {
+                return(
+                    
+                    <PostIndexItem
+                        key= {idx}
+                        post={post}
+                        closeModal={this.props.closeModal}
+                        deletePost = {this.props.deletePost}
+                        openModal={this.props.openModal}
+                    />
+
+                )
+            }
+        )
+
         return(
             <div>
+                
                 <ul className="Post-Index">
+                    
                     {posts}
+
                 </ul>
 
             </div>
         )
+        
     }
 }
 

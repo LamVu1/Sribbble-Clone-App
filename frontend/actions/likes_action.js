@@ -19,14 +19,14 @@ const removeLike =(like)=>({
     type: REMOVE_LIKE
 })
 
-export const fetchLikes = (Post_id)=>(dispatch)=>(
-    APIUtil.fetchLikes(Post_id).then( likes => dispatch(receiveLikes(likes)))
+export const fetchLikes = (post_id)=>(dispatch)=>(
+    APIUtil.fetchLikes(post_id).then( likes => dispatch(receiveLikes(likes)))
 )
 
-export const createLike = (like)=>(dispatch)=>(         
-    APIUtil.createLike(like).then(like=> dispatch(receiveLike(like)))
+export const createLike = (post_id)=>(dispatch)=>(         
+    APIUtil.createLike(post_id).then(like=> dispatch(receiveLike(like)))
     )
 
-export const deleteLike = (like)=> (dispatch)=>(
-    APIUtil.deleteLike(like).then( like =>dispatch(removeLike(like)))
+export const deleteLike = (id)=> (dispatch)=>(
+    APIUtil.deleteLike(id).then( like =>dispatch(removeLike(like)))
 )

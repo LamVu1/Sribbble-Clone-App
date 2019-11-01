@@ -1,4 +1,15 @@
 
+.Top-Container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 30px;
+}
+
+.Author-Container{
+    display: flex;
+    flex-direction: column;
+}
 
 .Post-index-title{
     margin: 0 0 4px;
@@ -8,6 +19,8 @@
     line-height: 1.2;   
     font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: black;
+    display: flex;
+    flex-direction: column;
 }
 
 .Post-index-author{
@@ -22,6 +35,12 @@
 
 .Post-index-container{
     margin: 10px;
+}
+
+.Post-index-author-Container{
+    border: red solid;
+    display: flex;
+    flex-direction: row;
 }
 
 .Post-index-description{

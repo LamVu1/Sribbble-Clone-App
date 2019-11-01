@@ -3,13 +3,14 @@ import {withRouter} from 'react-router-dom';
 import {calcTime} from '../../utils/calculate_time';
 
 class CommentIndex extends React.Component{
-    constructor(props) {
+    constructor(props){
         super(props);
         this.state = {body: ''}
-        this.handleSubmit=this.handleSubmit.bind(this)
-        this.handleUpdate=this.handleUpdate.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleUpdate = this.handleUpdate.bind(this)
         this.handleDelete = this.handleDelete.bind(this)
     }
+
     componentDidMount(){
         this.props.fetchComments(this.props.PostId)
     }
@@ -35,7 +36,7 @@ class CommentIndex extends React.Component{
     
             return(
                 <li key={idx} className="Comment-Container">
-                   <p className="Comment-Author">{comment.author}</p>
+                    <p className="Comment-Author">{comment.author}</p>
                     <p className="Comment-Body">{comment.body}</p>
                     <p className="Comment-Time">{calcTime(comment.create_at)}</p>
                     <button onClick={()=>this.handleDelete(comment)}>Delete Comment</button>
@@ -45,16 +46,22 @@ class CommentIndex extends React.Component{
 
         return(
             <div className="Comment-Section">
-                <h1>{comments.length} Responses</h1>
-                <ul>
+                <h1 className="Comment-Count">{comments.length} Responses</h1>
+                <div className="Comment-Form-Container">
+                    <form className="Comment-Form" onSubmit={this.handleSubmit}>
+                        <label>Add Comment:
+                            <br/>
+                            <textarea className="Comment-Input" type="text" value={this.state.body} onChange={this.handleUpdate('body')}></textarea>
+                        </label>
+                        <br/>
+                        <input className="Comment-Submit" type="submit" value="Submit"/>
+                    </form>
+                </div>
+                
+                <ul className="Comment-Body-Section">
                     {comments}
                 </ul>
-                <form className="Comment-Form" onSubmit={this.handleSubmit}>
-                    <label>Add Comment:
-                        <textarea type="text" value={this.state.body} onChange={this.handleUpdate('body')}></textarea>
-                    </label>
-                    <input type="submit" value="Submit"/>
-                </form>
+                
             </div>
         )
     }

@@ -4,28 +4,28 @@ import PostIndexContainer from '../posts/post_index_container';
 import PostDetailContainer from '../posts/post_detail_container';
 
 
-function Modal({ modal, closeModal, data }){
-   let component;
-   switch(modal){
-    case 'PostDetail':
+function Modal({ modal, closeModal, data })
+    {
+      let component;
+      switch(modal)
+      {
+        case 'PostDetail':
         component = <div className="PostContainer">
-                        <div onClick={()=>closeModal()} className="close-x">        
-                        x     
-                        </div>
+                        <div onClick={()=>closeModal()} className="close-x"><i class="fas fa-times"></i></div>
                         <PostDetailContainer post={data}/>
                     </div>
         break;
-    default:
+        default:
         return null;
-   }
+      }
 
-   return(
-    <div className="modal-background" onClick={closeModal}>
-    <div className="modal-child" onClick={e => e.stopPropagation()}>
-      { component }
-    </div>
-  </div>
-   )
+      return(
+          <div className="modal-background" onClick={closeModal}>
+          <div className="modal-child" onClick={e => e.stopPropagation()}>
+                { component }
+          </div>
+          </div>
+            )
 }
 
 export default Modal

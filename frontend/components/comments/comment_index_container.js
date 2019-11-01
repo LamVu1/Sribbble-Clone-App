@@ -6,18 +6,22 @@ import {fetchComments, createComment, deleteComment} from '../../actions/comment
 
 const mapStateToProps=(state, ownProps)=>{
 
-    
-    return({
-        comments: Object.values(state.entities.comments)
-    })
+    return(
+        {
+             comments: Object.values(state.entities.comments)
+        }
+    )
 }
 
 const mapDispatchToProps=dispatch=>{
-    return({
-      fetchComments: (Post_id) => dispatch(fetchComments(Post_id)),
-      createComment: (comment) => dispatch(createComment(comment)),
-      deleteComment: (comment) => dispatch(deleteComment(comment))
-    })
+   
+    return(
+        {
+            fetchComments: (Post_id) => dispatch( fetchComments(Post_id)),
+            createComment: (comment) => dispatch( createComment(comment)),
+            deleteComment: (comment) => dispatch( deleteComment(comment))
+        }
+    )
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(CommentIndex)
