@@ -10,13 +10,62 @@
      font-size: 1.5em;
 }
 
-#Like-Btn.selected {
+.Unlike-btn {
     color: #FFFFFF;
-    background-color: #DF3E7B ;
-    border: #DF3E7B solid;
+    background-color: #DF3E7B; ;
+    text-shadow: 1px 1px 1px #ccc;
+    font-size: 1.5em;
+    display: inline-block;
+    padding: 10px 15px 11px;
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 17px;
+    letter-spacing: .02em;
+    vertical-align: middle;
+    cursor: pointer;
+    border: none;
 }
-#Like-Btn.unselected{
+
+.Unlike-btn i {
+    position: relative;
+    top: -1px;
+
+}
+
+.Unlike-btn:hover{
+    background-color: rgb(206, 53, 112); 
+}
+
+.Like-btn{
     background-color: #FFFFFF;
-    border: #919191 solid;
-    color: #919191;
+    border: #717171 solid;
+    border-width: thin;
+    color: #717171;
+    text-shadow: 1px 1px 1px #ccc;
+    display: inline-block;
+    padding: 10px 15px 11px;
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 17px;
+    letter-spacing: .02em;
+    vertical-align: middle;
+    cursor: pointer;
 }
+
+.Like-btn i {
+    position: relative;
+    top: -1px;
+
+}
+
+
+.Like-btn:hover{
+    border: black solid;
+    border-width: thin;
+    color: black;
+    background-color: #FFFFFF;
+    text-shadow: none;
+}
+

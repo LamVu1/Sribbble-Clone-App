@@ -1,0 +1,34 @@
+.Follow-btn{
+    font-weight: bold;
+    background-color: transparent;
+    color: #ea4c89;
+    display: inline;
+    padding: 0;
+    line-height: inherit;
+    font-size: inherit;
+    overflow: visible;
+}
+
+.Follow-btn:hover{
+    color: #ea4c89;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+.Unfollow-btn{
+
+    font-weight: bold;
+    background-color: transparent;
+    color: #999;
+    display: inline;
+    padding: 0;
+    line-height: inherit;
+    font-size: inherit; 
+    overflow: visible;
+}
+
+.Unfollow-btn:hover{
+    color: #ea4c89;
+    background-color: transparent;
+    text-decoration: none;
+}

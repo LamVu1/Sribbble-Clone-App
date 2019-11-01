@@ -7,20 +7,22 @@ class CreatePostForm extends React.Component {
     super(props);
     this.state = {title:'', description:'', image:null};
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleFile=this.handleFile.bind(this);
+    this.handleFile = this.handleFile.bind(this);
     this.handleUpdate = this.handleUpdate.bind(this);
   }
 
   handleUpdate(field){
-    return e=> this.setState({[field]: e.target.value})
+    return e => this.setState({[field]: e.target.value})
   }
 
   handleSubmit(e){
     e.preventDefault();
+
     const formData = new FormData() ;
     formData.append('post[title]', this.state.title);
     formData.append('post[description]', this.state.description);
     formData.append('post[image]', this.state.image);
+    
     this.props.createPost(formData).then(()=> this.props.history.push('/'))
   }
 
@@ -31,26 +33,34 @@ class CreatePostForm extends React.Component {
   render () {
    
     return (
-      <div className="CreateForm-Container">
-        <form className="CreateForm" onSubmit={this.handleSubmit}>
-          <div className="Form-Text">
-          <label> Title:
-              <input className="Form-Input" type="text" value={this.state.title} onChange={this.handleUpdate("title")} />
-          </label>
-          
-          <label> Description:
-              <textarea className="Form-Input"  type="text" value={this.state.description} onChange={this.handleUpdate("description")}></textarea>
-          </label>
-          </div>
-          <button className="Input-File">
+        <div className="CreateForm-Container">
+            <form className="CreateForm" onSubmit={this.handleSubmit}>
+                <div className="Form-Text">
+                 
+                    <label> Title:
+                       
+                        <input className="Form-Input" type="text" value={this.state.title} onChange={this.handleUpdate("title")} />
 
-          <input type="file" onChange={this.handleFile}/>
-          </button>
-          <button className="Publish">
-          <input type="submit" value="Publish"/>
-          </button>
-        </form>
-      </div>
+                    </label>
+                    
+                    <label> Description:
+
+                        <textarea className="Form-Input"  type="text" value={this.state.description} onChange={this.handleUpdate("description")}></textarea>
+
+                    </label>
+                    
+                </div>
+
+                <button className="Input-File">
+                     <input type="file" onChange={this.handleFile}/>
+                </button>
+
+                <button className="Publish">
+                      <input type="submit" value="Publish"/>
+                </button>
+
+            </form>
+        </div>
     );
   }
 }

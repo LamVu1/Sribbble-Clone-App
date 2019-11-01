@@ -5,6 +5,7 @@ class Api::FollowsController < ApplicationController
         
         @follow.user_id = params[:author_id]
         @follow.follower_id = current_user.id
+        
         if @follow.save
             render "api/follows/show"
         else

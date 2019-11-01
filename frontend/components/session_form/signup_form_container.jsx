@@ -6,18 +6,25 @@ import { signup, clearErrors } from '../../actions/session_actions';
 import SignupForm from './signup_form';
 
 const mapStateToProps = ({ errors }) => {
-  return {
-    errors: errors.session,
-    formType: 'Sign Up',
-    navLink: <Link to="/login">log in instead</Link>,
-  };
+
+  return (
+    {
+        errors: errors.session,
+        formType: 'Sign Up',
+        navLink: <Link to="/login">log in instead</Link>,
+    }
+  )
 };
 
 const mapDispatchToProps = dispatch => {
-  return {
-    signup: (user) => dispatch(signup(user)),
-    clearErrors: ()=>dispatch(clearErrors())
-  };
+  
+  return (
+    {
+        signup: (user) => dispatch( signup(user)),
+        clearErrors: () => dispatch( clearErrors())
+    }
+  )
 };
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignupForm);

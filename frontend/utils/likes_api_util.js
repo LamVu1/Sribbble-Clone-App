@@ -1,31 +1,32 @@
-export const fetchLikes = (Post_id)=>{
+export const fetchLikes = (post_id)=>{
     return(
         $.ajax(
             {
                 method: 'GET',
-                url: `/api/posts/${Post_id}/likes`
+                url: `/api/likes`,
+                data: {post_id}
             }
         )
     )
 }
 
-export const createLike = (like)=>{
+export const createLike = (post_id)=>{
     return(
         $.ajax(
         {
             method: 'POST',
-            url: `/api/posts/${like.post_id}/likes`,
-            data: {like}
+            url: `/api/likes`,
+            data: {post_id}
         })
     )
 }
 
-export const deleteLike = (like) => {
+export const deleteLike = (id) => {
     return(
         $.ajax(
         {
             method: 'DELETE',
-            url: `/api/posts/${like.post_id}/likes/${like.id}`
+            url: `/api/likes/${id}`
         })
     )
 }

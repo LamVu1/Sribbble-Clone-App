@@ -6,19 +6,23 @@ import {fetchPosts, deletePost} from '../../actions/posts_actions';
 
 const mapStateToProps=state=>{
 
-    
-    return({
-        posts: Object.values(state.entities.posts)
-    })
+    return(
+        {
+            posts: Object.values(state.entities.posts)
+        }
+    )
 }
 
 const mapDispatchToProps=dispatch=>{
-    return({
-      openModal:(modal,data)=>dispatch(openModal(modal, data)),
-      fetchPosts: ()=>dispatch(fetchPosts()),
-      deletePost: (id)=>dispatch(deletePost(id)),
-      closeModal: ()=>dispatch(closeModal())
-    })
+    
+    return(
+        {
+            openModal:(modal,data) => dispatch( openModal(modal, data)),
+            fetchPosts: () => dispatch( fetchPosts()),
+            deletePost: (id) => dispatch( deletePost(id)),
+            closeModal: () => dispatch( closeModal())
+        }
+    )
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(PostIndex)
