@@ -11,7 +11,7 @@ function Modal({ modal, closeModal, data })
       {
         case 'PostDetail':
         component = <div className="PostContainer">
-                        <div onClick={()=>closeModal()} className="close-x"><i class="fas fa-times"></i></div>
+                        <div onClick={()=>closeModal()} className="close-x"><i className="fas fa-times"></i></div>
                         <PostDetailContainer post={data}/>
                     </div>
         break;

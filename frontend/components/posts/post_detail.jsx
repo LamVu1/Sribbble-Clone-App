@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import CommentIndex from '../comments/comment_index_container';
 import LikeIndex from '../likes/like_index_container'
 import FollowIndex from '../follows/follow_index_container'
+import closeModal from '../../actions/modal_action';
 
 class PostDetail extends React.Component{
 
@@ -23,6 +24,7 @@ class PostDetail extends React.Component{
     }
 
 
+
     render(){
         
         return(
@@ -31,7 +33,7 @@ class PostDetail extends React.Component{
                     <div className="Author-Container">
                         <h1 className="Post-index-title">{this.props.post.title}</h1>
                         <div className="Post-index-author-Container">
-                            <p className="Post-index-author">by {this.props.post.author}</p>
+                            <p className="Post-index-author">by <Link to={{pathname:"/profile",state:{user:this.props.post}}} onClick={()=>this.props.closeModal()}>{this.props.post.author}</Link></p>
                             <span>|</span>
                             <FollowIndex 
                                 post={this.props.post} 

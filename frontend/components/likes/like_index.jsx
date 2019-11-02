@@ -26,8 +26,8 @@ class LikeIndex extends React.Component{
                    {
                        this.props.likes.filter(like=>like.user_id===this.props.currentUser).length===0
 
-                        ?<button className="Like-btn" onClick={this.handleLike}><i class="fas fa-heart"></i> Like</button>
-                        :<button className="Unlike-btn" onClick={this.handleUnlike}><i class="fas fa-heart"></i> Liked</button>
+                        ?<button className="Like-btn" onClick={this.handleLike}><i className="fas fa-heart"></i> Like</button>
+                        :<button className="Unlike-btn" onClick={this.handleUnlike}><i className="fas fa-heart"></i> Liked</button>
 
                     }
             

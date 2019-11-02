@@ -16,7 +16,7 @@ import { AuthRoute, ProtectedRoute } from '../utils/route_util';
 import CreatePostFormContainer from './posts/create_post_form_container';
 import Modal from './modal/modal_container';
 import AwesomeComponent from './loading';
-
+import ProfileContainer from './profiles/profile_container';
 
 
 const App = () => (
@@ -31,6 +31,7 @@ const App = () => (
         < AuthRoute exact path="/login" component={SignInFormContainer}/>
         < AuthRoute exact path="/signup" component={SignUpFormContainer} />
         < Route exact path="/" component={LandingContainer}/>
+        < Route exact path="/profile" component={ProfileContainer}/>
         < ProtectedRoute exact path='/posts/new' component={CreatePostFormContainer} />
         < Redirect to="/" />
         </Switch>

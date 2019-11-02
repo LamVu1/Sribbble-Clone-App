@@ -4,6 +4,8 @@ import {deletePost} from '../../actions/posts_actions';
 import {withRouter} from 'react-router-dom';
 import {fetchFollows} from '../../actions/follows_action';
 import {fetchLikes} from '../../actions/likes_action';
+import {closeModal} from '../../actions/modal_action';
+
 
 const mapStateToProps = (state, post)=>{
 
@@ -22,7 +24,9 @@ const mapDispatchToProps = dispatch => {
       {
           deletePost: (id)=>dispatch(deletePost(id)),
           fetchFollows: (author_id)=>dispatch(fetchFollows(author_id)),
-          fetchLikes: (Post_id)=>dispatch(fetchLikes(Post_id))
+          fetchLikes: (Post_id)=>dispatch(fetchLikes(Post_id)),
+          closeModal: () => dispatch( closeModal())
+
       }
     )
 };
