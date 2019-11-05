@@ -8,8 +8,9 @@ import {closeModal, openModal} from '../../actions/modal_action';
 const mapStateToProps=(state, ownProps)=>{
     
     return(
-        {
+        {   follow: ownProps.location.state.user.follower_id,
             user: ownProps.location.state.user,
+            author_id: ownProps.location.state.author_id,
             posts: Object.values(state.entities.posts)
         }
     )
