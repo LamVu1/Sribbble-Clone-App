@@ -18,7 +18,7 @@ class PostDetail extends React.Component{
     }   
 
     render(){
-        
+        debugger
         return(
             <div className="Post-index">
                 <div className="Top-Container">

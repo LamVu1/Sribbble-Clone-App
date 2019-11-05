@@ -5,6 +5,7 @@
        json.description post.description
        json.author_id post.author_id
        json.author post.author.username
+       json.location post.author.location
        json.follower_id post.author.followers
        json.likes post.likes
        if post.image.attached?

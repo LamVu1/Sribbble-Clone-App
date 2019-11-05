@@ -8,7 +8,8 @@ class SignupForm extends React.Component {
       super(props);
       this.state = { username: '',
                      password: '',
-                     email: ''
+                     email: '',
+                     location: ''
                    };
 
       this.handleSubmit = this.handleSubmit.bind(this);
@@ -91,6 +92,12 @@ class SignupForm extends React.Component {
                       </label>
                       <p className="tag2">Minimum 6 characters</p>
                       <br/>
+                      <label className="signup-label">Location (optional)
+                        <br/>
+                         <input type="text" value={this.state.location} onChange={this.handleUpdate('location')} className="signup-input"/> 
+                      </label>
+                      <br/>
+                      
                       <input className="session-submit" type="submit" value='Create Account' />
                       
                     </div>
