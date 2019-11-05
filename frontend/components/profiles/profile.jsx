@@ -35,7 +35,11 @@ class ProfileIndex extends React.Component{
         return(
             <div>
                 <div className="Profile-Summary">{this.props.user.author}</div>
-                <ProfileMessageContainer />
+                <div className="Profile-Summary">{this.props.user.location}</div>
+                <ProfileMessageContainer 
+                    id={this.props.user.id}
+                    message={this.props.user.message}
+                />
                 <FollowIndex
                  author_id={this.props.author_id} 
                  follows={this.props.user.follower_id}/>

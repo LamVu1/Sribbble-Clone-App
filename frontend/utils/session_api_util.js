@@ -22,6 +22,19 @@ export const signup = user => {
   )
 };
 
+
+export const update = message => {
+  return(
+    $.ajax(
+      {
+        method: 'PATCH',
+        url: '/api/user',
+        data: { message }
+      }
+    )
+  )
+};
+
 export const logout = () => {
   return(
     $.ajax(
