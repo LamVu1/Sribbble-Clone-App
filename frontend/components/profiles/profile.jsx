@@ -2,16 +2,16 @@ import React from 'react';
 import {withRouter} from 'react-router-dom';
 import {calcTime} from '../../utils/calculate_time';
 import PostIndexItem from '../posts/post_index_item';
+import FollowIndex from '../follows/follow_index_container';
+import ProfileMessageContainer from './message'
+
 
 class ProfileIndex extends React.Component{
     constructor(props){
         super(props);
-       
+   
     }
-    componentDidMount(){
-        this.props.fetchPosts()
-    }
-
+   
     render(){
         let authorPost = this.props.posts.filter(post=>post.author_id===this.props.user.id)
         
@@ -30,11 +30,16 @@ class ProfileIndex extends React.Component{
             )
         }
     )        
+    
+    
         return(
             <div>
                 <div className="Profile-Summary">{this.props.user.author}</div>
+                <ProfileMessageContainer />
+                <FollowIndex
+                 author_id={this.props.author_id} 
+                 follows={this.props.user.follower_id}/>
                 {posts}
-                {console.log(this.props)}
             </div>
         )
     }

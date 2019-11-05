@@ -13,17 +13,9 @@ class PostDetail extends React.Component{
         this.handleDelete = this.handleDelete.bind(this);
     }
 
-    componentDidMount(){
-        this.props.fetchLikes(this.props.post.id)
-        this.props.fetchFollows(this.props.post.author_id)
-    }
-
-
     handleDelete(id){
         this.props.deletePost(id)
-    }
-
-
+    }   
 
     render(){
         
@@ -33,7 +25,7 @@ class PostDetail extends React.Component{
                     <div className="Author-Container">
                         <h1 className="Post-index-title">{this.props.post.title}</h1>
                         <div className="Post-index-author-Container">
-                            <p className="Post-index-author">by <Link to={{pathname:"/profile",state:{user:this.props.post}}} onClick={()=>this.props.closeModal()}>{this.props.post.author}</Link></p>
+                            <p className="Post-index-author">by <Link to={{pathname:"/profile",state:{user:this.props.post, author_id: this.props.post.author_id}}} onClick={()=>this.props.closeModal()}>{this.props.post.author}</Link></p>
                             <span>|</span>
                             <FollowIndex 
                                 post={this.props.post} 
