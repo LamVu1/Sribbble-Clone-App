@@ -9,22 +9,26 @@ class LikeIndex extends React.Component{
         this.handleUnlike = this.handleUnlike.bind(this);
     }
 
+    componentDidMount(){
+        this.props.fetchLikes(this.props.post_id);
+    }
+
     handleLike(){
-        this.props.createLike(this.props.PostId)
+        this.props.createLike(this.props.post_id)
     }
 
     handleUnlike(){
-        let likeId;
-        likeId=this.props.likes.filter(like => like.user_id === this.props.currentUser)       
+        let likeId = this.props.likes.filter(like => like.user_id === this.props.currentuser_id)       
         this.props.deleteLike(likeId[0].id)
     }
      
     render(){
+
         return(
             <div>
              
                    {
-                       this.props.likes.filter(like=>like.user_id===this.props.currentUser).length===0
+                       this.props.likes.filter(like=>like.user_id===this.props.currentuser_id).length===0
 
                         ?<button className="Like-btn" onClick={this.handleLike}><i className="fas fa-heart"></i> Like</button>
                         :<button className="Unlike-btn" onClick={this.handleUnlike}><i className="fas fa-heart"></i> Liked</button>

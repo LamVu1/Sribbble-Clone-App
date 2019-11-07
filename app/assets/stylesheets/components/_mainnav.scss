@@ -26,9 +26,8 @@
     filter: invert(40%);}
 
 .nav-group{
-    width: 230px;
+    width: 15%;
     display: inherit;
-    // border: red solid;
     flex-direction: inherit;
     justify-content: space-between;
     margin: 5px 5px 5px 10px;
@@ -37,17 +36,19 @@
     font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 15px;
     color: rgb(35, 236, 193);
-    margin-top:6px;
-    margin-right: 5px;
-
+    margin-right: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
+
 
 .Upload-btn{
     text-decoration: none;
     display: inherit;
     flex-direction: row;
     justify-content: center;
-    height: 27px;
+    height: 19px;
     width: 83px;
     font-size: 14px;
     font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -59,7 +60,10 @@
     padding-top: 10px;
     cursor: pointer;
 }
-
+.Upload-btn i {
+    position: relative;
+    top: -4px;
+}
 .Upload-btn:hover{
     background: #645c5c;
 }
@@ -105,7 +109,7 @@
 
 
 .nav-group-a{
-    width: 150px;
+    width: 180px;
     height: 45px;
     display: inherit;
     // border: red solid;
@@ -116,10 +120,14 @@
 
 .nav-signin{
     font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 15px;
+    font-size: 14px;
     color: #999;
     text-decoration: none;
-    margin: 8px 8px 5px 5px;
+    font-weight: 500;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0px 0px 5px 0px; 
 }
 
 .nav-signin:hover{
@@ -132,7 +140,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 40px;
+    width: 50px;
     text-align: center;
     font-size: 12px;
     background-color:#333333; 

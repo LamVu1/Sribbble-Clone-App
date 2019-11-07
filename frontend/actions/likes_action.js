@@ -14,7 +14,7 @@ const receiveLike = (like)=>({
     type: RECEIVE_LIKE
 })
 
-const removeLike =(like)=>({
+const removeLike = (like)=>({
     like: like,
     type: REMOVE_LIKE
 })

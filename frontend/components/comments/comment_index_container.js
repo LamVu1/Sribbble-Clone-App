@@ -8,7 +8,8 @@ const mapStateToProps=(state, ownProps)=>{
 
     return(
         {
-             comments: Object.values(state.entities.comments)
+             comments: Object.values(state.entities.comments),
+             currentUser: ownProps.currentUser
         }
     )
 }

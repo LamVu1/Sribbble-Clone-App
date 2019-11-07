@@ -32,14 +32,18 @@ class CommentIndex extends React.Component{
     }
      
     render(){
+        
         let comments = this.props.comments.map((comment, idx)=>{
-    
+            let btn;
+            if(this.props.currentUser===comment.user_id){
+                btn= <button onClick={()=>this.handleDelete(comment)}>Delete Comment</button>
+            }
             return(
                 <li key={idx} className="Comment-Container">
                     <p className="Comment-Author">{comment.author}</p>
                     <p className="Comment-Body">{comment.body}</p>
                     <p className="Comment-Time">{calcTime(comment.create_at)}</p>
-                    <button onClick={()=>this.handleDelete(comment)}>Delete Comment</button>
+                    {btn}
                 </li>
             )
         })
