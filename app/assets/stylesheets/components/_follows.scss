@@ -3,10 +3,13 @@
     background-color: transparent;
     color: #ea4c89;
     display: inline;
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
     padding: 0;
     line-height: inherit;
-    font-size: inherit;
     overflow: visible;
+    position: relative;
+    top: -5px;
 }
 
 .Follow-btn:hover{
@@ -23,8 +26,11 @@
     display: inline;
     padding: 0;
     line-height: inherit;
-    font-size: inherit; 
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
     overflow: visible;
+    position: relative;
+    top: -5px;
 }
 
 .Unfollow-btn:hover{

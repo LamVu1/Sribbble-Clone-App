@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import FollowIndex from './follow';
 import {fetchPosts} from '../../actions/posts_actions';
-import {createFollow, deleteFollow} from '../../actions/follows_action';
+import {createFollow, deleteFollow, fetchFollows} from '../../actions/follows_action';
 
 
 const mapStateToProps=(state, ownProps)=>{
@@ -29,7 +29,7 @@ const mapDispatchToProps=dispatch=>{
         {
             createFollow: (author_id) => dispatch( createFollow(author_id)),
             deleteFollow: (id) => dispatch( deleteFollow(id)),
-            fetchPosts: ()=>dispatch(fetchPosts()),
+            fetchFollows: (author_id)=>dispatch(fetchFollows(author_id))
 
         }
     )

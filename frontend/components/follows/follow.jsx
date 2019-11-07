@@ -5,14 +5,13 @@ import {calcTime} from '../../utils/calculate_time';
 class FollowIndex extends React.Component{
     constructor(props){
         super(props);
-     
         this.handleFollow = this.handleFollow.bind(this);
         this.handleUnfollow = this.handleUnfollow.bind(this);
-        
     }
 
+
     componentDidMount(){
-        this.props.fetchPosts()
+        this.props.fetchFollows(this.props.author_id)
     }
 
     handleFollow(){

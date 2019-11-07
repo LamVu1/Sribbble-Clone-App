@@ -13,7 +13,8 @@ const mapStateToProps = (state, post)=>{
       {
           Post: post,
           follows: Object.values(state.entities.follows),
-          likes: Object.values(state.entities.likes)
+          likes: Object.values(state.entities.likes),
+          user_id: state.session.id
       }
     )
 };

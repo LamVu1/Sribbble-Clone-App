@@ -13,23 +13,23 @@ class ProfileIndex extends React.Component{
     }
    
     render(){
-        let authorPost = this.props.posts.filter(post=>post.author_id===this.props.user.id)
+    //     let authorPost = this.props.posts.filter(post=>post.author_id===this.props.user.id)
         
-        let posts = authorPost.map((post, idx)=>
-        {
-            return(
+    //     let posts = authorPost.map((post, idx)=>
+    //     {
+    //         return(
                 
-                <PostIndexItem
-                    key= {idx}
-                    post={post}
-                    closeModal={this.props.closeModal}
-                    deletePost = {this.props.deletePost}
-                    openModal={this.props.openModal}
-                />
+    //             <PostIndexItem
+    //                 key= {idx}
+    //                 post={post}
+    //                 closeModal={this.props.closeModal}
+    //                 deletePost = {this.props.deletePost}
+    //                 openModal={this.props.openModal}
+    //             />
 
-            )
-        }
-    )        
+    //         )
+    //     }
+    // )        
     
     
         return(

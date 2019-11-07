@@ -9,7 +9,6 @@ class PostDetail extends React.Component{
 
     constructor(props){
         super(props);
-        this.state ={detail: ''};
         this.handleDelete = this.handleDelete.bind(this);
     }
 
@@ -18,14 +17,18 @@ class PostDetail extends React.Component{
     }   
 
     render(){
-        debugger
+        let deletebtn;
+        if(this.props.user_id===this.props.post.author_id){
+            deletebtn = <button className="Delete-Btn" onClick={()=>this.handleDelete(this.props.post.id)}>Delete</button>
+        }
+        
         return(
             <div className="Post-index">
                 <div className="Top-Container">
                     <div className="Author-Container">
                         <h1 className="Post-index-title">{this.props.post.title}</h1>
                         <div className="Post-index-author-Container">
-                            <p className="Post-index-author">by <Link to={{pathname:"/profile",state:{user:this.props.post, author_id: this.props.post.author_id}}} onClick={()=>this.props.closeModal()}>{this.props.post.author}</Link></p>
+                            <p className="Post-index-author">by <Link id="Post-index-author-name"to={{pathname:"/profile",state:{user:this.props.post, author_id: this.props.post.author_id}}} onClick={()=>this.props.closeModal()}>{this.props.post.author}</Link></p>  
                             <span>|</span>
                             <FollowIndex 
                                 post={this.props.post} 
@@ -36,7 +39,7 @@ class PostDetail extends React.Component{
                     <div className="Like-Save-Container">
                         <LikeIndex 
                         PostId = {this.props.post.id} 
-                        Likes={this.props.post.likes}
+                        Likes={this.props.likes}
                         />
                     </div>
                 </div>
@@ -44,8 +47,8 @@ class PostDetail extends React.Component{
 
                     <img src={this.props.post.imageURL} />
                     <br/>
+                    {deletebtn}
 
-                    <button onClick={()=>this.handleDelete(this.props.post.id)}>Delete</button>
 
                     <div className="Post-index-container">
                         <p className="Post-index-description">
@@ -53,6 +56,7 @@ class PostDetail extends React.Component{
                     
                         <CommentIndex
                         PostId={this.props.post.id}
+                        currentUser = {this.props.user_id}
                         />
                         
                     </div>

@@ -23,9 +23,9 @@ class Nav extends React.Component {
                         Hi, {this.props.currentUser.username}!
                     </h2>
                     <button className="Upload-btn">
-                    <i className="fas fa-cloud-upload-alt">
-                        <Link to="/posts/new" style={{ textDecoration: 'none', color: '#999' }}>Upload</Link>
-                    </i>
+                        <i className="fas fa-cloud-upload-alt">
+                                <Link to="/posts/new" style={{ textDecoration: 'none', color: '#999' }}> Upload</Link>
+                        </i>
                     </button>
                     <button className="nav-logout-btn" onClick={this.handleSubmit}>
                         Log Out
