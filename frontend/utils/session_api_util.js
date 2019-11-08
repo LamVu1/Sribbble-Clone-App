@@ -9,6 +9,19 @@ export const login = user => {
     )
   )
 };
+
+
+export const getUser = userId => {
+      return(
+        $.ajax(
+          {
+            method: 'GET',
+            url: `/api/user`,
+            data: {userId}
+          }
+        )
+      )
+}
   
 export const signup = user => {
   return(
