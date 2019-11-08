@@ -40,9 +40,11 @@ class ProfileIndex extends React.Component{
 
         let location;
         let name;
+        let message;
         this.props.profile.map((profile,idx)=>{
-            location=<p key={idx}>{profile.location}</p>
-            name=<h1 key={idx}>{profile.username}</h1>
+            location=<p className="Profile-Location" key={idx}>{profile.location}</p>
+            name=<h1 className="Profile-Name" key={idx}>{profile.username}</h1>
+            message=profile.message
             
         })
         // let location = this.props.profile[1].location
@@ -61,6 +63,10 @@ class ProfileIndex extends React.Component{
                 <div className="Profile-Summary">
                      {name}
                     {location}
+                    <ProfileMessageContainer 
+                        id={this.props.author_id}
+                        message={message}
+                    />
                 </div>
                 <div className="Profile-Posts">
                         {posts}
