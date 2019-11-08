@@ -47,9 +47,4 @@ export const logout = () => dispatch => (
 );
 
 
-export const update = message => dispatch => (
-  APIUtil.update(message).then(message => (
-    dispatch(receiveCurrentUser(message))
-  ))
-);
 
