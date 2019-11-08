@@ -20,7 +20,7 @@ class Nav extends React.Component {
             sessionLinks = 
                 <hgroup className="nav-group">
                     <h2 className="nav-name">
-                        Hi, {this.props.currentUser.username}!
+                        Hello, {this.props.currentUser.username}!
                     </h2>
                     <button className="Upload-btn">
                         <i className="fas fa-cloud-upload-alt">
