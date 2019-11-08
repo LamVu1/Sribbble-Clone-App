@@ -31,7 +31,7 @@ const App = () => (
         < AuthRoute exact path="/login" component={SignInFormContainer}/>
         < AuthRoute exact path="/signup" component={SignUpFormContainer} />
         < Route exact path="/" component={LandingContainer}/>
-        < Route exact path="/profile" component={ProfileContainer}/>
+        < Route exact path="/profile/:id" component={ProfileContainer}/>
         < ProtectedRoute exact path='/posts/new' component={CreatePostFormContainer} />
         < Redirect to="/" />
         </Switch>
