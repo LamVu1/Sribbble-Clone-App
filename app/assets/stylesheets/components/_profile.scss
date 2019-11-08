@@ -10,10 +10,7 @@
     width: 325px;
     background-color: #FFFFFF;
     margin: 20px;
-    font-size: 20px;
-    font-weight: bold;
-    letter-spacing: -.01em;
-    color: #444;
+    
 }
 
 .Profile-Posts{
@@ -22,3 +19,27 @@
     flex-direction: row;
     flex-wrap: wrap;
 }
+.Profile-Name{
+    font-family: sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: -.01em;
+    color: #444;
+    text-align: center;
+}
+.Profile-Location{
+  
+    text-align: center;
+    font-size: 14px;
+    color: #999;
+    font-weight: normal;
+}
+
+.Profile-Message-Container{
+    border: red solid;
+}
+
+.Profile-Message{
+    color: blue;
+}
+

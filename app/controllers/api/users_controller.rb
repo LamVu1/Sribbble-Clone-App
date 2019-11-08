@@ -21,7 +21,6 @@ class Api::UsersController < ApplicationController
     end
 
     def update
-      
       @user = User.find(params[:message][:id])
       @user.update_attribute(:message, params[:message][:message])
       if @user.save
