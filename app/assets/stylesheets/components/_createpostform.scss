@@ -1,28 +1,66 @@
 .CreateForm-Container{
     display: flex;
-    flex-direction: row;
-    justify-content: center;
+    flex-direction: column;
+    margin-top: 20px;
+    // justify-content: center;
    width: 100%;
-    height: 600px;
+    height: 1000px;
+    align-items: center;
 }
 
+.CreateForm-Header{
+    font: 30px "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: bolder;
+}
 .CreateForm{
-    width: 700px;
-    height: 600px;
+    width: 80%;
+    height: 700px;
+    margin-top: 30px;
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: row;
     justify-content: center;
 
 }
 
 .Form-Text{
+ 
     display: flex;
     flex-direction: column;
     margin: 5px 0;
-    font-size: 15px;
-    line-height: 1.5em;
-    font-weight: 500;
+    margin-left: 30px;
+    font: 14px "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: bold;
 }
+
+.Form-Text input {
+    border: rgb(218, 215, 215) solid;
+    border-width: thin;
+    border-radius: 5pt;
+}
+
+::placeholder{
+    font-size: 14px;
+   color: grey;
+}
+.Form-Text textarea {
+    border: rgb(218, 215, 215) solid;
+    border-width: thin;
+    border-radius: 5pt;
+}
+
+.Form-Text input:hover {
+    border: rgb(155, 205, 235) solid;
+    background-color: white;
+    border-width: thin;
+    border-radius: 5pt;
+}
+.Form-Text textarea:hover {
+    border: rgb(155, 205, 235) solid;
+    background-color: white;
+    border-width: thin;
+    border-radius: 5pt;
+}
+
 
 .Form-Input{
     width: 100%;
@@ -32,7 +70,7 @@
     border-radius: 4px;
     font: 18px "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
     padding: 8px 10px;
-    margin: 0 8px 15px 0;
+    margin: 7px 8px 15px 0;
     color: #444;
     background-color: rgba(245, 246, 247, 0.815);
     outline: none;
@@ -77,4 +115,103 @@
     color: #fff;
     margin-top:3px;
     cursor: pointer;
+}
+
+.box-dragndrop{
+    width: 800px;
+    height: 500px;
+    border-radius: 8px;
+    border: dashed 2px #ccc;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 100px; 
+    font-size: 18px;
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 500;
+}
+.box-dragndrop i {
+    font-size: 150px;
+    color: #ccc;
+}
+.box-dragndrop:hover i{
+  
+    color: rgb(40, 119, 194);
+}
+.box-dragndrop h1{
+    font-size: 30px;
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.box-dragndrop:hover{
+    border-radius: 8px;
+    border: dashed 2px rgb(240, 150, 213);
+}
+
+
+.box-dragndrop input{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    opacity: 0;
+}
+
+.publish-button {
+  color:white;
+  background-color: rgb(240, 125, 205);
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  margin: 5px;
+  margin-right: 10px;
+  border: grey solid;
+  align-items: center;
+  border-width: thin;
+  margin: 0;
+  margin-right: 15px;
+  height: 40px;
+  padding: 0px 16px;
+
+  border-radius: 5pt;
+}
+
+.publish-button:hover{
+    background-color: rgb(240, 73, 190);
+}
+.cancel-button{
+    color: grey;
+    background-color: white;
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+    border: rgb(207, 202, 202) solid;
+    align-items: center;
+    border-width: thin;
+    margin: 0;
+    margin-left: 15px;
+    height: 40px;
+    padding: 0px 16px;
+    border-radius: 5pt;
+}
+
+.cancel-button:hover{
+    background-color: white;
+}
+
+
+.Form-footer{
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    bottom: 0;
+    width: 100%;
+    border: rgb(192, 190, 190) solid;
+    border-width: thin;
+    height: 40px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+
+    background-color: #FFFFFF;
 }
