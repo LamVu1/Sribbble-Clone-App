@@ -10,14 +10,13 @@ import ProfileMessageContainer from './message'
 class ProfileIndex extends React.Component{
     constructor(props){
         super(props);
+        
     }
 
     componentDidMount(){
         this.props.fetchPosts();
         this.props.getUser(this.props.author_id);
     }
-
- 
    
     render(){
         
@@ -46,17 +45,7 @@ class ProfileIndex extends React.Component{
             name=<h1 className="Profile-Name" key={idx}>{profile.username}</h1>
             message=profile.message
             
-        })
-        // let location = this.props.profile[1].location
-    // <ProfileMessageContainer 
-    //     id={this.props.user.id}
-    //     message={this.props.user.message}
-    // />
-    // <FollowIndex
-    //  author_id={this.props.author_id} 
-    //  follows={this.props.user.follower_id}/>
-    // {posts}
-     
+        })    
 
         return(
             <div className="Profile-Container">

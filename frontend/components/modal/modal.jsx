@@ -10,20 +10,25 @@ function Modal({ modal, closeModal, data })
       switch(modal)
       {
         case 'PostDetail':
-        component = <div className="PostContainer">
-                        <div onClick={()=>closeModal()} className="close-x"><i className="fas fa-times"></i></div>
-                        <PostDetailContainer post={data}/>
+        component = <div className="modal-child" onClick={()=>closeModal()}>
+                        <div className="PostContainer" onClick={ e => e.stopPropagation()}>
+                          <PostDetailContainer 
+                             post={data}
+                           />
+                        </div>
+                        
+                         <div onClick={()=>closeModal()} className="close-x"><i className="fas fa-times"></i></div>
                     </div>
         break;
         default:
         return null;
       }
-
+      // e => e.stopPropagation()
+        // <div className="modal-child" onClick={closeModal}>
       return(
-          <div className="modal-background" onClick={closeModal}>
-          <div className="modal-child" onClick={e => e.stopPropagation()}>
-                { component }
-          </div>
+          <div className="modal-background">
+                  { component }
+            
           </div>
             )
 }

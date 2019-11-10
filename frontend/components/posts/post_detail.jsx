@@ -38,7 +38,7 @@ class PostDetail extends React.Component{
                         <h1 className="Post-index-title">{this.props.post.title}</h1>
                         <div className="Post-index-author-Container">
                             <p className="Post-index-author">by 
-                            <button onClick={this.handleProfile}>name</button>
+                                <button onClick={this.handleProfile}>{this.props.post.author}</button>
                             </p>  
                             <span>|</span>
                             <FollowIndex 

@@ -10,8 +10,6 @@ const mapStateToProps=(state, ownProps)=>{
         
     return(
         {   
-
-            // follow: ownProps.location.state.user.follower_id,
             currentUser: state.session.id,
             author_id: parseInt(ownProps.match.params.id),
             posts: Object.values(state.entities.posts),
