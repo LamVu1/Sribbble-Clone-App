@@ -37,9 +37,22 @@
 
 .Profile-Message-Container{
     border: red solid;
+    display: flex;
+    flex-direction: column;     
+    align-items: flex-end;
+}
+
+.Profile-Message-Container form {
+    border: black solid;
+    width: 90%;
 }
 
 .Profile-Message{
     color: blue;
 }
 
+.Profile-Message-Btn{
+    width: 80px;
+    text-align: center;
+    float: left;
+}

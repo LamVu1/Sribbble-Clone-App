@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import {withRouter} from 'react-router-dom';
 import {calcTime} from '../../utils/calculate_time';
+import {getUser} from '../../actions/profile_actions';
 import {update} from '../../actions/profile_actions';
 
 
@@ -9,12 +10,17 @@ import {update} from '../../actions/profile_actions';
 class ProfileMessage extends React.Component{
     constructor(props){
         super(props);
-        this.state=this.props.message
+        this.state={message: this.props.message}
         this.handleUpdate = this.handleUpdate.bind(this);
         this.handleSubmit= this.handleSubmit.bind(this);
         this.handleButton = this.handleButton.bind(this);
         this.showform = false;
     }
+
+    componentDidMount(){
+        this.props.getUser(this.props.id);
+    }
+   
 
     handleUpdate(){
         return(e=>this.setState({message: e.target.value}))
@@ -35,13 +41,14 @@ class ProfileMessage extends React.Component{
         if(this.showform){
             f[0].style.display = "none";
             message[0].style.display = "block";
-            btn[0].style.display = "block"
+            btn[0].style.display = "block";
+            btn[0].innerHTML = "Edit Message"
             this.showform=false;
         }
         else{
             f[0].style.display = "block";
             message[0].style.display = "none";
-            btn[0].style.display = "none";
+            btn[0].innerHTML = "Cancel"
             this.showform = true;
 
         }
@@ -72,19 +79,11 @@ class ProfileMessage extends React.Component{
 
 
 const mapStateToProps=(state, ownProps)=>{
-
-    let message;
-    if(ownProps.message){
-        message = ownProps.message
-    }else{
-        message = "Hello"
-    }
-    
-    
     
     return(
         {   id: ownProps.id,
-            message: message
+            message: ownProps.message
+        
         }
     )
 }
@@ -93,9 +92,10 @@ const mapDispatchToProps=dispatch=>{
     
     return(
         {
-            update: (message)=>dispatch(update(message))
+            update: (message)=>dispatch(update(message)),
+            getUser: (userId)=> dispatch( getUser(userId))
         }
     )
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ProfileMessage)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ProfileMessage));

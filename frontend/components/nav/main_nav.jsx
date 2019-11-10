@@ -6,12 +6,18 @@ class Nav extends React.Component {
     constructor(props){
         super(props);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleUpload = this.handleUpload.bind(this);
     }
 
     handleSubmit(e){
         e.preventDefault();
         this.props.logout();
     }
+
+    handleUpload(){
+        this.props.history.push('/posts/new')
+    }
+    // <Link to="/posts/new" style={{ textDecoration: 'none', color: '#999' }}> Upload</Link>
 
     render(){
     let sessionLinks;
@@ -22,10 +28,10 @@ class Nav extends React.Component {
                     <h2 className="nav-name">
                         Hello, {this.props.currentUser.username}!
                     </h2>
-                    <button className="Upload-btn">
-                        <i className="fas fa-cloud-upload-alt">
-                                <Link to="/posts/new" style={{ textDecoration: 'none', color: '#999' }}> Upload</Link>
-                        </i>
+                    <button className="Upload-btn" onClick={this.handleUpload}>
+                        
+                         <Link to="/posts/new" style={{ textDecoration: 'none', color: '#999' }}><i className="fas fa-cloud-upload-alt"></i> Upload</Link>
+
                     </button>
                     <button className="nav-logout-btn" onClick={this.handleSubmit}>
                         Log Out
