@@ -41,10 +41,14 @@ class PostDetail extends React.Component{
                                 <button onClick={this.handleProfile}>{this.props.post.author}</button>
                             </p>  
                             <span>|</span>
+                         
                             <FollowIndex 
                                 post={this.props.post} 
                                 follows={this.props.follows}
                             />
+
+
+                          
                         </div>
                     </div>
                     <div className="Like-Save-Container">

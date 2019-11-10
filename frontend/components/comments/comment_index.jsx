@@ -53,10 +53,8 @@ class CommentIndex extends React.Component{
                 <h1 className="Comment-Count">{comments.length} Responses</h1>
                 <div className="Comment-Form-Container">
                     <form className="Comment-Form" onSubmit={this.handleSubmit}>
-                        <label>Add Comment:
-                            <br/>
+                        <label>Add Comment:</label>
                             <textarea className="Comment-Input" type="text" value={this.state.body} onChange={this.handleUpdate('body')}></textarea>
-                        </label>
                         <br/>
                         <input className="Comment-Submit" type="submit" value="Submit"/>
                     </form>
