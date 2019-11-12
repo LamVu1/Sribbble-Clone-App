@@ -49,7 +49,15 @@ class CreatePostForm extends React.Component {
   handleDrop(e){  
     e.preventDefault()
     e.stopPropagation()
+
+    let loader = document.getElementsByClassName('lds-ring')
+    loader[0].style.display = "block"
+    setTimeout(function(){  loader[0].style.display = "none" }, 3000);
     this.setState({image: e.dataTransfer.files[0]});
+    let Sucess = document.getElementsByClassName('Sucess')
+    setTimeout(function(){  Sucess[0].style.display = "block" }, 3000);
+    var file= e.dataTransfer.files[0];
+    this.preview = URL.createObjectURL(file)
   }
 
   onDragEnter(e){  
