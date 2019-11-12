@@ -28,8 +28,9 @@
     font-variant-east-asian: normal;
     font-weight: normal;
     font-stretch: normal;
-    margin: 0 auto;
     display: block;
+    margin-top: -50px;
+    position: sticky;
 }
 
 
@@ -131,13 +132,11 @@
 }
 
 .signin-logo{
-    height: 50px;
-    width: 190px;
+    height: 200px;
+    width: 200px;
     display: block;
     text-align: center;
     margin: 0 auto;
-    margin-bottom: 5px;
-
 }
 
 .signin-logo:hover{
