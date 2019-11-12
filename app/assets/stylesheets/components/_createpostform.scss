@@ -134,7 +134,7 @@
     font-size: 150px;
     color: #ccc;
 }
-.box-dragndrop:hover i{
+.Input-Box:hover i{
   
     color: rgb(40, 119, 194);
 }
@@ -153,11 +153,25 @@
 
 
 .box-dragndrop input{
-    width: 100%;
-    height: 100%;
-    position: relative;
+    position: absolute;
     opacity: 0;
+    width: 800px;
+    height: 600px;
+    margin-top: -135px;
 }
+
+.Input-Box{
+    margin-top: 35px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Preview {
+    width: 350px;
+    height: 300px;
+}
+
 
 .publish-button {
   color:white;
@@ -215,3 +229,68 @@
 
     background-color: #FFFFFF;
 }
+
+
+
+.lds-ring {
+
+    display: none;
+    position: relative;
+    left: -55px;
+    top: 75px;
+    width: 64px;
+    height: 64px;
+  }
+  .lds-ring div {
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    width: 165px;
+    height: 165px;
+    margin: 6px;
+    border: 16px solid red;
+    border-radius: 50%;
+    animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    border-color: rgb(9, 240, 9) transparent transparent transparent;
+  }
+  .lds-ring div:nth-child(1) {
+    animation-delay: -0.45s;
+  }
+  .lds-ring div:nth-child(2) {
+    animation-delay: -0.3s;
+  }
+  .lds-ring div:nth-child(3) {
+    animation-delay: -0.15s;
+  }
+  @keyframes lds-ring {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  .Sucess{
+      display: none;
+      margin-top: 17px;
+  }
+
+  .Sucess i {
+    font-size: 165px;
+      color: rgb(9, 240, 9);
+  }
+
+  .Sucess:hover i{
+    color: rgb(9, 240, 9);
+  }
+
+  
+  .Sucess h1 {
+    font-size: 30px;
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    margin-left: 18px;
+    margin-bottom: 10px;
+    margin-top: 30px;
+  }

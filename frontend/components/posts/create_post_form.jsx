@@ -13,6 +13,8 @@ class CreatePostForm extends React.Component {
     this.onDragOver = this.onDragOver.bind(this);
     this.handleUpdate = this.handleUpdate.bind(this);
     this.handleCancel = this.handleCancel.bind(this);
+    this.preview = "";
+    this.removeImage = this.removeImage.bind(this);
   }
 
   handleUpdate(field){
@@ -30,7 +32,23 @@ class CreatePostForm extends React.Component {
   }
 
   handleFile(e){  
+    let loader = document.getElementsByClassName('lds-ring')
+    loader[0].style.display = "block"
+    setTimeout(function(){  loader[0].style.display = "none" }, 4000);
     this.setState({image: e.currentTarget.files[0]});
+    let Sucess = document.getElementsByClassName('Sucess')
+    setTimeout(function(){  Sucess[0].style.display = "block" }, 4000);
+    // let preview = document.getElementsByClassName('Preview')
+    var file= document.querySelector('input[type=file]').files[0];
+    debugger
+    this.preview = URL.createObjectURL(file)
+    // preview.src = URL.createObjectURL(file)
+    // var reader  = new FileReader();
+    // reader.readAsDataURL(file);
+    // reader.addEventListener("load", function () {
+    //   debugger
+    //   preview.src = reader.result;
+    // }, true);
   }
 
 
@@ -38,7 +56,6 @@ class CreatePostForm extends React.Component {
     e.preventDefault()
     e.stopPropagation()
     this.setState({image: e.dataTransfer.files[0]});
-    console.log('drop')
   }
 
   onDragEnter(e){  
@@ -53,35 +70,16 @@ class CreatePostForm extends React.Component {
     e.stopPropagation()
   }
 
+
+  removeImage(){
+    this.setState({image: null});
+  }
+
   handleCancel(){
     this.props.history.push('/')
 }
 
-                // <div className="Form-Text">
-                 
-                //     <label> Title:
-                       
-                //         <input className="Form-Input" type="text" value={this.state.title} onChange={this.handleUpdate("title")} />
-
-                //     </label>
-                    
-                //     <label> Description:
-
-                //         <textarea className="Form-Input"  type="text" value={this.state.description} onChange={this.handleUpdate("description")}></textarea>
-
-                //     </label>
-                    
-                // </div>
-
-                // <button className="Input-File">
-                //      <input type="file" onChange={this.handleFile}/>
-                // </button>
-
-                // <button className="Publish">
-                //       <input type="submit" value="Publish"/>
-                // </button>
-  
-
+                
   render () {
 
 
@@ -91,18 +89,43 @@ class CreatePostForm extends React.Component {
 
         <div className="CreateForm-Container">
             <h1 className="CreateForm-Header">Publish your Shot</h1>
+
             <form className="CreateForm" onSubmit={this.handleSubmit}>
 
-
+                
                 <div className="box-dragndrop" onDrop={this.handleDrop}  onDragEnter={this.onDragEnter}
                   onDragOver={this.onDragOver}>
-                    <i className="fas fa-cloud-upload-alt"></i>
-                    <h1>Drag and drop an image</h1>
-                    or browse to choose a file
+                 <div className="lds-ring">
+                   <div></div>
+                   <div></div>
+                   <div></div>
+                   <div></div>
+                </div>
+
+                {(this.state.image == null) 
+
+                  ? <div className="Input-Box">
+                   <i className="fas fa-cloud-upload-alt"></i>
+                     <h1>Drag and drop an image</h1>
+                      <p>or browse to choose a file</p> 
                   
                      <input type="file" onChange={this.handleFile}/>
+                     </div>
               
-                </div>
+                  :
+                  <div className="Sucess">
+
+                    <i className="far fa-check-circle"></i>
+                      <h1>Sucess!</h1>
+                      </div>
+                
+                }
+                
+                     </div>
+
+              
+               
+              
 
                 <div className="Form-Text">
                  
@@ -117,7 +140,13 @@ class CreatePostForm extends React.Component {
                         <textarea className="Form-Input"  type="text" placeholder="Tell us about your work." value={this.state.description} onChange={this.handleUpdate("description")}></textarea>
 
                     </label>
-                    
+                    {(this.state.image == null) 
+                      ? <div></div>
+                      : <div>
+                        <img className="Preview" src={this.preview}/>
+                        <button onClick={this.removeImage}>Delete Image</button>
+                        </div>
+                    }
                 </div>
                 <div className="Form-footer">
                   <button className="cancel-button" onClick={this.handleCancel}>Cancel</button>
