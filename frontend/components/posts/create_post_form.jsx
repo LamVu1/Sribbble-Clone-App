@@ -55,7 +55,7 @@ class CreatePostForm extends React.Component {
     setTimeout(function(){  loader[0].style.display = "none" }, 3000);
     this.setState({image: e.dataTransfer.files[0]});
     let Sucess = document.getElementsByClassName('Sucess')
-    setTimeout(function(){  Sucess[0].style.display = "block" }, 3000);
+    setTimeout(function(){  Sucess[0].style.display = "block" }, 500);
     var file= e.dataTransfer.files[0];
     this.preview = URL.createObjectURL(file)
   }
