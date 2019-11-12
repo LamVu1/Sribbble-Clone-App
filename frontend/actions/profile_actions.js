@@ -1,6 +1,7 @@
 import * as APIUtil from '../utils/session_api_util';
 
-export const RECEIVE_PROFILE = 'RECEIVE_PROFILE';export const CLEAR_PROFILE = 'CLEAR_PROFILE';
+export const RECEIVE_PROFILE = 'RECEIVE_PROFILE';
+export const CLEAR_PROFILE = 'CLEAR_PROFILE';
 
 
 export const receiveProfile = user => ({
@@ -9,7 +10,7 @@ export const receiveProfile = user => ({
   });
   
   export const clearProfile = () => ({
-    type: RECEIVE_PROFILE,
+    type: CLEAR_PROFILE,
   });
   
 
@@ -25,6 +26,6 @@ export const receiveProfile = user => ({
     ))
   );
 
-  export const exitProfile = dispatch => (
+  export const exitProfile = ()=>dispatch => (
       dispatch(clearProfile())
     )

@@ -8,4 +8,4 @@
 
 
 User.destroy_all
-User.create(username: 'Demo', email: 'demo@email.com', password: 'password');   
+User.create(username: 'Demo', email: 'demo@email.com', password: 'password', location: 'San Francisco');   
