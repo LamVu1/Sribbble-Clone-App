@@ -27,28 +27,22 @@ class CreatePostForm extends React.Component {
     formData.append('post[title]', this.state.title);
     formData.append('post[description]', this.state.description);
     formData.append('post[image]', this.state.image);
-    
-    this.props.createPost(formData).then(()=> this.props.history.push('/'))
+    let submitloader = document.getElementsByClassName('lds-facebook')
+    submitloader[0].style.display = "block"
+    this.props.createPost(formData).then(()=> {
+      setTimeout(function(){  submitloader[0].style.display = "none" }, 3000);
+      this.props.history.push('/')})
   }
 
   handleFile(e){  
     let loader = document.getElementsByClassName('lds-ring')
     loader[0].style.display = "block"
-    setTimeout(function(){  loader[0].style.display = "none" }, 4000);
+    setTimeout(function(){  loader[0].style.display = "none" }, 3000);
     this.setState({image: e.currentTarget.files[0]});
     let Sucess = document.getElementsByClassName('Sucess')
-    setTimeout(function(){  Sucess[0].style.display = "block" }, 4000);
-    // let preview = document.getElementsByClassName('Preview')
-    var file= document.querySelector('input[type=file]').files[0];
-    debugger
+    setTimeout(function(){  Sucess[0].style.display = "block" }, 3000);
+    var file= document.querySelector('input[type=file]').files[0];    
     this.preview = URL.createObjectURL(file)
-    // preview.src = URL.createObjectURL(file)
-    // var reader  = new FileReader();
-    // reader.readAsDataURL(file);
-    // reader.addEventListener("load", function () {
-    //   debugger
-    //   preview.src = reader.result;
-    // }, true);
   }
 
 
@@ -88,6 +82,7 @@ class CreatePostForm extends React.Component {
 
 
         <div className="CreateForm-Container">
+          <div className="lds-facebook"><div></div><div></div><div></div></div>
             <h1 className="CreateForm-Header">Publish your Shot</h1>
 
             <form className="CreateForm" onSubmit={this.handleSubmit}>
@@ -104,13 +99,13 @@ class CreatePostForm extends React.Component {
 
                 {(this.state.image == null) 
 
-                  ? <div className="Input-Box">
-                   <i className="fas fa-cloud-upload-alt"></i>
-                     <h1>Drag and drop an image</h1>
+                  ? <div className="Input-Box" style={{display :'flex'}}>
+                      <i className="fas fa-cloud-upload-alt"></i>
+                      <h1>Drag and drop an image</h1>
                       <p>or browse to choose a file</p> 
                   
-                     <input type="file" onChange={this.handleFile}/>
-                     </div>
+                      <input type="file" onChange={this.handleFile}/>
+                    </div>
               
                   :
                   <div className="Sucess">
@@ -131,7 +126,7 @@ class CreatePostForm extends React.Component {
                  
                     <label> Title:
                        
-                        <input className="Form-Input" type="text" placeholder="Add a Title" value={this.state.title} onChange={this.handleUpdate("title")} />
+                        <input className="Form-Input" type="text" placeholder="Add a Title" value={this.state.title} onChange={this.handleUpdate("title")} maxLength="50"/>
 
                     </label>
                     
@@ -142,7 +137,8 @@ class CreatePostForm extends React.Component {
                     </label>
                     {(this.state.image == null) 
                       ? <div></div>
-                      : <div>
+                      : <div className="Preview-Container">
+                        <p>Preview: </p>
                         <img className="Preview" src={this.preview}/>
                         <button onClick={this.removeImage}>Delete Image</button>
                         </div>

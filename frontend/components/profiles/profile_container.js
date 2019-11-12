@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 import ProfileIndex from './profile';
 import {fetchPosts, deletePost} from '../../actions/posts_actions';
 import {closeModal, openModal} from '../../actions/modal_action';
-import {getUser} from '../../actions/profile_actions';
+import {getUser, exitProfile} from '../../actions/profile_actions';
 
 
 const mapStateToProps=(state, ownProps)=>{
@@ -25,7 +25,8 @@ const mapDispatchToProps=dispatch=>{
             fetchPosts: ()=>dispatch(fetchPosts()),
             openModal:(modal,data) => dispatch( openModal(modal, data)),
             closeModal: () => dispatch( closeModal()),
-            getUser: (userId)=> dispatch( getUser(userId))
+            getUser: (userId)=> dispatch( getUser(userId)),
+            exitProfile: ()=>dispatch(exitProfile())
         }
     )
 }

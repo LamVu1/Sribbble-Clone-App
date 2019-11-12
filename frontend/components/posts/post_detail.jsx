@@ -16,6 +16,7 @@ class PostDetail extends React.Component{
 
     handleDelete(id){
         this.props.deletePost(id)
+        this.props.closeModal()
     }   
 
     handleProfile(){

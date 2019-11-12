@@ -17,6 +17,10 @@ class ProfileIndex extends React.Component{
         this.props.fetchPosts();
         this.props.getUser(this.props.author_id);
     }
+
+    componentWillUnmount(){
+        this.props.exitProfile();
+    }
    
     render(){
         
@@ -39,23 +43,17 @@ class ProfileIndex extends React.Component{
 
         let location;
         let name;
-        let message;
         this.props.profile.map((profile,idx)=>{
             location=<p className="Profile-Location" key={idx}>{profile.location}</p>
             name=<h1 className="Profile-Name" key={idx}>{profile.username}</h1>
-            message=profile.message
-            
-        })    
-
+        })
+      
         return(
             <div className="Profile-Container">
                 <div className="Profile-Summary">
                      {name}
                     {location}
-                    <ProfileMessageContainer 
-                        id={this.props.author_id}
-                        message={message}
-                    />
+                    
                 </div>
                 <div className="Profile-Posts">
                         {posts}
