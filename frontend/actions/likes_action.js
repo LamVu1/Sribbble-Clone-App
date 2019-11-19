@@ -19,6 +19,8 @@ const removeLike = (like)=>({
     type: REMOVE_LIKE
 })
 
+
+
 export const fetchLikes = (post_id)=>(dispatch)=>(
     APIUtil.fetchLikes(post_id).then( likes => dispatch(receiveLikes(likes)))
 )

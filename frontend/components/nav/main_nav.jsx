@@ -42,7 +42,7 @@ class Nav extends React.Component {
     else
         {
             sessionLinks= 
-            <nav className="nav-group-a">
+            <nav className="nav-group">
                 <Link to="/login" className="nav-signin">
                     Sign In
                 </Link>
