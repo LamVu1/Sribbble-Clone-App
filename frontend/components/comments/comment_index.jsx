@@ -1,6 +1,8 @@
 import React from 'react';
 import {withRouter} from 'react-router-dom';
 import {calcTime} from '../../utils/calculate_time';
+import CommentLikeIndex from '../comment_likes/comment_likes_index_container';
+
 
 class CommentIndex extends React.Component{
     constructor(props){
@@ -44,6 +46,11 @@ class CommentIndex extends React.Component{
                     <p className="Comment-Body">{comment.body}</p>
                     <p className="Comment-Time">{calcTime(comment.create_at)}</p>
                     {btn}
+                    <CommentLikeIndex 
+                        post_id = {this.props.PostId}
+                        comment_id = {comment.id}
+                    
+                    />
                 </li>
             )
         })

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import CommentIndex from '../comments/comment_index_container';
-import LikeIndex from '../likes/like_index_container'
+import LikeIndex from '../likes/like_index_container';
 import FollowIndex from '../follows/follow_index_container';
 import {withRouter} from 'react-router-dom';
 import closeModal from '../../actions/modal_action';
