@@ -4,6 +4,7 @@ class Api::CommentlikesController < ApplicationController
         
         @comment_like = CommentLike.new
         @comment_like.comment_id = params[:commentLike][:comment_id]
+        @comment_like.post_id = params[:commentLike][:post_id]
         @comment_like.user_id = current_user.id
         
         if @comment_like.save
@@ -16,7 +17,8 @@ class Api::CommentlikesController < ApplicationController
 
     def index
         
-        @comment_likes = CommentLike.where(comment_id: params[:comment_id])
+        # @comment_likes = CommentLike.join(:posts).where(post_id: params[:post_id])
+        @comment_likes = CommentLike.where(post_id: params[:post_id])
         render "api/comment_likes/index"
     end
 
