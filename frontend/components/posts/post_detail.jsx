@@ -12,6 +12,7 @@ class PostDetail extends React.Component{
         super(props);
         this.handleDelete = this.handleDelete.bind(this);
         this.handleProfile = this.handleProfile.bind(this);
+        
     }
 
     handleDelete(id){
@@ -73,6 +74,7 @@ class PostDetail extends React.Component{
                         <CommentIndex
                         PostId={this.props.post.id}
                         currentUser = {this.props.user_id}
+                        commentlike = {this.props.post.commentlike}
                         />
                         
                     </div>

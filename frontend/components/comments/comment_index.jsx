@@ -14,7 +14,7 @@ class CommentIndex extends React.Component{
     }
 
     componentDidMount(){
-        this.props.fetchComments(this.props.PostId)
+        this.props.fetchComments(this.props.PostId);
     }
 
     handleUpdate(field){
@@ -49,6 +49,7 @@ class CommentIndex extends React.Component{
                     <CommentLikeIndex 
                         post_id = {this.props.PostId}
                         comment_id = {comment.id}
+                        commentlike = {this.props.commentlike}
                     
                     />
                 </li>

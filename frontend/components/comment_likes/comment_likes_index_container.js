@@ -10,8 +10,8 @@ const mapStateToProps=(state, ownProps)=>{
         {
             post_id: ownProps.post_id,
             comment_id: ownProps.comment_id,
-            commentlikes: Object.values(state.entities.commentlikes),
-            currentuser_id: state.session.id
+            currentuser_id: state.session.id,
+            likes: ownProps.commentlike
         }
     )
 }

@@ -8,6 +8,7 @@
        json.location post.author.location
        json.follower_id post.author.followers
        json.likes post.likes
+       json.commentlike post.commentlikes
        if post.image.attached?
           json.imageURL url_for(post.image)
        end
