@@ -22,6 +22,7 @@ class CommentLikeIndex extends React.Component{
     
    
     render(){
+        let count=this.props.likes.filter(commentlikes=>(commentlikes.comment_id=== this.props.comment_id)).length
         
         return(
             <div>
@@ -29,8 +30,8 @@ class CommentLikeIndex extends React.Component{
                 {
                     this.props.likes.filter(commentlikes=>(commentlikes.user_id===this.props.currentuser_id && commentlikes.comment_id=== this.props.comment_id)).length===0
 
-                        ?   <button className="CommentLike-btn" onClick={this.handleLike}><i className="fas fa-heart"></i></button>
-                        :   <button className="CommentLiked-btn" onClick={this.handleUnlike}><i className="fas fa-heart"></i></button>
+                        ?   <button className="CommentLike-btn" onClick={this.handleLike}><i className="fas fa-heart"></i>{count}</button>
+                        :   <button className="CommentLiked-btn" onClick={this.handleUnlike}><i className="fas fa-heart"></i>{count}</button>
 
                 }
 
