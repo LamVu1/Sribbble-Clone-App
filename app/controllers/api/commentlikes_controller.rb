@@ -21,7 +21,7 @@ class Api::CommentlikesController < ApplicationController
     end
 
     def destroy
-        debugger
+        
         @comment_like = CommentLike.find(params[:id])
         @comment_like.destroy
         render "api/comment_likes/show"

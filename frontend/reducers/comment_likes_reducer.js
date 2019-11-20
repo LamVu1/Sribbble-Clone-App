@@ -8,10 +8,9 @@ const commentlikesReducer = (oldstate={}, action)=>{
     Object.freeze(oldstate);
     switch(action.type){
         case RECEIVE_ALL_COMMENTLIKES:
-            
+            debugger
             return action.commentLikes;
         case RECEIVE_COMMENTLIKE:
-            debugger
             nextState = {...oldstate};
             nextState[action.commentLike.id] = action.commentLike
             return nextState;

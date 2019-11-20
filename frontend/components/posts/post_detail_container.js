@@ -24,8 +24,6 @@ const mapDispatchToProps = dispatch => {
     return(
       {
           deletePost: (id)=>dispatch(deletePost(id)),
-          fetchFollows: (author_id)=>dispatch(fetchFollows(author_id)),
-          fetchLikes: (Post_id)=>dispatch(fetchLikes(Post_id)),
           closeModal: () => dispatch( closeModal())
 
       }
