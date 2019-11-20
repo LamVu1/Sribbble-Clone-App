@@ -15,6 +15,8 @@ class CommentIndex extends React.Component{
 
     componentDidMount(){
         this.props.fetchComments(this.props.PostId);
+        let commentLike = {post_id: this.props.PostId, comment_id: 1}
+        this.props.fetchcommentLikes(commentLike);
     }
 
     handleUpdate(field){
@@ -44,14 +46,16 @@ class CommentIndex extends React.Component{
                 <li key={idx} className="Comment-Container">
                     <p className="Comment-Author">{comment.author}</p>
                     <p className="Comment-Body">{comment.body}</p>
+                    <div className="Comment-Bottom-Div">
                     <p className="Comment-Time">{calcTime(comment.create_at)}</p>
-                    {btn}
                     <CommentLikeIndex 
                         post_id = {this.props.PostId}
                         comment_id = {comment.id}
                         commentlike = {this.props.commentlike}
                     
                     />
+                    </div>
+                    {btn}
                 </li>
             )
         })

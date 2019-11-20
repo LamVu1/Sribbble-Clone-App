@@ -11,7 +11,7 @@ const mapStateToProps=(state, ownProps)=>{
             post_id: ownProps.post_id,
             comment_id: ownProps.comment_id,
             currentuser_id: state.session.id,
-            likes: ownProps.commentlike
+            likes: Object.values(state.entities.commentlikes)
         }
     )
 }
@@ -20,7 +20,6 @@ const mapDispatchToProps=dispatch=>{
     
     return(
         {
-            fetchcommentLikes: (commentlike) => dispatch( fetchcommentLikes(commentlike)),
             createcommentLike: (commentlike) => dispatch( createcommentLike(commentlike)),
             deletecommentLike: (commentlike) => dispatch( deletecommentLike(commentlike))
         }

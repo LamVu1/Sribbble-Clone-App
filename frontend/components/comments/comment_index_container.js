@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import CommentIndex from './comment_index';
 import {fetchComments, createComment, deleteComment} from '../../actions/comment_actions';
-
+import {fetchcommentLikes} from '../../actions/comment_likes_actions';
 
 const mapStateToProps=(state, ownProps)=>{
 
@@ -21,6 +21,7 @@ const mapDispatchToProps=dispatch=>{
     return(
         {
             fetchComments: (Post_id) => dispatch( fetchComments(Post_id)),
+            fetchcommentLikes: (commentlike) => dispatch( fetchcommentLikes(commentlike)),
             createComment: (comment) => dispatch( createComment(comment)),
             deleteComment: (comment) => dispatch( deleteComment(comment)),
 
