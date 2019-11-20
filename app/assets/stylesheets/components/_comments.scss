@@ -95,8 +95,13 @@
 }
 
 .CommentLike-btn{
+    display: flex;
+    align-content: left;
+    flex-direction: row;
+    justify-content: space-evenly;
     background-color: transparent;
     color: grey;
+    width: 29px;
 }
 .CommentLike-btn:hover{
     background-color: transparent;
@@ -106,7 +111,16 @@
 
 
 .CommentLiked-btn{
+    display: flex;
+    align-content: left;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 29px;
     background-color: transparent;
+    color: grey;
+}
+
+.CommentLiked-btn i{
     color: red;
 }
 
