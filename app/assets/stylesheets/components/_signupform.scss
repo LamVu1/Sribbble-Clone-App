@@ -143,6 +143,63 @@
     background-color:  rgb(228, 229, 151);
 }
 
+.signup-profilepicture{
+    border: white solid 4px;
+    border-radius: 4pt;
+    padding: 10px;  
+    position: absolute;
+    background-color: white;
+    right: 15%;
+    top: 25%;
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 500;
+    
+}
+
+.signup-profilepicture button{
+    background: #ea4c88;
+    border-radius: 4px;
+    border: none;
+    
+    // padding: 10px 12px;
+    // margin: 0 8px 10px 0;
+    color: #fff;
+    padding: 0;
+    margin: 0;
+}
+
+.signup-profilepicture h1{
+    font-size: 25px;
+}
+.signup-profilepreview{
+    border-radius: 200pt;
+    height: 400px;
+    width: 400px;
+   
+}
+
+input[type="file"] {
+  cursor: pointer;
+}
+
+#signup-previewimage{
+    border-radius: 4pt;   
+    text-decoration: none;
+    padding: 5px;
+}
+.signup-btndiv{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 10px 0px;
+}
+
+#remove-btn{
+    color: #fff;
+    padding: 5px;
+    margin: 0;
+}
+
 @media only screen and (max-width: 1200px) {
 
 

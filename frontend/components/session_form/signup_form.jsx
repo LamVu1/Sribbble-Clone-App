@@ -9,21 +9,46 @@ class SignupForm extends React.Component {
       this.state = { username: '',
                      password: '',
                      email: '',
-                     location: ''
+                     location: '',
+                     profile_picture: null
                    };
-
+      this.preview='profile.png';
       this.handleSubmit = this.handleSubmit.bind(this);
+      this.handleFile = this.handleFile.bind(this);
+      this.removeImage = this.removeImage.bind(this);
+
   }
 
   handleUpdate(field){
     return(e => this.setState({[field]: e.currentTarget.value}))
   }
 
+  handleFile(e){
+    e.stopPropagation()
+    this.setState({profile_picture: e.currentTarget.files[0]});
+    var file= e.currentTarget.files[0];
+    this.preview = URL.createObjectURL(file)
+  }
+
+  removeImage(e){
+    e.preventDefault()
+    e.stopPropagation()
+    this.setState({profile_picture: null});
+    debugger
+    document.getElementById("signup-previewimage").value = "";
+    this.preview='profile.png';
+  }
+
   handleSubmit(e){
     e.preventDefault();
-
-    const user = Object.assign({}, this.state);
-    this.props.signup(user);
+    const formData = new FormData() ;
+    formData.append('user[username]', this.state.username);
+    formData.append('user[password]', this.state.password);
+    formData.append('user[email]', this.state.email);
+    formData.append('user[location]', this.state.location);
+    formData.append('user[profile_picture]', this.state.profile_picture);
+    
+    this.props.signup(formData);
   }
 
   renderErrors(){
@@ -97,6 +122,20 @@ class SignupForm extends React.Component {
                          <input type="text" value={this.state.location} onChange={this.handleUpdate('location')} className="signup-input"/> 
                       </label>
                       <br/>
+                      <div className="signup-profilepicture">
+                        <h1>Add a profile picture</h1>
+                          
+                          <img className="signup-profilepreview" src={this.preview}/>
+                          <div className="signup-btndiv">
+                            <button>
+                                <input id="signup-previewimage" type="file" placeholder="Upload Image" onChange={this.handleFile}/> 
+                                  
+                            </button>
+
+                            <button id="remove-btn" onClick={this.removeImage}>Remove Image</button>
+                          </div>
+                      
+                      </div>
                       
                       <input className="session-submit" type="submit" value='Create Account' />
                       
