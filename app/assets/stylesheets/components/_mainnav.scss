@@ -44,7 +44,7 @@
 
 .Upload-btn{
     text-decoration: none;
-    display: inherit;
+    display: flex;
     flex-direction: row;
     justify-content: center;
     height: 27px;
@@ -57,6 +57,10 @@
     color: #fff;
     margin-top:3px;
     cursor: pointer;
+}
+
+.Upload-btn i {
+    padding-right: 5px;
 }
 
 .Upload-btn:hover{
@@ -156,6 +160,7 @@
 
 .nav-profile{
     display: flex;
+    margin-right: 15px;
 }
 
 .nav-button{

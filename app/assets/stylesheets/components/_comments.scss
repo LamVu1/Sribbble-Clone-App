@@ -13,6 +13,8 @@
 }
 
 .Comment-Container{
+    display: flex;
+    flex-direction: row;
     padding-bottom: 5px;
     padding: 0;
     font-size: 14px;
@@ -23,13 +25,32 @@
      border-bottom: 1px solid #ddd;
 }
 
+.Comment-ProfilePicture{
+    height: 50px;
+    width: 50px;
+    border-radius: 250pt;
+    margin-right: 20px;
+    margin-top: 5px;
+}
+
+.Comment-Content{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    margin-top: 8px;
+}
+
 .Comment-Author{
     color: #444;
     font-weight: bolder;
     line-height: 1.4em;
     font-size: 16px;
+    margin-bottom: 3px;
     font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
+
+
+
 
 .Comment-Body{
     color: #555;
@@ -37,6 +58,10 @@
     font-size: 15px;
     line-height: 1.5;
     padding-bottom: 20px;
+}
+
+.CommentLike-Container{
+    margin-top: 15px;
 }
 
 .Comment-Form{
@@ -58,6 +83,16 @@
 .Comment-Body-Section{
     padding: 30px 20px 30px 20px;
     margin-bottom: 30px;
+}
+
+.Comment-Deletebtn{
+    margin: 5px 0px;
+    padding: 3px 6px;
+    width: 36px;
+}
+
+.Comment-Deletebtn:hover{
+    background-color: red;
 }
 
 .Comment-Form-Container{
@@ -86,6 +121,7 @@
     border-width: 1.2pt;
     background-color: rgba(255, 255, 255, 0.664);
 }
+
 
 .Comment-Bottom-Div{
     display: flex;

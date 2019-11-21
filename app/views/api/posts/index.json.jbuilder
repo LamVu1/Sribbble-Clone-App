@@ -12,5 +12,10 @@
        if post.image.attached?
           json.imageURL url_for(post.image)
        end
-    end
+       if post.author.profile_picture.attached?
+         json.profile_picture url_for(post.author.profile_picture)
+      else
+         json.profile_picture 'profile.png'
+      end
+   end
 end

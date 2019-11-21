@@ -19,11 +19,15 @@
 
 .Author-Container{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
 }
 
+
+.Post-index-author-Div{
+    display: flex;
+    flex-direction: column;
+}
 .Post-index-title{
-    margin: 0 0 4px;
     padding: 0;
     font-size: 20px;
     font-weight: 500;
@@ -75,9 +79,17 @@
     flex-direction: row;
 }
 
+.Post-ProfilePicture{
+    height: 50px;
+    width: 50px;
+    border-radius: 250pt;
+    margin-right: 15px;
+}
+
 .Post-index-description{
     color: #555;
     font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    padding: 0px 15px;
     font-size: 16px;
     font-weight: 500;
     line-height: 1.5;
@@ -107,6 +119,10 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: flex-start;
+}
+
+.Delete-Btn{
+    margin-left: 25px;
 }
 
 .Delete-Btn:hover{
