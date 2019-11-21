@@ -18,6 +18,7 @@ export const getUser = userId => {
             method: 'GET',
             url: `/api/user`,
             data: {userId}
+           
           }
         )
       )
@@ -29,7 +30,9 @@ export const signup = user => {
       {
         method: 'POST',
         url: '/api/user',
-        data: { user }
+        data: user,
+        contentType: false,
+        processData: false
       }
     )
   )

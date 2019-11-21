@@ -17,17 +17,22 @@ class Nav extends React.Component {
     handleUpload(){
         this.props.history.push('/posts/new')
     }
-    // <Link to="/posts/new" style={{ textDecoration: 'none', color: '#999' }}> Upload</Link>
 
     render(){
     let sessionLinks;
-    if(this.props.currentUser)
+    if(this.props.session)
         {
             sessionLinks = 
                 <hgroup className="nav-group">
+                    <div className="nav-profile">
+
                     <h2 className="nav-name">
                         Hello, {this.props.currentUser.username}!
                     </h2>
+                    <img className="profile-image" src={this.props.currentUser.imageURL}/>
+
+                    </div>
+                   <div className="nav-button">
                     <button className="Upload-btn" onClick={this.handleUpload}>
                         
                          <Link to="/posts/new" style={{ textDecoration: 'none', color: '#999' }}><i className="fas fa-cloud-upload-alt"></i> Upload</Link>
@@ -36,6 +41,8 @@ class Nav extends React.Component {
                     <button className="nav-logout-btn" onClick={this.handleSubmit}>
                         Log Out
                     </button>
+                       
+                       </div> 
                 </hgroup>
         }
 
