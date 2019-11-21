@@ -25,7 +25,7 @@ class CommentLikeIndex extends React.Component{
         let count=this.props.likes.filter(commentlikes=>(commentlikes.comment_id=== this.props.comment_id)).length
         
         return(
-            <div>
+            <div className="CommentLike-Container">
                  
                 {
                     this.props.likes.filter(commentlikes=>(commentlikes.user_id===this.props.currentuser_id && commentlikes.comment_id=== this.props.comment_id)).length===0

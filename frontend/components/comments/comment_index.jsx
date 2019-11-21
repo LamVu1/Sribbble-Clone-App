@@ -1,8 +1,7 @@
 import React from 'react';
-import {withRouter} from 'react-router-dom';
+import {withRouter, Link} from 'react-router-dom';
 import {calcTime} from '../../utils/calculate_time';
 import CommentLikeIndex from '../comment_likes/comment_likes_index_container';
-
 
 class CommentIndex extends React.Component{
     constructor(props){
@@ -11,6 +10,7 @@ class CommentIndex extends React.Component{
         this.handleSubmit = this.handleSubmit.bind(this)
         this.handleUpdate = this.handleUpdate.bind(this)
         this.handleDelete = this.handleDelete.bind(this)
+        this.handleLink = this.handleLink.bind(this);
     }
 
     componentDidMount(){
@@ -18,6 +18,11 @@ class CommentIndex extends React.Component{
         let commentLike = {post_id: this.props.PostId, comment_id: 1}
         this.props.fetchcommentLikes(commentLike);
     }
+
+    handleLink(){
+        this.props.closeModal()
+    }
+
 
     handleUpdate(field){
         return(e=>{this.setState({[field]: e.target.value})});
@@ -40,22 +45,31 @@ class CommentIndex extends React.Component{
         let comments = this.props.comments.map((comment, idx)=>{
             let btn;
             if(this.props.currentUser===comment.user_id){
-                btn= <button onClick={()=>this.handleDelete(comment)}>Delete Comment</button>
+                btn= <button className="Comment-Deletebtn" onClick={()=>this.handleDelete(comment)}>Delete</button>
             }
             return(
                 <li key={idx} className="Comment-Container">
-                    <p className="Comment-Author">{comment.author}</p>
-                    <p className="Comment-Body">{comment.body}</p>
-                    <div className="Comment-Bottom-Div">
-                    <p className="Comment-Time">{calcTime(comment.create_at)}</p>
+                    <Link to={`/profile/${comment.user_id}`} onClick={this.handleLink}>
+                        <img className="Comment-ProfilePicture" src={comment.profile_picture}/>
+                    </Link>
+                    <div className="Comment-Content">
+                        <p className="Comment-Author">
+                            <Link to={`/profile/${comment.user_id}`} onClick={this.handleLink}>
+                        {comment.author}
+                            </Link>
+                        </p>
+                        <p className="Comment-Body">{comment.body}</p>
+                        <div className="Comment-Bottom-Div">
+                        <p className="Comment-Time">{calcTime(comment.create_at)}</p>
+                        </div>
+                        {btn}
+                    </div>
                     <CommentLikeIndex 
                         post_id = {this.props.PostId}
                         comment_id = {comment.id}
                         commentlike = {this.props.commentlike}
                     
                     />
-                    </div>
-                    {btn}
                 </li>
             )
         })

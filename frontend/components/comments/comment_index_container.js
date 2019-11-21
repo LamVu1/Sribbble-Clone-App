@@ -3,6 +3,7 @@ import { withRouter } from 'react-router-dom';
 import CommentIndex from './comment_index';
 import {fetchComments, createComment, deleteComment} from '../../actions/comment_actions';
 import {fetchcommentLikes} from '../../actions/comment_likes_actions';
+import {closeModal} from '../../actions/modal_action';
 
 const mapStateToProps=(state, ownProps)=>{
 
@@ -24,6 +25,7 @@ const mapDispatchToProps=dispatch=>{
             fetchcommentLikes: (commentlike) => dispatch( fetchcommentLikes(commentlike)),
             createComment: (comment) => dispatch( createComment(comment)),
             deleteComment: (comment) => dispatch( deleteComment(comment)),
+            closeModal: () => dispatch( closeModal())
 
         }
     )
