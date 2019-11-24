@@ -4,6 +4,7 @@ import CommentIndex from '../comments/comment_index_container';
 import LikeIndex from '../likes/like_index_container';
 import FollowIndex from '../follows/follow_index_container';
 import {withRouter} from 'react-router-dom';
+import {calcTime} from '../../utils/calculate_time';
 
 
 class PostDetail extends React.Component{
@@ -12,7 +13,9 @@ class PostDetail extends React.Component{
         super(props);
         this.handleDelete = this.handleDelete.bind(this);
         this.handleProfile = this.handleProfile.bind(this);
-        this.handleLink = this.handleLink.bind(this);              
+        this.handleLink = this.handleLink.bind(this);
+        // debugger
+        
     }
 
   
@@ -84,6 +87,16 @@ class PostDetail extends React.Component{
                     <div className="Post-index-container">
                         <p className="Post-index-description">
                         {this.props.post.description}</p>
+                        <div>
+                            <p>
+                                {this.props.likes.length} Likes
+                            </p>
+                            
+                            <p className="Comment-Time">Created {calcTime(this.props.post.create_at)} ago</p>
+                            
+
+
+                        </div>
                     
                         <CommentIndex
                         PostId={this.props.post.id}

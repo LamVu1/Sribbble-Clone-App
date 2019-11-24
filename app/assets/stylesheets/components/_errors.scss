@@ -1,0 +1,32 @@
+.Errors-Banner{
+    display: none;
+    width: 100%;
+    background-color: rgb(245, 64, 124);
+    position: absolute;
+    font-weight: bold;
+    top: 50px;
+    color: white;
+    font: normal 20px "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.Errors-Banner h1{
+    font-size: 25px;
+    font-weight: bolder;
+    margin: 10px 0px 0px 10px;
+}
+
+.Errors-Container{
+    padding: 10px 0px 0px 20px;
+    font-weight: bold;
+    margin-left: 20px;
+}
+
+.Errors-Container li{
+    list-style: disc;
+}
+
+.Close-Bannerbtn{
+    position: absolute;
+    right: 15px;
+    top: 5px;
+}
