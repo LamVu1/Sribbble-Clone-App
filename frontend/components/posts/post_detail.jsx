@@ -4,7 +4,7 @@ import CommentIndex from '../comments/comment_index_container';
 import LikeIndex from '../likes/like_index_container';
 import FollowIndex from '../follows/follow_index_container';
 import {withRouter} from 'react-router-dom';
-import {calcTime} from '../../utils/calculate_time';
+import {calcTime} from '../../utils/calc';
 
 
 class PostDetail extends React.Component{
@@ -87,23 +87,22 @@ class PostDetail extends React.Component{
                     <div className="Post-index-container">
                         <p className="Post-index-description">
                         {this.props.post.description}</p>
-                        <div>
-                            <p>
-                                {this.props.likes.length} Likes
-                            </p>
-                            
-                            <p className="Comment-Time">Created {calcTime(this.props.post.create_at)} ago</p>
-                            
-
-
-                        </div>
-                    
-                        <CommentIndex
-                        PostId={this.props.post.id}
-                        currentUser = {this.props.user_id}
-                        commentlike = {this.props.post.commentlike}
-                        />
+                        <div className="Post-Lower-Div">
                         
+                            <CommentIndex
+                            PostId={this.props.post.id}
+                            currentUser = {this.props.user_id}
+                            commentlike = {this.props.post.commentlike}
+                            />
+                        
+                            <div className="Post-status">
+                                <p><i class="fas fa-eye"></i></p>
+                                <p>
+                                <i className="fas fa-heart"></i> {this.props.likes.length} Likes
+                                </p>
+                                <p className="Comment-Time"><i class="far fa-calendar-alt"></i> {calcTime(this.props.post.create_at)}</p>
+                            </div>
+                        </div>
                     </div>
             </div>
         )
