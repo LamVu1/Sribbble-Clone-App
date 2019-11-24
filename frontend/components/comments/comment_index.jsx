@@ -76,7 +76,6 @@ class CommentIndex extends React.Component{
 
         return(
             <div className="Comment-Section">
-                <h1 className="Comment-Count">{comments.length} Responses</h1>
                 <div className="Comment-Form-Container">
                     <form className="Comment-Form" onSubmit={this.handleSubmit}>
                         <label>Add Comment:</label>
@@ -85,6 +84,7 @@ class CommentIndex extends React.Component{
                         <input className="Comment-Submit" type="submit" value="Submit"/>
                     </form>
                 </div>
+                <h1 className="Comment-Count">{comments.length} Responses</h1>
                 
                 <ul className="Comment-Body-Section">
                     {comments}

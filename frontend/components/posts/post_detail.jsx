@@ -5,7 +5,7 @@ import LikeIndex from '../likes/like_index_container';
 import FollowIndex from '../follows/follow_index_container';
 import {withRouter} from 'react-router-dom';
 import {calcTime} from '../../utils/calc';
-
+import {updateTime} from '../../utils/updatetime';
 
 class PostDetail extends React.Component{
 
@@ -13,11 +13,21 @@ class PostDetail extends React.Component{
         super(props);
         this.handleDelete = this.handleDelete.bind(this);
         this.handleProfile = this.handleProfile.bind(this);
-        this.handleLink = this.handleLink.bind(this);
-        // debugger
-        
+        this.handleLink = this.handleLink.bind(this);  
     }
 
+    componentDidMount(){
+        // if(!this.updated){
+        //     this.props.post.view +=1;
+        //     this.props.updatePost(this.props.post);
+        //     this.updated = true;
+        // }
+        // else{
+            if(updateTime(this.props.post.updated_at)){
+            this.props.post.view +=1;
+            this.props.updatePost(this.props.post);
+        }
+    }
   
 
     handleDelete(id){
@@ -34,7 +44,7 @@ class PostDetail extends React.Component{
     }
 
     render(){
-     
+        
         let deletebtn;
         if(this.props.user_id===this.props.post.author_id){
             deletebtn = <button className="Delete-Btn" onClick={()=>this.handleDelete(this.props.post.id)}>Delete</button>
@@ -96,11 +106,11 @@ class PostDetail extends React.Component{
                             />
                         
                             <div className="Post-status">
-                                <p><i class="fas fa-eye"></i></p>
+                                <p><i className="fas fa-eye"></i>{this.props.post.view} views</p>
                                 <p>
-                                <i className="fas fa-heart"></i> {this.props.likes.length} Likes
+                                <i className="fas fa-heart"></i> {this.props.likes.length} likes
                                 </p>
-                                <p className="Comment-Time"><i class="far fa-calendar-alt"></i> {calcTime(this.props.post.create_at)}</p>
+                                <p className="Comment-Time"><i className="far fa-calendar-alt"></i> {calcTime(this.props.post.created_at)}</p>
                             </div>
                         </div>
                     </div>

@@ -135,11 +135,20 @@
 }
 
 .Post-status{
-    width: 30%;
-    padding: 20px;
+    width: 25%;
+    padding: 25px 20px 20px 40px;
     font-size: 14px;
     font-weight: 500;
-    line-height: 1.3;   
+    line-height: 1.3;
     font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color:#999;
+    color: #999;
+}
+
+.Post-status p {
+    margin-bottom: 10px;
+}
+
+.Post-status i {
+    margin-right: 6px;
+    font-size: 16px;
 }

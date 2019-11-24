@@ -39,7 +39,7 @@ export const updatePost = (post) => {
         $.ajax(
             {
                 method: 'PATCH',
-                url: `/api/posts`,
+                url: `/api/posts/${post.id}`,
                 data: {post}
             }
         )
