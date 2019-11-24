@@ -1,11 +1,13 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import ErrorsContainer from '../errors/errors_container';
+
 
 class CreatePostForm extends React.Component {
  
   constructor(props){
     super(props);
-    this.state = {title:'', description:'', image:null};
+    this.state = {title:'', description:'', image:null, errors: []};
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleFile = this.handleFile.bind(this);
     this.handleDrop = this.handleDrop.bind(this);
@@ -23,14 +25,19 @@ class CreatePostForm extends React.Component {
 
   handleSubmit(e){
     e.preventDefault();
+    if(this.state.title==='' || this.state.description===''|| this.state.image===null){
+      // this.setState({errors: this.state.errors.push('yes')})
+
+      return
+    }
     const formData = new FormData() ;
     formData.append('post[title]', this.state.title);
     formData.append('post[description]', this.state.description);
     formData.append('post[image]', this.state.image);
-    let submitloader = document.getElementsByClassName('lds-facebook')
-    submitloader[0].style.display = "block"
+    // let submitloader = document.getElementsByClassName('lds-facebook')
+    // submitloader[0].style.display = "block"
+    // setTimeout(function(){  submitloader[0].style.display = "none" }, 3000);
     this.props.createPost(formData).then(()=> {
-      setTimeout(function(){  submitloader[0].style.display = "none" }, 3000);
       this.props.history.push('/')})
   }
 
@@ -90,6 +97,9 @@ class CreatePostForm extends React.Component {
 
 
         <div className="CreateForm-Container">
+            <ErrorsContainer 
+          errors={this.state.errors}
+          />
           <div className="lds-facebook"><div></div><div></div><div></div></div>
             <h1 className="CreateForm-Header">Publish your Shot</h1>
 

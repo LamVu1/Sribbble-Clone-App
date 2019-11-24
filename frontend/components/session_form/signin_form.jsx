@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import ErrorsContainer from '../errors/errors_container';
 
 class SigninForm extends React.Component {
     constructor(props){
@@ -56,9 +56,10 @@ class SigninForm extends React.Component {
     return (
 
       <div className="signin-form-container">
+        <ErrorsContainer 
+        errors = {this.props.errors}
+        />
         
-          {this.renderErrors()}
-          
           <form onSubmit={this.handleSubmit} className="signin-form-box">
               <Link to='/'>
               <img className='signin-logo' src={window.img2} /></Link>

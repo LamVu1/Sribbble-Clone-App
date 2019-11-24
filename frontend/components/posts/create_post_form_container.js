@@ -8,7 +8,7 @@ import { createPost } from '../../actions/posts_actions';
 const mapStateToProps = state => {
     
     return(
-        {
+        {   
             post: {title:"", description:""}
         }
     )
@@ -18,7 +18,9 @@ const mapDispatchToProps = dispatch => {
     
     return(
         {
-            createPost: (formData) => dispatch(createPost(formData))
+            createPost: (formData) => dispatch(createPost(formData)),
+            clearErrors: () => dispatch( clearErrors())
+
         }
     )
 }

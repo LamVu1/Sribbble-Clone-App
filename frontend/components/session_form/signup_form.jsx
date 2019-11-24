@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import ErrorsContainer from '../errors/errors_container';
 
 class SignupForm extends React.Component {
   
@@ -34,7 +34,6 @@ class SignupForm extends React.Component {
     e.preventDefault()
     e.stopPropagation()
     this.setState({profile_picture: null});
-    debugger
     document.getElementById("signup-previewimage").value = "";
     this.preview='profile.png';
   }
@@ -51,21 +50,21 @@ class SignupForm extends React.Component {
     this.props.signup(formData);
   }
 
-  renderErrors(){
-      return(
-          <ul>
-            {this.props.errors.map((error, i) => (
+  // renderErrors(){
+  //     return(
+  //         <ul>
+  //           {this.props.errors.map((error, i) => (
 
-                <li className='errors' key={`error-${i}`}>
+  //               <li className='errors' key={`error-${i}`}>
                   
-                  {error}
+  //                 {error}
 
-                </li>
+  //               </li>
 
-            ))}
-          </ul>
-      );
-  }
+  //           ))}
+  //         </ul>
+  //     );
+  // }
 
   componentWillUnmount(){
     this.props.clearErrors();
@@ -75,6 +74,13 @@ class SignupForm extends React.Component {
 
     return (
       <div className="signup-form-container">
+        
+            <ErrorsContainer 
+          errors={this.props.errors}
+          />
+          
+            
+  
 
           <div className="signup-header-container">
                 <div className="signup-header">
@@ -89,7 +95,6 @@ class SignupForm extends React.Component {
                   <div className="signup-form">
                       <h2 className="signup-form-h2">Discover the worlds top designers & creatives</h2>
                       <p className="tag">The go-to destination for discovering and connecting with designers and creative talent around the globe.</p>
-                      {this.renderErrors()}
 
                       <br/>
                       <label className="signup-label">
