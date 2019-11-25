@@ -27,14 +27,14 @@ class User < ApplicationRecord
     foreign_key: :user_id,
     class_name: :CommentLike
 
+    has_many :follows,
+    primary_key: :id,
+    foreign_key: :follower_id,
+    class_name: :Follow
+
     has_many :authors,
     primary_key: :id,
     foreign_key: :user_id,
-    class_name: :Follow
-
-    has_many :followers,
-    primary_key: :id,
-    foreign_key: :follower_id,
     class_name: :Follow
 
   

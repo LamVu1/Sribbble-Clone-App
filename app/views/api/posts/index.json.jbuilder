@@ -6,7 +6,7 @@
        json.author_id post.author_id
        json.author post.author.username
        json.location post.author.location
-       json.follower_id post.author.followers
+       json.follower_id post.author.follows
        json.likes post.likes
        json.view post.view
        json.commentlike post.commentlikes

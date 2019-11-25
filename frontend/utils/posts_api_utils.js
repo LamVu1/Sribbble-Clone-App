@@ -9,12 +9,13 @@ export const fetchPosts = () => {
     )
 };
 
-export const fetchPost = (id) => {
+export const fetchPost = (post) => {
     return(
         $.ajax(
             {
                 method: 'GET',
-                url: `/api/posts/${id}`,
+                data: {post},
+                url: `/api/posts/${post.id}`,
             }
         )
     )

@@ -15,7 +15,6 @@ class Api::UsersController < ApplicationController
     end
     
     def show
-      
       @user = User.find(params[:userId])
       if @user
         render "api/users/show"
