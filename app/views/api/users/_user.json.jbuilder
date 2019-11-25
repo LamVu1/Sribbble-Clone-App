@@ -4,3 +4,7 @@ if user.profile_picture.attached?
 else
     json.imageURL 'profile.png'
 end
+json.followers user.follows
+json.authors user.authors
+json.likes user.likes
+json.posts user.posts

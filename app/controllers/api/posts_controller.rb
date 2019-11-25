@@ -19,6 +19,17 @@ class Api::PostsController < ApplicationController
         render :index
     end
 
+    def show
+        
+        @post = Post.find(params[:post][:arr]
+        )
+        if @post
+            render :index
+        else
+        render json: @post.errors.full_messages, status: 422
+        end
+    end
+
     def update
         
         @post = Post.find(params[:id])

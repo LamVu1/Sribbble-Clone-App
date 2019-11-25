@@ -14,7 +14,8 @@ const profileReducer = (oldstate = {}, action) => {
     case CLEAR_PROFILE:
       return emptyState;
     default:
-      return emptyState;
+        nextState = {...oldstate};
+      return nextState;
   }
   
 };
