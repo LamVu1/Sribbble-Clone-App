@@ -1,4 +1,4 @@
-# Scribbble
+# Scribbblez
 ![alt text](https://github.com/LamVu1/Sribbble-Clone-App/blob/master/app/assets/images/Peek%202019-10-08%2016-15.gif)
 Scribbblez is a web application inspired by Dribbble a social media platform for designers and artists to share their artwork.
 [Demo](https://scribbblez.herokuapp.com/#/)
