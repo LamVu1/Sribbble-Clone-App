@@ -1,12 +1,13 @@
 # Scribbble
 ![alt text](https://github.com/LamVu1/Sribbble-Clone-App/blob/master/app/assets/images/Peek%202019-10-08%2016-15.gif)
-Scribbble taking application based on the functionality of Dribbble a social media platform for designers and artists to share their artwork.
+Scribbblez is a web application inspired by Dribbble a social media platform for designers and artists to share their artwork.
+[Demo](https://scribbblez.herokuapp.com/#/)
 
 # Technologies
 - Database: [PostgreSQL](https://www.postgresql.org/)
-- Backend: Ruby on Rails
-- Frontend Components: React
-- Frontend State: Redux
+- Backend: [Ruby on Rails](https://rubyonrails.org/)
+- Frontend Components: [React.js](https://reactjs.org/)
+- Frontend State: [Redux](https://redux.js.org/)
 
 # Features
 - Users are able to log in, sign up, and log out.
