@@ -10,28 +10,48 @@ import ProfileMessageContainer from './message'
 class ProfileNav extends React.Component{
     constructor(props){
         super(props);
+        this.state ={profile:[]};
+        this.followings = [];
+        this.followers = [];
+        this.likes = [];
+        this.shots = [];
+    }
+
+    componentDidMount(){
+        this.props.getUser(this.props.author_id).then(profile=>
+
+            {this.setState({profile: [...this.state.profile,profile.user]})});
     }
    
     render(){
+        this.state.profile.map((profile,idx)=>{
+            this.followings = profile.authors;
+            this.followers = profile.followers;
+            this.likes = profile.likes;
+            this.shots = profile.posts
+        })
 
                 
         return(
             <div className="Profile-Lists">
-                <p>
+                <div className="Profile-List-Div">
                     <Link to={`/profile/${this.props.author_id}`}>
                         Shots
                     </Link>
-                </p>
-                <p>
+                    <p>{this.shots.length}</p>
+                </div>
+                <div className="Profile-List-Div">
                     <Link to={`/following/${this.props.author_id}`}>
                         Followers
                     </Link>
-                </p>
-                <p>
+                    <p>{this.followings.length}</p>
+                </div>
+                <div className="Profile-List-Div">
                     <Link to={`/like/${this.props.author_id}`}>
                         Likes
                     </Link>
-                </p>
+                    <p>{this.likes.length}</p>
+                </div>
 
               
             </div> 

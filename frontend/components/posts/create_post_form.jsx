@@ -34,9 +34,9 @@ class CreatePostForm extends React.Component {
     formData.append('post[title]', this.state.title);
     formData.append('post[description]', this.state.description);
     formData.append('post[image]', this.state.image);
-    // let submitloader = document.getElementsByClassName('lds-facebook')
-    // submitloader[0].style.display = "block"
-    // setTimeout(function(){  submitloader[0].style.display = "none" }, 3000);
+    let submitloader = document.getElementsByClassName('lds-facebook')
+    submitloader[0].style.display = "block"
+    setTimeout(function(){  submitloader[0].style.display = "none" }, 3000);
     this.props.createPost(formData).then(()=> {
       this.props.history.push('/')})
   }

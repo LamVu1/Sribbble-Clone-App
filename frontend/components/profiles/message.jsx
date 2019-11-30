@@ -10,7 +10,7 @@ import {update} from '../../actions/profile_actions';
 class ProfileMessage extends React.Component{
     constructor(props){
         super(props);
-        this.state={message: this.props.message}
+        this.state={message: 'Hello'}
         this.handleUpdate = this.handleUpdate.bind(this);
         this.handleSubmit= this.handleSubmit.bind(this);
         this.handleButton = this.handleButton.bind(this);
@@ -18,7 +18,13 @@ class ProfileMessage extends React.Component{
     }
 
     componentDidMount(){
-        this.props.getUser(this.props.id);
+        this.props.getUser(this.props.id).then(user=>{
+           if(user.user.message===null){return}
+           else{
+            this.setState({message: user.user.message})
+            }
+        })
+        console.log(this.state.message)
     }
    
 
@@ -42,11 +48,11 @@ class ProfileMessage extends React.Component{
             f[0].style.display = "none";
             message[0].style.display = "block";
             btn[0].style.display = "block";
-            btn[0].innerHTML = "Edit Message"
+            btn[0].innerHTML = "Edit"
             this.showform=false;
         }
         else{
-            f[0].style.display = "block";
+            f[0].style.display = "flex";
             message[0].style.display = "none";
             btn[0].innerHTML = "Cancel"
             this.showform = true;
@@ -57,8 +63,10 @@ class ProfileMessage extends React.Component{
     render(){ 
 
         let form = <form className="Profile-Message-Form" onSubmit={this.handleSubmit} style={{display: 'none'}}>
-        <textarea value={this.state.message} onChange={this.handleUpdate()}></textarea>
+        <textarea value={this.state.message} onChange={this.handleUpdate()} maxlength="200"></textarea>
+        <button>
         <input type="submit"/>
+        </button>
         </form>
 
         let message = <p className="Profile-Message" style={{display: 'block'}}>{this.state.message}</p>
@@ -68,7 +76,7 @@ class ProfileMessage extends React.Component{
         return(
             <div className="Profile-Message-Container">
                 <button className="Profile-Message-Btn" onClick={this.handleButton}>
-                    Edit Message
+                    Edit
                 </button>
                 {form}
                 {message}
@@ -81,9 +89,8 @@ class ProfileMessage extends React.Component{
 const mapStateToProps=(state, ownProps)=>{
     
     return(
-        {   id: ownProps.id,
-            message: ownProps.message
-        
+        {   
+            id: ownProps.id,        
         }
     )
 }

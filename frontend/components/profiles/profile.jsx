@@ -16,6 +16,7 @@ class ProfileIndex extends React.Component{
         this.followings = [];
         this.followers = [];
         this.likes = [];
+        
     }
 
     componentDidMount(){
@@ -26,6 +27,7 @@ class ProfileIndex extends React.Component{
 
     componentWillUnmount(){
         this.props.exitProfile();
+        
     }
 //     <div className="Profile-Lists">
 //     <p>Shots {authorPost.length}</p>
@@ -54,6 +56,7 @@ class ProfileIndex extends React.Component{
         let name;
 
         this.state.profile.map((profile,idx)=>{
+            
             name=<h1 className="Profile-Name" key={idx}>{profile.username}</h1>
             location=<p className="Profile-Location" key={idx}>{profile.location}</p>
             this.pic = profile.imageURL;
@@ -72,6 +75,9 @@ class ProfileIndex extends React.Component{
                         <img className="Profile-Picture" src={this.pic} alt=""/>
                         {name}
                         {location}
+                        <ProfileMessageContainer 
+                            id = {this.props.author_id}
+                        />
                     </div>
                     <div className="Profile-Posts">
                         {posts}

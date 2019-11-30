@@ -6,12 +6,17 @@ class Nav extends React.Component {
     constructor(props){
         super(props);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleLink = this.handleLink.bind(this);
         
     }
 
     handleSubmit(e){
         e.preventDefault();
         this.props.logout();
+    }
+
+    handleLink(){
+        this.props.exitProfile();
     }
 
     render(){
@@ -25,10 +30,8 @@ class Nav extends React.Component {
                     <h2 className="nav-name">
                         Hello, {this.props.currentUser.username}!
                     </h2>
-                    <Link to={`/profile/${this.props.currentUser.id
-}`}>
+                    <Link to={`/profile/${this.props.currentUser.id}`} onClick={this.handleLink}>
                         <img className="profile-image" src={this.props.currentUser.imageURL}/>
-                    
                     </Link>
 
                     </div>
