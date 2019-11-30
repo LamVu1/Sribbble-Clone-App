@@ -10,8 +10,6 @@ Scribbblez is a web application inspired by Dribbble a social media platform for
 - Users are allow to comment posts and like comments.
 - Users can follow other users and like posts.
 
-# [Demo](https://scribbblez.herokuapp.com/#/)
-
 # Technologies
 - Database: [PostgreSQL](https://www.postgresql.org/)
 - Backend: [Ruby on Rails](https://rubyonrails.org/)
@@ -25,13 +23,27 @@ Scribbblez backend utilizes Ruby on Rails web application framework and PostgreS
 ## Sign In/Sign Up
 Allow the user to use the application's features only when signed in. User's can upload a profile picture when they are signing up.
 
+![alt text](https://github.com/LamVu1/Sribbble-Clone-App/blob/master/app/assets/images/Signin.png)
+![alt text](https://github.com/LamVu1/Sribbble-Clone-App/blob/master/app/assets/images/Signup.png)
+
 ## Post
 Allow the users to post images by either browsing file or drag and drop.
 
-## Likes and Comments
+![alt text](https://github.com/LamVu1/Sribbble-Clone-App/blob/master/app/assets/images/Posting.gif)
+![alt text](https://github.com/LamVu1/Sribbble-Clone-App/blob/master/app/assets/images/PostDetail.png)
 
+## Likes and Comments
 Users can leave comments and like a post and a comment.
 A posts status detail will show the total likes and views this post received.
 
+![alt text](https://github.com/LamVu1/Sribbble-Clone-App/blob/master/app/assets/images/liking.png)
+![alt text](https://github.com/LamVu1/Sribbble-Clone-App/blob/master/app/assets/images/commenting.png)
+
+![alt text](https://github.com/LamVu1/Sribbble-Clone-App/blob/master/app/assets/images/status.png)
 
 ## Profile
+User's can view their posts, liked posts, and other users they followed. User's can also leave a profile message or introduction for other user's to see.
+
+![alt text](https://github.com/LamVu1/Sribbble-Clone-App/blob/master/app/assets/images/ProfilePage.png)
+![alt text](https://github.com/LamVu1/Sribbble-Clone-App/blob/master/app/assets/images/Profilelikes.png)
+![alt text](https://github.com/LamVu1/Sribbble-Clone-App/blob/master/app/assets/images/profilefollows.png)
