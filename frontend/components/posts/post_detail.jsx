@@ -14,6 +14,7 @@ class PostDetail extends React.Component{
         this.handleDelete = this.handleDelete.bind(this);
         this.handleProfile = this.handleProfile.bind(this);
         this.handleLink = this.handleLink.bind(this);  
+        
     }
 
     componentDidMount(){
@@ -68,13 +69,18 @@ class PostDetail extends React.Component{
                             <p className="Post-index-author">by 
                                 <button onClick={this.handleProfile}>{this.props.post.author}</button>
                             </p>  
-                            <span>|</span>
-                         
-                            <FollowIndex 
+                            {(this.props.post.author_id!==this.props.user_id)
+                            
+                             ? 
+                             <div className="Post-index-follow">
+                             <div className="Post-index-divider">|</div>
+                             <FollowIndex 
                                 post={this.props.post} 
                                 follows={this.props.follows}
                             />
-
+                            </div>
+                            : <div></div>
+                            }
 
                           
                         </div>
