@@ -77,6 +77,7 @@ class ProfileIndex extends React.Component{
                         {location}
                         <ProfileMessageContainer 
                             id = {this.props.author_id}
+                            currentUser ={this.props.currentUser}
                         />
                     </div>
                     <div className="Profile-Posts">

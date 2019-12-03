@@ -70,14 +70,18 @@ class ProfileMessage extends React.Component{
         </form>
 
         let message = <p className="Profile-Message" style={{display: 'block'}}>{this.state.message}</p>
-    
+        
+        let btn;
+        if(this.props.currentUser===this.props.id){
+            btn =  <button className="Profile-Message-Btn" onClick={this.handleButton}>
+            Edit
+        </button>
+        }
         
     
         return(
             <div className="Profile-Message-Container">
-                <button className="Profile-Message-Btn" onClick={this.handleButton}>
-                    Edit
-                </button>
+                {btn}
                 {form}
                 {message}
             </div>
