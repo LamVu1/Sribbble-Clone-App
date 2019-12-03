@@ -27,7 +27,6 @@ class CreatePostForm extends React.Component {
     e.preventDefault();
     if(this.state.title==='' || this.state.description===''|| this.state.image===null){
       // this.setState({errors: this.state.errors.push('yes')})
-
       return
     }
     const formData = new FormData() ;
@@ -97,9 +96,7 @@ class CreatePostForm extends React.Component {
 
 
         <div className="CreateForm-Container">
-            <ErrorsContainer 
-          errors={this.state.errors}
-          />
+         
           <div className="lds-facebook"><div></div><div></div><div></div></div>
             <h1 className="CreateForm-Header">Publish your Shot</h1>
 
