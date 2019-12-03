@@ -11,6 +11,7 @@ class FollowingProfileIndex extends React.Component{
         super(props);
         this.state ={following:[], profile:[]};
         this.pic = '';
+        debugger
     }
 
     componentDidMount(){    

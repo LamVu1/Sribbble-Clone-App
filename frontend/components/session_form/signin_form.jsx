@@ -67,7 +67,7 @@ class SigninForm extends React.Component {
               <div className="signin-form">
                   
                   <br/>
-                  <label className="signin-label">Username or Email
+                  <label className="signin-label">Username
                       
                       <br/>
                       <input type="text"
