@@ -79,7 +79,17 @@ class SignupForm extends React.Component {
           errors={this.props.errors}
           />
           
-            
+          <div className="NAV-BAR">
+            <a href="https://www.linkedin.com/in/lam-vu-4b49a5117/">
+              <i id="linkedin" className="fab fa-linkedin"></i>
+            </a>
+            <a href="https://github.com/LamVu1" target="_blank">
+              <i id="github" className="fab fa-github"></i>
+            </a>
+            <a href="https://angel.co/lam-vu-2" target="_blank">
+              <i id="angellist" className="fab fa-angellist"></i>
+            </a>     
+		      </div>
   
 
           <div className="signup-header-container">

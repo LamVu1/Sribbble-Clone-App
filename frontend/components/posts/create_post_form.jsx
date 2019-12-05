@@ -100,6 +100,18 @@ class CreatePostForm extends React.Component {
           <div className="lds-facebook"><div></div><div></div><div></div></div>
             <h1 className="CreateForm-Header">Publish your Shot</h1>
 
+            <div className="NAV-BAR">
+            <a href="https://www.linkedin.com/in/lam-vu-4b49a5117/">
+              <i id="linkedin" className="fab fa-linkedin"></i>
+            </a>
+            <a href="https://github.com/LamVu1" target="_blank">
+              <i id="github" className="fab fa-github"></i>
+            </a>
+            <a href="https://angel.co/lam-vu-2" target="_blank">
+              <i id="angellist" className="fab fa-angellist"></i>
+            </a>     
+		      </div>
+
             <form className="CreateForm" onSubmit={this.handleSubmit}>
 
                 
