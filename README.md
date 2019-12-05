@@ -30,6 +30,7 @@ Allow the user to use the application's features only when signed in. User's can
 Allow the users to post images by either browsing file or drag and drop.
 
 ![alt text](https://github.com/LamVu1/Sribbble-Clone-App/blob/master/app/assets/images/Posting.gif)
+![alt text](https://github.com/LamVu1/Sribbble-Clone-App/blob/master/app/assets/images/dragdropsnippet.png)
 ![alt text](https://github.com/LamVu1/Sribbble-Clone-App/blob/master/app/assets/images/PostDetail.png)
 
 ## Likes and Comments
@@ -37,6 +38,7 @@ Users can leave comments and like a post and a comment.
 A posts status detail will show the total likes and views this post received.
 
 ![alt text](https://github.com/LamVu1/Sribbble-Clone-App/blob/master/app/assets/images/liking.png)
+![alt text](https://github.com/LamVu1/Sribbble-Clone-App/blob/master/app/assets/images/likesnippet.png)
 ![alt text](https://github.com/LamVu1/Sribbble-Clone-App/blob/master/app/assets/images/commenting.png)
 
 ![alt text](https://github.com/LamVu1/Sribbble-Clone-App/blob/master/app/assets/images/status.png)
