@@ -16,7 +16,7 @@ class ProfileIndex extends React.Component{
         this.followings = [];
         this.followers = [];
         this.likes = [];
-        
+        debugger
     }
 
     componentDidMount(){

@@ -18,7 +18,8 @@ class Nav extends React.Component {
     handleLink(){
         this.props.exitProfile();
     }
-
+//try a setstate
+//else trigger a rerender in a different component
     render(){
     let sessionLinks;
     if(this.props.session)
