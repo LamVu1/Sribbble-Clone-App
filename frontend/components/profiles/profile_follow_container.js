@@ -1,8 +1,8 @@
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import FollowingProfileIndex from './profile_follow';
-import {getUser, exitProfile} from '../../actions/profile_actions';
-import {fetchFollows} from '../../actions/follows_action';
+import {getUser, exitProfile} from '../../reducers/profile/profile_actions';
+import {fetchFollows} from '../../reducers/follows/follows_action';
 
 
 const mapStateToProps=(state, ownProps)=>{

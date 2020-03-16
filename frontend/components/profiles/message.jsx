@@ -2,8 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import {withRouter} from 'react-router-dom';
 import {calcTime} from '../../utils/calculate_time';
-import {getUser} from '../../actions/profile_actions';
-import {update} from '../../actions/profile_actions';
+import {getUser} from '../../reducers/profile/profile_actions';
+import {update} from '../../reducers/profile/profile_actions';
 
 
 

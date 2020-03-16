@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import LikeIndex from './like_index';
-import {createLike, deleteLike, fetchLikes} from '../../actions/likes_action';
+import {createLike, deleteLike, fetchLikes} from '../../reducers/likes/likes_action';
 
 
 const mapStateToProps=(state, ownProps)=>{

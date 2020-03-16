@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import FollowIndex from './follow';
-import {fetchPosts} from '../../actions/posts_actions';
-import {createFollow, deleteFollow, fetchFollows} from '../../actions/follows_action';
+import {fetchPosts} from '../../reducers/posts/posts_actions';
+import {createFollow, deleteFollow, fetchFollows} from '../../reducers/follows/follows_action';
 
 
 const mapStateToProps=(state, ownProps)=>{

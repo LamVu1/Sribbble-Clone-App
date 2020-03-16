@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import ProfileIndex from './profile';
-import {fetchPosts, deletePost} from '../../actions/posts_actions';
-import {closeModal, openModal} from '../../actions/modal_action';
-import {getUser, exitProfile} from '../../actions/profile_actions';
+import {fetchPosts, deletePost} from '../../reducers/posts/posts_actions';
+import {closeModal, openModal} from '../../reducers/ui/modal_action';
+import {getUser, exitProfile} from '../../reducers/profile/profile_actions';
 
 
 const mapStateToProps=(state, ownProps)=>{
