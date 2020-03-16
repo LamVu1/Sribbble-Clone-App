@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import CommentLikeIndex from './comment_likes_index';
-import {fetchcommentLikes, createcommentLike, deletecommentLike} from '../../actions/comment_likes_actions';
+import {fetchcommentLikes, createcommentLike, deletecommentLike} from '../../reducers/comment_likes/comment_likes_actions';
 
 
 const mapStateToProps=(state, ownProps)=>{

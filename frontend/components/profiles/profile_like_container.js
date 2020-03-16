@@ -1,10 +1,10 @@
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import ProfileLikeIndex from './profile_like';
-import {getUser, exitProfile} from '../../actions/profile_actions';
-import {fetchLikes} from '../../actions/likes_action';
-import {fetchPost} from '../../actions/posts_actions';
-import {closeModal, openModal} from '../../actions/modal_action';
+import {getUser, exitProfile} from '../../reducers/profile/profile_actions';
+import {fetchLikes} from '../../reducers/likes/likes_action';
+import {fetchPost} from '../../reducers/posts/posts_actions';
+import {closeModal, openModal} from '../../reducers/ui/modal_action';
 
 
 const mapStateToProps=(state, ownProps)=>{

@@ -8,13 +8,13 @@ import {
     HashRouter
   } from 'react-router-dom';
 
-import LandingContainer from './Landing/landing_container';
-import SignUpFormContainer from './session_form/signup_form_container';
-import SignInFormContainer from './session_form/signin_form_container';
+import LandingContainer from '../pages/landing_page';
+import SignupPage from '../pages/signup_page';
+import SigninPage from '../pages/signin_page';
 import Navcontainer from './nav/main_nav_container'
 import { AuthRoute, ProtectedRoute } from '../utils/route_util';
-import CreatePostFormContainer from './posts/create_post_form_container';
-import Modal from './modal/modal_container';
+import CreatePostForm from './posts/create_post_form';
+import Modal from './modal/modal';
 import AwesomeComponent from './loading';
 import ProfileContainer from './profiles/profile_container';
 import FollowingContainer from './profiles/profile_follow_container';
@@ -25,23 +25,23 @@ const App = () => (
   
   <div className="main-div">
 
-      <Modal/>
       
       <Navcontainer/>
+      <Modal/>
       
         < Switch>
-        < AuthRoute exact path="/login" component={SignInFormContainer}/>
-        < AuthRoute exact path="/signup" component={SignUpFormContainer} />
+        < AuthRoute exact path="/login" component={SigninPage}/>
+        < AuthRoute exact path="/signup" component={SignupPage} />
         < Route exact path="/" component={LandingContainer}/>
-        < Route exact path="/following/:id" component={FollowingContainer}/>
-        < Route exact path="/profile/:id" component={ProfileContainer}/>
-        < Route exact path="/like/:id" component={LikeContainer}/>
-        < ProtectedRoute exact path='/posts/new' component={CreatePostFormContainer} />
+        < ProtectedRoute exact path='/posts/new' component={CreatePostForm} />
         < Redirect to="/" />
         </Switch>
 
   </div>
   
-);
+  );
+  // < Route exact path="/following/:id" component={FollowingContainer}/>
+  // < Route exact path="/profile/:id" component={ProfileContainer}/>
+  // < Route exact path="/like/:id" component={LikeContainer}/>
 
 export default App;

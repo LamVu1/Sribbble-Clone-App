@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import CommentIndex from './comment_index';
-import {fetchComments, createComment, deleteComment} from '../../actions/comment_actions';
-import {fetchcommentLikes} from '../../actions/comment_likes_actions';
-import {closeModal} from '../../actions/modal_action';
+import {fetchComments, createComment, deleteComment} from '../../reducers/comments/comment_actions';
+import {fetchcommentLikes} from '../../reducers/comment_likes/comment_likes_actions';
+import {closeModal} from '../../reducers/ui/modal_action';
 
 const mapStateToProps=(state, ownProps)=>{
 

@@ -2,6 +2,12 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import ErrorsContainer from '../errors/errors_container';
 
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+import { createPost } from '../../reducers/posts/posts_actions';
+
+
+
 
 class CreatePostForm extends React.Component {
  
@@ -189,4 +195,26 @@ class CreatePostForm extends React.Component {
   }
 }
 
-export default CreatePostForm;
+
+
+const mapStateToProps = state => {
+    
+    return(
+        {   
+            post: {title:"", description:""}
+        }
+    )
+}
+
+const mapDispatchToProps = dispatch => {
+    
+    return(
+        {
+            createPost: (formData) => dispatch(createPost(formData)),
+            clearErrors: () => dispatch( clearErrors())
+
+        }
+    )
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(CreatePostForm);

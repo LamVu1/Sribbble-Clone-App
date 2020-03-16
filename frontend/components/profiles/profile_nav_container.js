@@ -1,7 +1,7 @@
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import ProfileNav from './profile_nav';
-import {getUser, exitProfile} from '../../actions/profile_actions';
+import {getUser, exitProfile} from '../../reducers/profile/profile_actions';
 
 
 const mapStateToProps=(state, ownProps)=>{

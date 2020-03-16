@@ -1,36 +1,69 @@
 import React from 'react';
-import closeModal from '../../actions/modal_action';
-import PostIndexContainer from '../posts/post_index_container';
-import PostDetailContainer from '../posts/post_detail_container';
+import {closeModal} from '../../reducers/ui/modal_action';
+import PostDetail from '../posts/post_detail';
+import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 
-function Modal({ modal, closeModal, data })
-    {
-      let component;
-      switch(modal)
-      {
-        case 'PostDetail':
-        component = <div className="modal-child" onClick={()=>closeModal()}>
-                        <div className="PostContainer" onClick={ e => e.stopPropagation()}>
-                          <PostDetailContainer 
-                             post={data}
-                           />
-                        </div>
-                        
-                         <div onClick={()=>closeModal()} className="close-x"><i className="fas fa-times"></i></div>
-                    </div>
-        break;
-        default:
-        return null;
-      }
-      // e => e.stopPropagation()
-        // <div className="modal-child" onClick={closeModal}>
-      return(
-          <div className="modal-background">
-                  { component }
-            
-          </div>
-            )
+{/* <div className="PostContainer" onClick={ e => e.stopPropagation()}>
+  <PostDetailContainer 
+     post={data}
+   />
+</div>
+
+ <div onClick={()=>closeModal()} className="close-x"><i className="fas fa-times"></i></div> */}
+
+class Modal extends React.Component{
+    constructor(){
+        super();
+    }
+    render(){
+        let {ui, closeModal, post} = this.props;
+        let content;
+        if(ui){
+            content = 
+            null
+        }
+       else{
+           content=<div className="modal-background" onClick={closeModal}>
+               <h1>HELLO</h1>
+               <PostDetail post={post}/>
+           </div>
+       }
+
+        return(
+            <div >
+                {content}
+            </div>
+
+        )
+
+    }
 }
 
-export default Modal
+
+
+
+const mapStateToProps=state=>{
+    
+    return(
+        {
+           ui: state.ui.modal.hidden,
+           post: state.ui.modal.data
+        }
+    )
+}
+
+const mapDispatchToProps=dispatch=>{
+    return(
+        {
+            closeModal: ()=>dispatch(closeModal())
+        }
+    )
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Modal)
+
+
+
+

@@ -2,15 +2,17 @@ import React from 'react';
 import PostIndexItem from '../posts/post_index_item';
 
 
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+
+
 class PostIndex extends React.Component{
     
     constructor(props) {
         super(props);
         
     }
-    componentDidMount(){
-        this.props.fetchPosts();
-    }
+    
      
     render(){
         
@@ -21,9 +23,7 @@ class PostIndex extends React.Component{
                     <PostIndexItem
                         key= {idx}
                         post={post}
-                        closeModal={this.props.closeModal}
-                        deletePost = {this.props.deletePost}
-                        openModal={this.props.openModal}
+                        
                     />
 
                 )
@@ -45,4 +45,6 @@ class PostIndex extends React.Component{
     }
 }
 
-export default PostIndex;
+
+export default connect(null, null)(PostIndex)
+
