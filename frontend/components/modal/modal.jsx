@@ -17,22 +17,27 @@ class Modal extends React.Component{
     constructor(){
         super();
     }
+
     render(){
         let {ui, closeModal, post} = this.props;
         let content;
+        
         if(ui){
             content = 
             null
         }
        else{
-           content=<div className="modal-background" onClick={closeModal}>
-               <h1>HELLO</h1>
-               <PostDetail post={post}/>
-           </div>
+           content=
+               <div className='modal-child' onClick={closeModal}>
+                   <div onClick={ e => e.stopPropagation()}>
+                    <PostDetail post={post}/>
+                   </div>
+               </div>
+        
        }
 
         return(
-            <div >
+            <div>
                 {content}
             </div>
 

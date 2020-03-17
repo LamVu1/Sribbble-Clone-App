@@ -1,9 +1,20 @@
 import React from 'react';
 import {withRouter, Link} from 'react-router-dom';
 import {calcTime} from '../../utils/calculate_time';
-import CommentLikeIndex from '../comment_likes/comment_likes_index_container';
+import CommentLike from '../comment_likes/comment_likes_index';
 
-class CommentIndex extends React.Component{
+
+
+import { connect } from 'react-redux';
+import {fetchComments, createComment, deleteComment} from '../../reducers/comments/comment_actions';
+// import {fetchcommentLikes} from '../../reducers/comment_likes/comment_likes_actions';
+import {closeModal} from '../../reducers/ui/modal_action';
+
+
+
+
+
+class Comment extends React.Component{
     constructor(props){
         super(props);
         this.state = {body: ''}
@@ -15,8 +26,7 @@ class CommentIndex extends React.Component{
 
     componentDidMount(){
         this.props.fetchComments(this.props.PostId);
-        let commentLike = {post_id: this.props.PostId, comment_id: 1}
-        this.props.fetchcommentLikes(commentLike);
+       
     }
 
     handleLink(){
@@ -36,7 +46,6 @@ class CommentIndex extends React.Component{
         e.preventDefault();
         const comment = {body: this.state.body, post_id: this.props.PostId}
         this.props.createComment(comment);
-        this.props.fetchComments(this.props.PostId)
         this.setState({body:''})
     }
      
@@ -44,48 +53,46 @@ class CommentIndex extends React.Component{
         
         let comments = this.props.comments.map((comment, idx)=>{
             let btn;
-            if(this.props.currentUser===comment.user_id){
-                btn= <button className="Comment-Deletebtn" onClick={()=>this.handleDelete(comment)}>Delete</button>
+            if(this.props.currentuser_id===comment.user_id){
+                btn= <button className="Comment-Deletebtn" onClick={()=>{this.handleDelete(comment)}}>Delete</button>
             }
             return(
                 <li key={idx} className="Comment-Container">
-                    <Link to={`/profile/${comment.user_id}`} onClick={this.handleLink}>
+                    <Link to={`/profile/${comment.user_id}`} >
                         <img className="Comment-ProfilePicture" src={comment.profile_picture}/>
                     </Link>
                     <div className="Comment-Content">
                         <p className="Comment-Author">
-                            <Link to={`/profile/${comment.user_id}`} onClick={this.handleLink}>
+                            <Link to={`/profile/${comment.user_id}`} >
                         {comment.author}
                             </Link>
                         </p>
                         <p className="Comment-Body">{comment.body}</p>
                         <div className="Comment-Bottom-Div">
-                        <p className="Comment-Time">{calcTime(comment.create_at)}</p>
                         </div>
                         {btn}
                     </div>
-                    <CommentLikeIndex 
-                        post_id = {this.props.PostId}
-                        comment_id = {comment.id}
-                        commentlike = {this.props.commentlike}
-                    
+                    <CommentLike
+                    comment_id = {comment.id} 
+                    post_id = {comment.post_id}
                     />
+                    <p className="Comment-Time">{calcTime(comment.create_at)}</p>
                 </li>
             )
         })
-
+        
         return(
             <div className="Comment-Section">
                 <div className="Comment-Form-Container">
                     <form className="Comment-Form" onSubmit={this.handleSubmit}>
                         <label>Add Comment:</label>
-                            <textarea className="Comment-Input" type="text" value={this.state.body} onChange={this.handleUpdate('body')}></textarea>
                         <br/>
+                         <textarea className="Comment-Input" type="text" value={this.state.body} onChange={this.handleUpdate('body')}></textarea>
                         <input className="Comment-Submit" type="submit" value="Submit"/>
                     </form>
                 </div>
-                <h1 className="Comment-Count">{comments.length} Responses</h1>
                 
+                <h1 className="Comment-Count">{comments.length} Responses</h1>
                 <ul className="Comment-Body-Section">
                     {comments}
                 </ul>
@@ -95,4 +102,36 @@ class CommentIndex extends React.Component{
     }
 }
 
-export default withRouter(CommentIndex);
+
+
+const mapStateToProps=(state, ownProps)=>{
+
+    return(
+        {
+            PostId: ownProps.PostId,
+            comments: Object.values(state.entities.comments),
+            currentuser_id: state.session.id
+        }
+        )
+    }
+
+
+const mapDispatchToProps=dispatch=>{
+   
+    return(
+        {
+            
+            fetchComments: (Post_id) => dispatch( fetchComments(Post_id)),
+            createComment: (comment) => dispatch( createComment(comment)),
+            deleteComment: (comment) => dispatch( deleteComment(comment)),
+            closeModal: () => dispatch( closeModal())
+        }
+        )
+    }
+    // fetchcommentLikes: (commentlike) => dispatch( fetchcommentLikes(commentlike)),
+
+export default connect(mapStateToProps, mapDispatchToProps)(Comment)
+
+
+
+

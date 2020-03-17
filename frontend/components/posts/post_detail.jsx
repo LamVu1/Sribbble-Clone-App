@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import CommentIndex from '../comments/comment_index_container';
-import LikeIndex from '../likes/like_index_container';
+import Comment from '../comments/comment_index';
+import Like from '../likes/like_index';
 import FollowIndex from '../follows/follow_index_container';
 import {withRouter} from 'react-router-dom';
 import {calcTime} from '../../utils/calc';
@@ -57,12 +57,12 @@ class PostDetail extends React.Component{
     // }
 
     render(){
-        let {post} = this.props
+        let {post, user_id} = this.props
         
-        // let deletebtn;
-        // if(this.props.user_id===this.props.post.author_id){
-        //     deletebtn = <button className="Delete-Btn" onClick={()=>this.handleDelete(this.props.post.id)}>Delete</button>
-        // }
+        let deletebtn;
+        if(user_id=== post.author_id){
+            deletebtn = <button className="Delete-Btn">Delete</button>
+        }
         
         
         // return(
@@ -135,10 +135,39 @@ class PostDetail extends React.Component{
         //             </div>
         //     </div>
         // )
+
+
+         
+        //                  
+                        
+        //                     <div className="Post-status">
+        //                         <p><i className="fas fa-eye"></i>{this.props.post.view} views</p>
+        //                         <p>
+        //                         <i className="fas fa-heart"></i> {this.props.likes.length} likes
+        //                         </p>
+        //                         <p className="Comment-Time"><i className="far fa-calendar-alt"></i> {calcTime(this.props.post.created_at)}</p>
+        //                     </div>
+        //                 </div>
+        //             </div>
+        //     </div></div>
         return(
-        <div>
-            <h1>Yes</h1>
-            <img src={post.post.imageURL} />
+            <div className='Post-index'>
+            <div className="Top-Container">
+            <h1 className="Post-index-title">{post.title}</h1>
+              <Like 
+               PostId = {post.id} 
+              />
+            </div>
+            <img src={post.imageURL} />
+            {deletebtn}
+            <div className="Post-index-container">
+                <p className="Post-index-description">
+                    {post.description}
+                </p>
+            </div>
+            <Comment
+                PostId = {post.id} 
+            />
         </div>
         )
     }
@@ -154,14 +183,15 @@ const mapStateToProps = (state, post)=>{
 
     return(
       {
-        post: post,
+       
+        user_id: state.session.id
+
         }
         )
     };
     
     // follows: Object.values(state.entities.follows),
     // likes: Object.values(state.entities.likes),
-    // user_id: state.session.id
 // const mapDispatchToProps = dispatch => {
   
 //     return(
