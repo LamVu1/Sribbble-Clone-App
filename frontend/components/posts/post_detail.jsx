@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Comment from '../comments/comment_index';
 import Like from '../likes/like_index';
-import FollowIndex from '../follows/follow_index_container';
+import Follow from '../follows/follow';
 import {withRouter} from 'react-router-dom';
 import {calcTime} from '../../utils/calc';
 import {updateTime} from '../../utils/updatetime';
@@ -24,7 +24,7 @@ class PostDetail extends React.Component{
 
     constructor(props){
         super(props);
-        // this.handleProfile = this.handleProfile.bind(this);
+        this.handleProfile = this.handleProfile.bind(this);
         // this.handleLink = this.handleLink.bind(this);  
         
     }
@@ -47,10 +47,10 @@ class PostDetail extends React.Component{
     //     this.props.deletePost(id)
     // }   
 
-    // handleProfile(){
-    //     this.props.history.push({pathname: `/profile/${this.props.post.author_id}`})
-    //     this.props.closeModal()
-    // }
+    handleProfile(){
+        this.props.history.push({pathname: `/profile/${this.props.post.author_id}`})
+        this.props.closeModal()
+    }
 
     // handleLink(){
     //     this.props.closeModal()
@@ -140,35 +140,44 @@ class PostDetail extends React.Component{
          
         //                  
                         
-        //                     <div className="Post-status">
-        //                         <p><i className="fas fa-eye"></i>{this.props.post.view} views</p>
-        //                         <p>
-        //                         <i className="fas fa-heart"></i> {this.props.likes.length} likes
-        //                         </p>
-        //                         <p className="Comment-Time"><i className="far fa-calendar-alt"></i> {calcTime(this.props.post.created_at)}</p>
-        //                     </div>
+                            
         //                 </div>
         //             </div>
         //     </div></div>
         return(
             <div className='Post-index'>
-            <div className="Top-Container">
-            <h1 className="Post-index-title">{post.title}</h1>
-              <Like 
-               PostId = {post.id} 
-              />
-            </div>
-            <img src={post.imageURL} />
-            {deletebtn}
-            <div className="Post-index-container">
+                <div className='Top-Container'>
+                    <div className='Author-Container'>
+                        <Link to={`/profile/${this.props.post.author_id}`} onClick={this.handleLink }>
+                            <img className="Post-ProfilePicture" src={post.profile_picture}/>
+                        </Link>            
+                        <div className='Author-Title'>
+                            <h1 className="Post-index-title">{post.title}</h1>
+                            <div className='By-Author-Link'>
+                                <p className="by-author">by</p>  
+                                <div className='Post-index-author' onClick={this.handleProfile}>{post.author}</div>|
+                                <Follow AuthorId = {post.author_id}/>
+                            </div>
+                        </div>
+                    </div>
+                        <Like PostId = {post.id}/>
+                </div>
+                <img src={post.imageURL} />
+                {deletebtn}
                 <p className="Post-index-description">
                     {post.description}
                 </p>
+                <div className='Bottom-Container'>
+                    <Comment PostId = {post.id}/>
+                    <div className="Post-status">
+                        <p><i className="fas fa-eye"></i>{post.view} views</p>
+                        <p>
+                        <i className="fas fa-heart"></i> {post.likes.length} likes
+                        </p>
+                        <p className="Comment-Time"><i className="far fa-calendar-alt"></i> {calcTime(post.created_at)}</p>
+                    </div>
+                </div>
             </div>
-            <Comment
-                PostId = {post.id} 
-            />
-        </div>
         )
     }
 
@@ -192,17 +201,17 @@ const mapStateToProps = (state, post)=>{
     
     // follows: Object.values(state.entities.follows),
     // likes: Object.values(state.entities.likes),
-// const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = dispatch => {
   
-//     return(
-//       {
-//           deletePost: (id)=>dispatch(deletePost(id)),
-//           closeModal: () => dispatch( closeModal()),
-//           updatePost: (post)=>dispatch(updatePost(post))
+    return(
+      {
+          deletePost: (id)=>dispatch(deletePost(id)),
+          closeModal: () => dispatch( closeModal()),
+          updatePost: (post)=>dispatch(updatePost(post))
 
-//       }
-//     )
-// };
+      }
+    )
+};
   
-export default connect(mapStateToProps, null)(PostDetail);
+export default connect(mapStateToProps, mapDispatchToProps)(PostDetail);
   

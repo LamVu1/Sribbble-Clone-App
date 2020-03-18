@@ -10,11 +10,13 @@ import {fetchPosts} from '../reducers/posts/posts_actions';
 class LandingPage extends React.Component {
   constructor(props) {
     super(props);
+    this.idx = 0;
     this.getImage = this.getImage.bind(this);
   }
 
   componentDidMount(){
     this.props.fetchPosts();
+    this.idx= this.getImage()
 }
 
 
@@ -23,7 +25,6 @@ class LandingPage extends React.Component {
   }
 
   render(){
-    const idx= this.getImage()
 
     let {posts} = this.props;
 
@@ -40,22 +41,22 @@ class LandingPage extends React.Component {
               <i id="angellist" className="fab fa-angellist"></i>
             </a>     
 		      </div>
-        <div className="main-banner" style={{backgroundColor: image[idx].color}}>
+        <div className="main-banner" style={{backgroundColor: image[this.idx].color}}>
           
           <div className="main-banner-container">
               <div className="image-text">
                   <div className="image-text-top">
-                      <h1 className="image-text-top-a" style={{color: image[idx].tcolor1}}>
+                      <h1 className="image-text-top-a" style={{color: image[this.idx].tcolor1}}>
                         Discover the world's top designers & creatives
                       </h1>
-                      <p className="image-text-top-b" style={{color: image[idx].tcolor2}}>
+                      <p className="image-text-top-b" style={{color: image[this.idx].tcolor2}}>
                         Scribbble is the leading destination to find & showcase creative work and home to the world's best design professionals.
                       </p>
                   </div>
-                  <p className="image-credit-text" style={{color: image[idx].tcolor2}}>Art by {image[idx].author}</p>
+                  <p className="image-credit-text" style={{color: image[this.idx].tcolor2}}>Art by {image[this.idx].author}</p>
               </div>
               <div className="image-container">
-                  <img src={image[idx].img} className='main-page-img'/>
+                  <img src={image[this.idx].img} className='main-page-img'/>
               </div>
           </div>
         </div>
