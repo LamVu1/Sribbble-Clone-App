@@ -7,7 +7,7 @@ import CommentLike from '../comment_likes/comment_likes_index';
 
 import { connect } from 'react-redux';
 import {fetchComments, createComment, deleteComment} from '../../reducers/comments/comment_actions';
-// import {fetchcommentLikes} from '../../reducers/comment_likes/comment_likes_actions';
+import {fetchcommentLikes} from '../../reducers/comment_likes/comment_likes_actions';
 import {closeModal} from '../../reducers/ui/modal_action';
 
 
@@ -26,7 +26,7 @@ class Comment extends React.Component{
 
     componentDidMount(){
         this.props.fetchComments(this.props.PostId);
-       
+        this.props.fetchcommentLikes(this.props.PostId)
     }
 
     handleLink(){
@@ -71,12 +71,12 @@ class Comment extends React.Component{
                         <div className="Comment-Bottom-Div">
                         </div>
                         {btn}
+                        <p className="Comment-Time">{calcTime(comment.create_at)}</p>
                     </div>
                     <CommentLike
                     comment_id = {comment.id} 
                     post_id = {comment.post_id}
                     />
-                    <p className="Comment-Time">{calcTime(comment.create_at)}</p>
                 </li>
             )
         })
@@ -122,13 +122,13 @@ const mapDispatchToProps=dispatch=>{
         {
             
             fetchComments: (Post_id) => dispatch( fetchComments(Post_id)),
+            fetchcommentLikes: (PostId) => dispatch( fetchcommentLikes(PostId)),
             createComment: (comment) => dispatch( createComment(comment)),
             deleteComment: (comment) => dispatch( deleteComment(comment)),
             closeModal: () => dispatch( closeModal())
         }
         )
     }
-    // fetchcommentLikes: (commentlike) => dispatch( fetchcommentLikes(commentlike)),
 
 export default connect(mapStateToProps, mapDispatchToProps)(Comment)
 

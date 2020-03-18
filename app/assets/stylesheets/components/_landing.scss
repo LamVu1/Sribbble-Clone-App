@@ -58,6 +58,34 @@
     letter-spacing: -.05em;
 }
 
+
+
+.Post-index-item{
+    background-color: white;
+    height: 300px;
+    width: 22%;
+    padding: 20px;
+    margin: 20px;
+    box-sizing: border-box; 
+}
+
+
+.Post-index-item:hover{
+    box-shadow:  8px 6px #e0e0e0;
+    padding: 22px;
+    margin: 18px;
+}
+
+
+.Post-Index{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+
 @media only screen and (max-width: 1200px) {
     .main-banner{
         max-height: 400px;
@@ -77,8 +105,8 @@
     }
 
     .image-container{
-        margin-top: 0;
-        max-height: 90%;
+        margin-top: 65px;
+        max-height: 70%;
         max-width: 75%;
     }
 
@@ -95,8 +123,7 @@
         font-weight: normal;
         display: flex;
         flex-direction: column;
-    align-items: center;
-   
+        align-items: center;
     }
     
     .image-text-top-a{

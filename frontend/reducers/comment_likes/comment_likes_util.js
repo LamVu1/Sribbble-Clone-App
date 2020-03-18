@@ -1,10 +1,10 @@
-export const fetchcommentLikes = (commentLike)=>{
+export const fetchcommentLikes = (PostId)=>{
     
     return(  
         $.ajax(
           {
               method: 'GET',
-              url: `/api/posts/${commentLike.post_id}/comments/${commentLike.comment_id}/commentlikes`
+              url: `/api/posts/${PostId}/comments/1/commentlikes`
           })
       )
   }
