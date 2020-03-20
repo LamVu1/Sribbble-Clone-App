@@ -1,9 +1,18 @@
 import React from 'react';
 import {withRouter, Link} from 'react-router-dom';
 import {calcTime} from '../../utils/calculate_time';
-import ProfileNavContainer from './profile_nav_container';
 import PostIndexItem from '../posts/post_index_item';
 
+
+
+
+import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+import ProfileLikeIndex from './profile_like';
+import {getUser, exitProfile} from '../../reducers/profile/profile_actions';
+import {fetchLikes} from '../../reducers/likes/likes_action';
+import {fetchPost} from '../../reducers/posts/posts_actions';
+import {closeModal, openModal} from '../../reducers/ui/modal_action';
 
 
 
@@ -86,4 +95,34 @@ class ProfileLikeIndex extends React.Component{
     }
 }
 
-export default withRouter(ProfileLikeIndex);
+
+
+
+// const mapStateToProps=(state, ownProps)=>{
+        
+//     return(
+//         {   
+//             author_id: parseInt(ownProps.match.params.id),
+
+//         }
+//     )
+// }
+
+// const mapDispatchToProps=dispatch=>{
+    
+//     return(
+//         {
+//             getUser: (userId)=> dispatch( getUser(userId)),
+//             exitProfile: ()=>dispatch(exitProfile()),
+//             fetchLikes: (post_id) => dispatch(fetchLikes(post_id)),
+//             fetchPost: (post) => dispatch( fetchPost(post)),
+//             openModal:(modal,data) => dispatch( openModal(modal, data)),
+//             closeModal: () => dispatch( closeModal())
+
+//         }
+//     )
+// }
+
+export default connect(null, null)(ProfileLikeIndex);
+
+

@@ -10,10 +10,13 @@ class PostIndexItem extends React.Component{
 
     render(){
 
+        
         let {openModal, post} = this.props;
-
+        
+        
     return(
         <div className="Post-index-item" onClick={()=> openModal(post)} >
+            
             <img src={post.imageURL} />
         </div>
 

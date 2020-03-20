@@ -20,9 +20,9 @@ class Api::PostsController < ApplicationController
     end
 
     def show
+        # Like.where(post_id: params[:post_id])
         
-        @post = Post.find(params[:post][:arr]
-        )
+        @post = Post.where(author_id: params[:author_id])
         if @post
             render :index
         else
@@ -50,6 +50,6 @@ class Api::PostsController < ApplicationController
     private
     def post_params
         
-        params.require(:post).permit(:title, :description, :image)
+        params.require(:post).permit(:title, :description, :image, :author_id)
     end
 end
