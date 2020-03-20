@@ -4,6 +4,12 @@ import {calcTime} from '../../utils/calculate_time';
 import ProfileNavContainer from './profile_nav_container';
 
 
+import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+import {getUser, exitProfile} from '../../reducers/profile/profile_actions';
+import {fetchFollows} from '../../reducers/follows/follows_action';
+
+
 
 
 class FollowingProfileIndex extends React.Component{
@@ -11,7 +17,7 @@ class FollowingProfileIndex extends React.Component{
         super(props);
         this.state ={following:[], profile:[]};
         this.pic = '';
-        debugger
+        
     }
 
     componentDidMount(){    
@@ -71,4 +77,29 @@ class FollowingProfileIndex extends React.Component{
     }
 }
 
-export default withRouter(FollowingProfileIndex);
+
+
+// const mapStateToProps=(state, ownProps)=>{
+        
+//     return(
+//         {   
+//             author_id: parseInt(ownProps.match.params.id),
+
+//         }
+//     )
+// }
+
+// const mapDispatchToProps=dispatch=>{
+    
+//     return(
+//         {
+//             getUser: (userId)=> dispatch( getUser(userId)),
+//             exitProfile: ()=>dispatch(exitProfile()),
+//             fetchFollows: (author_id)=>dispatch(fetchFollows(author_id))
+
+//         }
+//     )
+// }
+
+export default connect(null, null)(FollowingProfileIndex);
+

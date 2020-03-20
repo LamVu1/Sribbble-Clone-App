@@ -6,10 +6,7 @@
        json.author_id post.author_id
        json.author post.author.username
        json.location post.author.location
-       json.follower_id post.author.follows
-       json.likes post.likes
        json.view post.view
-       json.commentlike post.commentlikes
        json.created_at post.created_at
        json.updated_at post.updated_at
        if post.image.attached?

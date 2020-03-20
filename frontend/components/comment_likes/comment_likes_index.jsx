@@ -1,10 +1,7 @@
 import React from 'react';
 import {withRouter} from 'react-router-dom';
-import {calcTime} from '../../utils/calculate_time';
-
-
 import { connect } from 'react-redux';
-import {fetchcommentLikes, createcommentLike, deletecommentLike} from '../../reducers/comment_likes/comment_likes_actions';
+import {createcommentLike, deletecommentLike} from '../../reducers/comment_likes/comment_likes_actions';
 
 
 
@@ -66,7 +63,6 @@ const mapDispatchToProps=dispatch=>{
     
     return(
         {
-            fetchcommentLikes: (comment) => dispatch(fetchcommentLikes(comment)),
             createcommentLike: (commentlike) => dispatch( createcommentLike(commentlike)),
             deletecommentLike: (commentlike) => dispatch( deletecommentLike(commentlike))
         }

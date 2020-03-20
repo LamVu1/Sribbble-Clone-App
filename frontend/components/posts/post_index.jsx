@@ -10,41 +10,73 @@ class PostIndex extends React.Component{
     
     constructor(props) {
         super(props);
+        this.state = {
+            posts: []
+        }
         
     }
     
+    // componentDidMount(){
+        
+    //     if(this.state.posts !==undefined){
+    //         this.setState({posts: this.props.posts})
+    //     }
+        
+    // }
      
     render(){
+        let content;
         
-        let posts = this.props.posts.map((post, idx)=>
-            {
-                return(
-                    
-                    <PostIndexItem
-                        key= {idx}
-                        post={post}
-                        
-                    />
+        if(this.props.posts !== undefined){
+           content = this.props.posts.map((post,idx)=>{
+               return(
+                   
+                <PostIndexItem
+                key= {idx}
+                post={post}
+                
+                />
 
-                )
-            }
-        )
+               )
+           }
+           )
+        }
+        // let content;
+        // debugger
+        // if(this.state.posts.length !== 0){
+        //     debugger
+        //     content = this.state.posts.map((post, idx)=>
+        // {
+        //     return(
+                
+        //         <PostIndexItem
+        //         key= {idx}
+        //         post={post}
+                
+        //         />
+                
+        //         )           
+        //     }
+        //     )
+            
 
-        return(
-            <div>
+        // }
+        
+        // {content}
+            return(
+                <div>
                 
                 <ul className="Post-Index">
-                    
-                    {posts}
+                    {content}
 
                 </ul>
 
             </div>
         )
         
-    }
+    
 }
 
-
+}
 export default connect(null, null)(PostIndex)
 

@@ -14,7 +14,7 @@ import { connect } from 'react-redux';
 // import {withRouter} from 'react-router-dom';
 // import {fetchFollows} from '../../actions/follows_action';
 // import {fetchLikes} from '../../actions/likes_action';
-// import {closeModal} from '../../actions/modal_action';
+import {closeModal} from '../../reducers/ui/modal_action';
 // import {updatePost} from '../../actions/posts_actions';
 
 
@@ -24,8 +24,9 @@ class PostDetail extends React.Component{
 
     constructor(props){
         super(props);
-        this.handleProfile = this.handleProfile.bind(this);
-        // this.handleLink = this.handleLink.bind(this);  
+        // this.handleProfile = this.handleProfile.bind(this);
+        this.handleDelete = this.handleDelete.bind(this);
+        this.handleLink = this.handleLink.bind(this);  
         
     }
 
@@ -43,25 +44,25 @@ class PostDetail extends React.Component{
     // }
   
 
-    // handleDelete(id){
-    //     this.props.deletePost(id)
-    // }   
+    handleDelete(){
+        this.props.deletePost(this.props.post.id)
+    }   
 
-    handleProfile(){
-        this.props.history.push({pathname: `/profile/${this.props.post.author_id}`})
-        this.props.closeModal()
-    }
-
-    // handleLink(){
+    // handleProfile(){
+    //     this.props.history.push({pathname: `/profile/${this.props.post.author_id}`})
     //     this.props.closeModal()
     // }
+
+    handleLink(){
+        this.props.closeModal()
+    }
 
     render(){
         let {post, user_id} = this.props
         
         let deletebtn;
         if(user_id=== post.author_id){
-            deletebtn = <button className="Delete-Btn">Delete</button>
+            deletebtn = <button className="Delete-Btn" onClick={this.handleDelete}>Delete</button>
         }
         
         
@@ -148,14 +149,16 @@ class PostDetail extends React.Component{
             <div className='Post-index'>
                 <div className='Top-Container'>
                     <div className='Author-Container'>
-                        <Link to={`/profile/${this.props.post.author_id}`} onClick={this.handleLink }>
+                        <Link to={`/profile/${post.author_id}`} onClick={this.handleLink}>
                             <img className="Post-ProfilePicture" src={post.profile_picture}/>
                         </Link>            
                         <div className='Author-Title'>
                             <h1 className="Post-index-title">{post.title}</h1>
                             <div className='By-Author-Link'>
                                 <p className="by-author">by</p>  
-                                <div className='Post-index-author' onClick={this.handleProfile}>{post.author}</div>|
+                                <Link to={`/profile/${post.author_id}`} onClick={this.handleLink}>
+                                    <div className='Post-index-author'>{post.author} |</div>
+                                </Link> 
                                 <Follow AuthorId = {post.author_id}/>
                             </div>
                         </div>
@@ -172,7 +175,7 @@ class PostDetail extends React.Component{
                     <div className="Post-status">
                         <p><i className="fas fa-eye"></i>{post.view} views</p>
                         <p>
-                        <i className="fas fa-heart"></i> {post.likes.length} likes
+                        <i className="fas fa-heart"></i> {this.props.likes.length} likes
                         </p>
                         <p className="Comment-Time"><i className="far fa-calendar-alt"></i> {calcTime(post.created_at)}</p>
                     </div>
@@ -193,14 +196,14 @@ const mapStateToProps = (state, post)=>{
     return(
       {
        
-        user_id: state.session.id
+        user_id: state.session.id,
+        likes: Object.values(state.entities.likes)
 
         }
         )
     };
     
-    // follows: Object.values(state.entities.follows),
-    // likes: Object.values(state.entities.likes),
+
 const mapDispatchToProps = dispatch => {
   
     return(

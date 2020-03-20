@@ -1,4 +1,4 @@
-import { RECEIVE_PROFILE, CLEAR_PROFILE} from '../../actions/profile_actions';
+import { RECEIVE_PROFILE, CLEAR_PROFILE} from '../profile/profile_actions';
   
   
 const profileReducer = (oldstate = {}, action) => {
@@ -8,9 +8,9 @@ const profileReducer = (oldstate = {}, action) => {
   Object.freeze(oldstate);
   switch(action.type) {
     case RECEIVE_PROFILE:
-      nextState = {...oldstate};
-      nextState[action.user.id] = action.user
-      return nextState;
+      // nextState = {...oldstate};
+      // nextState[action.user.id] = action.user
+      return action.user
     case CLEAR_PROFILE:
       return emptyState;
     default:
