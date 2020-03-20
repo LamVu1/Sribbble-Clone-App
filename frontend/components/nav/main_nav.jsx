@@ -2,12 +2,15 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 
+import { connect } from 'react-redux';
+import { logout } from '../../reducers/session/session_actions';
+// import {exitProfile, getUser} from '../../reducers/profile/profile_actions';
+
+
 class Nav extends React.Component {
     constructor(props){
         super(props);
-        this.handleSubmit = this.handleSubmit.bind(this);
-        this.handleLink = this.handleLink.bind(this);
-        
+        this.handleSubmit = this.handleSubmit.bind(this);        
     }
 
     handleSubmit(e){
@@ -15,11 +18,7 @@ class Nav extends React.Component {
         this.props.logout();
     }
 
-    handleLink(){
-        this.props.exitProfile();
-    }
-//try a setstate
-//else trigger a rerender in a different component
+   
     render(){
     let sessionLinks;
     if(this.props.session)
@@ -31,7 +30,7 @@ class Nav extends React.Component {
                     <h2 className="nav-name">
                         Hello, {this.props.currentUser.username}!
                     </h2>
-                    <Link to={`/profile/${this.props.currentUser.id}`} onClick={this.handleLink}>
+                    <Link to={`/profile/${this.props.currentUser.id}`}>
                         <img className="profile-image" src={this.props.currentUser.imageURL}/>
                     </Link>
 
@@ -86,4 +85,24 @@ class Nav extends React.Component {
 
 
 
-export default Nav;
+const mapStateToProps = state => {
+  
+  return(
+      {
+        currentUser: Object.values(state.entities.users)[0],
+        session: state.session.id
+      }
+  )
+};
+
+
+const mapDispatchToProps = dispatch => {
+
+  return(
+      {
+          logout: () => dispatch(logout())
+      }
+  )
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Nav);

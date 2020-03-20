@@ -20,7 +20,6 @@ class Api::PostsController < ApplicationController
     end
 
     def show
-        # Like.where(post_id: params[:post_id])
         
         @post = Post.where(author_id: params[:author_id])
         if @post
