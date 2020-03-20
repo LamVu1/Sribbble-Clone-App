@@ -6,14 +6,13 @@ import Follow from '../follows/follow';
 import {withRouter} from 'react-router-dom';
 import {calcTime} from '../../utils/calc';
 import {updateTime} from '../../utils/updatetime';
+import {getUser} from '../../reducers/profile/profile_actions';
 
 
 import { connect } from 'react-redux';
-// import PostDetail from '../posts/post_detail';
-// import {deletePost} from '../../actions/posts_actions';
+import {deletePost} from '../../reducers/posts/posts_actions';
 // import {withRouter} from 'react-router-dom';
-// import {fetchFollows} from '../../actions/follows_action';
-// import {fetchLikes} from '../../actions/likes_action';
+
 import {closeModal} from '../../reducers/ui/modal_action';
 // import {updatePost} from '../../actions/posts_actions';
 
@@ -45,7 +44,11 @@ class PostDetail extends React.Component{
   
 
     handleDelete(){
-        this.props.deletePost(this.props.post.id)
+        this.props.deletePost(this.props.post.id);
+        if(Object.keys(this.props.profile).length!==0){
+            this.props.getUser(this.props.profile.id)
+
+        }
     }   
 
     // handleProfile(){
@@ -197,7 +200,8 @@ const mapStateToProps = (state, post)=>{
       {
        
         user_id: state.session.id,
-        likes: Object.values(state.entities.likes)
+        likes: Object.values(state.entities.likes),
+        profile: state.entities.profile
 
         }
         )
@@ -210,7 +214,8 @@ const mapDispatchToProps = dispatch => {
       {
           deletePost: (id)=>dispatch(deletePost(id)),
           closeModal: () => dispatch( closeModal()),
-          updatePost: (post)=>dispatch(updatePost(post))
+          updatePost: (post)=>dispatch(updatePost(post)),
+          getUser: (userId)=> dispatch(getUser(userId))
 
       }
     )

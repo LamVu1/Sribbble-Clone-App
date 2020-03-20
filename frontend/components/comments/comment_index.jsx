@@ -58,12 +58,12 @@ class Comment extends React.Component{
             }
             return(
                 <li key={idx} className="Comment-Container">
-                    <Link to={`/profile/${comment.user_id}`} >
+                    <Link to={`/profile/${comment.user_id}`} onClick={this.handleLink}>
                         <img className="Comment-ProfilePicture" src={comment.profile_picture}/>
                     </Link>
                     <div className="Comment-Content">
                         <p className="Comment-Author">
-                            <Link to={`/profile/${comment.user_id}`} >
+                            <Link to={`/profile/${comment.user_id}`} onClick={this.handleLink}>
                         {comment.author}
                             </Link>
                         </p>

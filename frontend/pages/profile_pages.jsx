@@ -1,85 +1,94 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {getUser} from '../reducers/profile/profile_actions';
+import {getUser , exitProfile} from '../reducers/profile/profile_actions';
 import PostIndex from '../components/posts/post_index';
-import ProfileNavigation from '../components/profiles/profile_nav';
-
+import FollowingProfile from '../components/profiles/profile_follow';
+import ProfileLikes from '../components/profiles/profile_like';
 
 class ProfilePage extends React.Component{
     constructor(props){
         super(props);       
         this.state = {
-            profile: {}
+            profile: {},
+            comp: 1
         }
     }
 
     componentDidMount(){
         this.props.getUser(this.props.profileId)
     }
+    componentWillUnmount(){
+        this.props.exitProfile();
+    }
+
+    handleUpdate(n){
+        this.setState({comp: n})
+        debugger
+        console.log(this.state.comp)
+    }
 
     render(){
       
-
-        
-        //  let content = this.props.profile.map((profile,idx)=>{
-        //      return(
-        //         <div>
-                    
-        //         </div>
-        //         )
-        //     }    
-        // )
-        // let {profile} = this.props
-//         let content = <div>
-
-
-        // let posts = profile.posts.map((post)=>
-        //     {
-        //     return(
-                
-        //         <img src={post.imageURL} />
-        //     )
-        //     }
-        //     )
-
-         // <div className="Profile-Div">
-                //     <div className="Profile-Summary">
-                //         <img className="Profile-Picture" src={this.pic} alt=""/>
-                //         {name}
-                //         {location}
-                //         <ProfileMessageContainer 
-                //             id = {this.props.author_id}
-                //             currentUser ={this.props.currentUser}
-                //         />
-                //     </div>
-                //     <div className="Profile-Posts">
-                //         {posts}
-                //     </div>
-                // </div>
-
-
         let {profile} = this.props
         
+
+        let likes = 0; 
+        let followers = 0;
+        let authors=0;
+        let posts=0;  
+        
+        
+        
+        if(Object.keys(this.props.profile).length!==0){
+            followers = profile.followers.length;
+            likes = profile.likes.length;
+            authors = profile.authors.length;
+        posts = profile.posts.length;
+        }
+
+
+        let content;
+        if(this.state.comp===1){
+            
+            content = 
+            
+            <div className="Profile-Summary">
+                <h1>{profile.username}</h1>
+                <p >{profile.location}</p>
+                <img  className="Profile-Picture" src={profile.imageURL} alt=""/>
+                <PostIndex posts={profile.posts} />
+            </div>
+            
+
+        }
+
+        if(this.state.comp===2){
+            content = <ProfileLikes posts={profile.likes}/>
+        }
+
+        if(this.state.comp===4){
+            content = <FollowingProfile authorId={this.props.profileId}/>
+        }
+
+
         return(
             <div className="Profile-Container">
                 <div className="Profile-Div">
                     <div>
-                    <ProfileNavigation 
-                        followers = {profile.followers}
-                        authors = {profile.authors}
-                        likes = {profile.likes}
-                        posts = {profile.posts}
-
-                    />
+                        <button onClick={()=>this.handleUpdate(2)}>liked:{likes}
+                        </button>
+                        <button onClick={()=>this.handleUpdate(3)}>followers:{followers}
+                        </button>
+                        <button onClick={()=>this.handleUpdate(4)}>authors:{authors}
+                        </button>
+                        <button onClick={()=>this.handleUpdate(1)}>posts:{posts}
+                        </button>
                     </div>
-                    <div className="Profile-Summary">
-                        <h1>{profile.username}</h1>
-                        <p >{profile.location}</p>
-                        <img  className="Profile-Picture" src={profile.imageURL} alt=""/>
-                    </div>
+                    
                     <div className="Profile-Posts">
-                        <PostIndex posts={profile.posts} />
+                        {content}
                     </div>
+                    
                 </div>
 
             </div>
@@ -102,7 +111,9 @@ const mapDispatchToProps=dispatch=>{
     
     return(
         {
-            getUser: (userId)=> dispatch(getUser(userId))
+            getUser: (userId)=> dispatch(getUser(userId)),
+
+            exitProfile: ()=> dispatch(exitProfile()),
 
         }
         )

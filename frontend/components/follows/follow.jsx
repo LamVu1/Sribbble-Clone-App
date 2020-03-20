@@ -6,6 +6,7 @@ import {calcTime} from '../../utils/calculate_time';
 import { connect } from 'react-redux';
 
 import {createFollow, deleteFollow, fetchFollows} from '../../reducers/follows/follows_action';
+import {getUser} from '../../reducers/profile/profile_actions';
 
 
 class Follow extends React.Component{
@@ -21,12 +22,19 @@ class Follow extends React.Component{
     }
 
     handleFollow(){
-        this.props.createFollow(this.props.AuthorId)
+        this.props.createFollow(this.props.AuthorId);
+        if(Object.keys(this.props.profile).length!==0){
+            this.props.getUser(this.props.profile.id)
+        }
     }
 
     handleUnfollow(){
         let id=this.props.follows.filter(follow => follow.follower_id === this.props.currentuser_id)
-        this.props.deleteFollow(id[0].id)
+        this.props.deleteFollow(id[0].id);
+        if(Object.keys(this.props.profile).length!==0){
+            this.props.getUser(this.props.profile.id)
+
+        }
     }
       
     render(){
@@ -54,7 +62,8 @@ const mapStateToProps=(state, ownProps)=>{
     return(
        { 
         follows: Object.values(state.entities.follows),
-        currentuser_id: state.session.id    
+        currentuser_id: state.session.id,
+        profile: state.entities.profile
         }
     )
 }
@@ -65,7 +74,8 @@ const mapDispatchToProps=dispatch=>{
         {
             createFollow: (author_id) => dispatch( createFollow(author_id)),
             deleteFollow: (id) => dispatch( deleteFollow(id)),
-            fetchFollows: (author_id)=>dispatch(fetchFollows(author_id))
+            fetchFollows: (author_id)=>dispatch(fetchFollows(author_id)),
+            getUser: (userId)=> dispatch(getUser(userId))
 
         }
     )
