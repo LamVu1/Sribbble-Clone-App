@@ -10,23 +10,12 @@ import {update} from '../../reducers/profile/profile_actions';
 class ProfileMessage extends React.Component{
     constructor(props){
         super(props);
-        this.state={message: 'Hello'}
+        this.state={message: this.props.message}
         this.handleUpdate = this.handleUpdate.bind(this);
         this.handleSubmit= this.handleSubmit.bind(this);
         this.handleButton = this.handleButton.bind(this);
         this.showform = false;
-    }
-
-    componentDidMount(){
-        this.props.getUser(this.props.id).then(user=>{
-           if(user.user.message===null){return}
-           else{
-            this.setState({message: user.user.message})
-            }
-        })
-        console.log(this.state.message)
-    }
-   
+    }   
 
     handleUpdate(){
         return(e=>this.setState({message: e.target.value}))
@@ -62,14 +51,13 @@ class ProfileMessage extends React.Component{
    
     render(){ 
 
-        let form = <form className="Profile-Message-Form" onSubmit={this.handleSubmit} style={{display: 'none'}}>
-        <textarea value={this.state.message} onChange={this.handleUpdate()} maxlength="200"></textarea>
-        <button>
-        <input type="submit"/>
-        </button>
-        </form>
+      
+        let form = <form className="Profile-Message-Form" style={{display: 'none'}} onSubmit={this.handleSubmit}>
+                        <textarea value={this.state.message} onChange={this.handleUpdate()}></textarea>
+                        <input type="submit" name="" id=""/>
+                </form>
 
-        let message = <p className="Profile-Message" style={{display: 'block'}}>{this.state.message}</p>
+        let message = <p className="Profile-Message" style={{display: 'block'}}>{this.props.message}</p>
         
         let btn;
         if(this.props.currentUser===this.props.id){
@@ -77,13 +65,12 @@ class ProfileMessage extends React.Component{
             Edit
         </button>
         }
-        
     
         return(
             <div className="Profile-Message-Container">
-                {btn}
                 {form}
                 {message}
+                {btn}
             </div>
         )
     }
@@ -93,8 +80,9 @@ class ProfileMessage extends React.Component{
 const mapStateToProps=(state, ownProps)=>{
     
     return(
-        {   
-            id: ownProps.id,        
+        {   id: state.entities.profile.id,
+            message: state.entities.profile.message,
+            currentUser: state.session.id 
         }
     )
 }
@@ -104,9 +92,8 @@ const mapDispatchToProps=dispatch=>{
     return(
         {
             update: (message)=>dispatch(update(message)),
-            getUser: (userId)=> dispatch( getUser(userId))
         }
-    )
-}
+        )
+    }
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ProfileMessage));

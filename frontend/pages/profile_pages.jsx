@@ -4,6 +4,9 @@ import {getUser , exitProfile} from '../reducers/profile/profile_actions';
 import PostIndex from '../components/posts/post_index';
 import FollowerProfile from '../components/profiles/profile_follow';
 import ProfileLikes from '../components/profiles/profile_like';
+import ProfileMessage from '../components/profiles/message';
+import Follow from '../components/follows/follow';
+
 
 class ProfilePage extends React.Component{
     constructor(props){
@@ -55,6 +58,8 @@ class ProfilePage extends React.Component{
                     <h1>{profile.username}</h1>
                     <p >{profile.location}</p>
                     <img  className="Profile-Picture" src={profile.imageURL} alt=""/>
+                    <Follow AuthorId = {this.props.profileId}/>
+                    <ProfileMessage />
                 </div>
                 <div className="Profile-Posts">
                 <PostIndex posts={profile.posts} />

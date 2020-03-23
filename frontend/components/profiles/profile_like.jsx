@@ -18,7 +18,7 @@ class ProfileLikes extends React.Component{
         super(props);
         this.state ={liked:[], profile:[], posts:[]};
         this.pic = '';
-        // this.handleLink = this.handleLink.bind(this);
+        this.handleLink = this.handleLink.bind(this);
     }
 
     componentDidMount(){
@@ -27,10 +27,10 @@ class ProfileLikes extends React.Component{
     }
     
         
-    // handleLink(id){
-    //     this.props.history.push(`/profile/${id}`);
-    //      location.reload();
-    //  }
+    handleLink(id){
+        this.props.history.push(`/profile/${id}`);
+         location.reload();
+     }
    
 
 
@@ -87,17 +87,17 @@ class ProfileLikes extends React.Component{
                    }
                    )
                 }
-                // <div className='Author-Header-Name' onClick={()=>{this.handleLink(this.props.authorId)}}>
-                //     <img className="Profile-Picture"  src={this.props.profileImg} alt=""/>
-
-                //     {this.props.profile}
-                // </div>
            
 
         return(
             <div className="Profile-Likes-Container">
                <div className="Author-Header-Container">
                 <div className="Author-Header">
+                <div className='Author-Header-Name' onClick={()=>{this.handleLink(this.props.authorId)}}>
+                    <img className="Profile-Picture"  src={this.props.profileImg} alt=""/>
+
+                    {this.props.profile}
+                </div>
                  <span>|</span>Likes 
                     </div>
                  </div>
@@ -136,6 +136,6 @@ const mapDispatchToProps=dispatch=>{
     )
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ProfileLikes);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ProfileLikes));
 
 
