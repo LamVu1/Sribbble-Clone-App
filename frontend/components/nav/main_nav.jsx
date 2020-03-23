@@ -1,16 +1,17 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter} from 'react-router-dom';
 
 
 import { connect } from 'react-redux';
 import { logout } from '../../reducers/session/session_actions';
-// import {exitProfile, getUser} from '../../reducers/profile/profile_actions';
 
 
 class Nav extends React.Component {
     constructor(props){
         super(props);
-        this.handleSubmit = this.handleSubmit.bind(this);        
+        this.handleSubmit = this.handleSubmit.bind(this);  
+        this.handleLink = this.handleLink.bind(this);
+      
     }
 
     handleSubmit(e){
@@ -18,6 +19,11 @@ class Nav extends React.Component {
         this.props.logout();
     }
 
+    handleLink(id){
+        this.props.history.push(`/profile/${id}`);
+         location.reload();
+     }
+   
    
     render(){
     let sessionLinks;
@@ -25,32 +31,37 @@ class Nav extends React.Component {
         {
             sessionLinks = 
                 <hgroup className="nav-group">
+
+<div className="nav-profile">
+
+                    <h2 className="nav-name">
+                        Hello, {this.props.currentUser.username}!
+                    </h2>
+                    <div onClick={()=>{this.handleLink(this.props.currentUser.id)}}>
+                        <img className="profile-image" src={this.props.currentUser.imageURL}/>
+                    </div>
+                  
+
+                    </div>
+                   <div className="nav-button">
+                             <Link to="/posts/new" style={{ textDecoration: 'none', color: '#999' }}>
+                    <button className="Upload-btn">
+                             <i className="fas fa-cloud-upload-alt"></i> Upload
+                    </button>
+
+                             </Link>                        
+
+                    <button className="nav-logout-btn" onClick={this.handleSubmit}>
+                        Log Out
+                    </button>
+                       
+                       </div> 
+
+
                 </hgroup>
         }
 
-                //     <div className="nav-profile">
-
-                //     <h2 className="nav-name">
-                //         Hello, {this.props.currentUser.username}!
-                //     </h2>
-                //     <Link to={`/profile/${this.props.currentUser.id}`}>
-                //         <img className="profile-image" src={this.props.currentUser.imageURL}/>
-                //     </Link>
-
-                //     </div>
-                //    <div className="nav-button">
-                //              <Link to="/posts/new" style={{ textDecoration: 'none', color: '#999' }}>
-                //     <button className="Upload-btn">
-                //              <i className="fas fa-cloud-upload-alt"></i> Upload
-                //     </button>
-
-                //              </Link>                        
-
-                //     <button className="nav-logout-btn" onClick={this.handleSubmit}>
-                //         Log Out
-                //     </button>
-                       
-                //        </div> 
+                    
     else
         {
             sessionLinks= 
@@ -105,4 +116,4 @@ const mapDispatchToProps = dispatch => {
   )
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Nav);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Nav));

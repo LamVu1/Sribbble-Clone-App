@@ -156,6 +156,11 @@
     width: 35px;
     height: 35px;
     border-radius: 14pt;
+    cursor: pointer;
+
+    &:hover{
+        opacity: .7;        
+    }
 }
 
 .nav-profile{

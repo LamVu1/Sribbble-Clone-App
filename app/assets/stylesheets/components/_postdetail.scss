@@ -25,6 +25,10 @@
         width: 50px;
         border-radius: 250pt;
         margin-right: 15px;
+
+        &:hover{
+            opacity: .7;
+        }
     }
 
     .Author-Title{
@@ -70,7 +74,7 @@
 
 .Post-index-author  {
     background-color: transparent;
-    color:#3a8bbb;
+    color:#4bafe9;
     font-size: 14px;
     font-weight: 500;
     padding: 0;

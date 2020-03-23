@@ -29,8 +29,10 @@ class Comment extends React.Component{
         this.props.fetchcommentLikes(this.props.PostId)
     }
 
-    handleLink(){
-        this.props.closeModal()
+    handleLink(id){
+        this.props.history.push(`/profile/${id}`);
+        location.reload();
+        // this.props.closeModal()
     }
 
 
@@ -58,15 +60,13 @@ class Comment extends React.Component{
             }
             return(
                 <li key={idx} className="Comment-Container">
-                    <Link to={`/profile/${comment.user_id}`} onClick={this.handleLink}>
+                    <div onClick={()=>{this.handleLink(comment.user_id)}}>
                         <img className="Comment-ProfilePicture" src={comment.profile_picture}/>
-                    </Link>
+                    </div>
                     <div className="Comment-Content">
-                        <p className="Comment-Author">
-                            <Link to={`/profile/${comment.user_id}`} onClick={this.handleLink}>
-                        {comment.author}
-                            </Link>
-                        </p>
+                            <div className="Comment-Author"onClick={()=>{this.handleLink(comment.user_id)}}>
+                                {comment.author}
+                            </div>
                         <p className="Comment-Body">{comment.body}</p>
                         <div className="Comment-Bottom-Div">
                         </div>
@@ -130,7 +130,7 @@ const mapDispatchToProps=dispatch=>{
         )
     }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Comment)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Comment));
 
 
 

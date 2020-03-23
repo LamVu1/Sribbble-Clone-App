@@ -65,20 +65,22 @@ class FollowerProfile extends React.Component{
         })
                 
         
-        //  <img className="Profile-Picture" src={this.pic} alt=""/> {name} 
-            // <div className="Author-Header-Container">
-            //     <div className="Author-Header">
-            //     <div className='Author-Header-Name' onClick={()=>{this.handleLink(this.props.authorId)}}>
-            //         {this.props.profile}
-            //     </div>
-            //      <span>|</span>Followers 
-            //         </div>
-            //      </div>
-            //      <div className='Profile-Follower-Container'>
-            //         {content}
-            //      </div>
         return(
             <div className="Profile-Follower-Container">
+               
+                <div className="Author-Header-Container">
+                    <div className="Author-Header">
+                        <div className='Author-Header-Name' onClick={()=>{this.handleLink(this.props.authorId)}}>
+                        <img className="Profile-Picture" src={this.props.profileImg} alt=""/>
+                            {this.props.profile}
+                        </div>
+                        <span>|</span>Followers 
+                    </div>
+                </div>
+
+                <div className='Profile-Follower-Container'>
+                    {content}
+                </div>
             </div> 
         )
     }

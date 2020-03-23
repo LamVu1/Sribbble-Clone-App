@@ -22,6 +22,10 @@
     border-radius: 40pt;
     margin-right: 10px;
     margin-top: 0px;
+
+    &:hover{
+        opacity: .7;
+    }
 }
 
 .Author-Header{
@@ -37,11 +41,11 @@
 .Author-Header-Name{
     display: flex;
     align-items: center;
-    color: rgb(19, 117, 182);
+    color: rgb(62, 162, 228);
 
     &:hover{
         cursor: pointer;
-        color: rgb(30, 148, 226);
+        color: rgb(33, 131, 196);
     }
 }
 .Author-Header img{
