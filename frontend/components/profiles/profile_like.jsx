@@ -9,7 +9,7 @@ import { connect } from 'react-redux';
 // import {fetchPost} from '../../reducers/posts/posts_actions';
 // import {closeModal, openModal} from '../../reducers/ui/modal_action';
 
-import {fetchPosts} from '../../reducers/posts/posts_actions';
+import {fetchPost} from '../../reducers/posts/posts_actions';
 
 
 
@@ -18,27 +18,20 @@ class ProfileLikes extends React.Component{
         super(props);
         this.state ={liked:[], profile:[], posts:[]};
         this.pic = '';
-      
+        // this.handleLink = this.handleLink.bind(this);
     }
 
     componentDidMount(){
-        this.props.fetchPosts(this.props.posts);
+        
+        this.props.fetchPost(this.props.posts.map(like=>like.post_id));
     }
     
         
-    // }
-    // filtering(){
-    //     let arr =[]; 
-    //    Object.values(this.state.liked).map((ele)=>{
-    //        ele.map((el)=>{
-    //            arr.push(parseInt(el.post_id))
-    //        })
-    //    })
-    //    let post = {id:1,arr: arr}
-    //    this.props.fetchPost(post).then(post =>{
-    //     this.setState({posts: [...this.state.posts, ...Object.values(post.post)] });
-    //    })
-    // }
+    // handleLink(id){
+    //     this.props.history.push(`/profile/${id}`);
+    //      location.reload();
+    //  }
+   
 
 
     render(){
@@ -88,20 +81,28 @@ class ProfileLikes extends React.Component{
                         <PostIndexItem
                         key= {idx}
                         post={post}
-                        
                         />
         
                        )
                    }
                    )
                 }
+                // <div className='Author-Header-Name' onClick={()=>{this.handleLink(this.props.authorId)}}>
+                //     <img className="Profile-Picture"  src={this.props.profileImg} alt=""/>
+
+                //     {this.props.profile}
+                // </div>
+           
 
         return(
             <div className="Profile-Likes-Container">
-               <p>LIKES</p>
+               <div className="Author-Header-Container">
+                <div className="Author-Header">
+                 <span>|</span>Likes 
+                    </div>
+                 </div>
                <ul className="Post-Index">
                     {content}
-
                 </ul>
 
           </div> 
@@ -116,7 +117,9 @@ const mapStateToProps=(state, ownProps)=>{
         
     return(
         {   
-            postss: Object.values(state.entities.posts)
+            postss: Object.values(state.entities.posts),
+            profile: state.entities.profile.username,
+            profileImg: state.entities.profile.imageURL
 
         }
     )
@@ -127,7 +130,7 @@ const mapDispatchToProps=dispatch=>{
     return(
         {
          
-            fetchPosts: (post) => dispatch( fetchPosts(post))
+            fetchPost: (post) => dispatch( fetchPost(post))
             
         }
     )

@@ -3,33 +3,36 @@ import {withRouter, Link} from 'react-router-dom';
 
 import { connect } from 'react-redux';
 // import {getUser, exitProfile} from '../../reducers/profile/profile_actions';
-// import {fetchFollows} from '../../reducers/follows/follows_action';
+import {fetchFollows} from '../../reducers/follows/follows_action';
 
 
 
 
-class FollowingProfile extends React.Component{
+class FollowerProfile extends React.Component{
     constructor(props){
-        super(props);
-        this.state ={following:[], profile:[]};
-        this.pic = '';
-        
+        super(props);        
+        this.handleLink = this.handleLink.bind(this);
     }
 
-    // componentDidMount(){    
-    //     this.props.fetchFollows(this.props.author_id).then(following=>{
+    componentDidMount(){    
+        this.props.fetchFollows(this.props.authorId)
+        // .then(following=>{
             
-    //             {this.setState({following: [...this.state.following,...Object.values(following.follows)
-    //             ]})}
-    //         }
-    //     );
-    //     this.props.getUser(this.props.author_id).then(profile=>
-    //         {this.setState({profile: [...this.state.profile,profile.user]})});
-    // }
+        //         {this.setState({following: [...this.state.following,...Object.values(following.follows)
+        //         ]})}
+        //     }
+        // );
+        // this.props.getUser(this.props.author_id).then(profile=>
+        //     {this.setState({profile: [...this.state.profile,profile.user]})});
+    }
 
-   
+   handleLink(id){
+       this.props.history.push(`/profile/${id}`);
+        location.reload();
+    }
     render(){
-        let name;
+
+
         // this.state.profile.map((profile,idx)=>{
         //     name=<h1 key={idx}>{profile.username}</h1>
         //     this.pic = profile.imageURL;
@@ -52,21 +55,30 @@ class FollowingProfile extends React.Component{
         //   <ul>
         //       {follows}
         //   </ul>
-        
+        let content = this.props.follower.map((follow,idx)=>{
+            return(
+                <div key={idx} className='Profile-Follower-Item' onClick={()=>{this.handleLink(follow.follower_id)}}>
+                        <img className="Profile-Picture" src={follow.follower_profilepicture} alt="" key={idx}/>
+                        <p className="Follower-Name" key={idx}>{follow.follower_username} </p>
+                </div>
+            )
+        })
                 
+        
         //  <img className="Profile-Picture" src={this.pic} alt=""/> {name} 
+            // <div className="Author-Header-Container">
+            //     <div className="Author-Header">
+            //     <div className='Author-Header-Name' onClick={()=>{this.handleLink(this.props.authorId)}}>
+            //         {this.props.profile}
+            //     </div>
+            //      <span>|</span>Followers 
+            //         </div>
+            //      </div>
+            //      <div className='Profile-Follower-Container'>
+            //         {content}
+            //      </div>
         return(
             <div className="Profile-Follower-Container">
-                <h1>Following</h1>
-        <div className="Author-Header-Container">
-            <div className="Author-Header">
-            <Link to={`/profile/${this.props.authorId}`}>
-                YES
-            </Link>
-                 <span>|</span>Followers 
-            </div>
-        </div>
-
             </div> 
         )
     }
@@ -74,27 +86,27 @@ class FollowingProfile extends React.Component{
 
 
 
-// const mapStateToProps=(state, ownProps)=>{
+const mapStateToProps=(state, ownProps)=>{
         
-//     return(
-//         {   
-//             author_id: parseInt(ownProps.match.params.id),
+    return(
+        { 
+            follower: Object.values(state.entities.follows),
+            profile: state.entities.profile.username,
+            profileImg: state.entities.profile.imageURL
 
-//         }
-//     )
-// }
+         }
+     )
+}
 
-// const mapDispatchToProps=dispatch=>{
+const mapDispatchToProps=dispatch=>{
     
-//     return(
-//         {
-//             getUser: (userId)=> dispatch( getUser(userId)),
-//             exitProfile: ()=>dispatch(exitProfile()),
-//             fetchFollows: (author_id)=>dispatch(fetchFollows(author_id))
+    return(
+        {
+            fetchFollows: (author_id)=>dispatch(fetchFollows(author_id))
 
-//         }
-//     )
-// }
+        }
+    )
+}
 
-export default connect(null, null)(FollowingProfile);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(FollowerProfile));
 

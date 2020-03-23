@@ -34,15 +34,51 @@
     margin: 0px 5px 0 5px   ;
 }
 
-.Author-Header a{
+.Author-Header-Name{
     display: flex;
     align-items: center;
-    color: rgb(18, 95, 146);
+    color: rgb(19, 117, 182);
+
+    &:hover{
+        cursor: pointer;
+        color: rgb(30, 148, 226);
+    }
 }
 .Author-Header img{
     width: 45px;
     height: 45px;
 }
+
+.Profile-Follower-Container{
+    display: flex;
+    flex-direction: column;
+}
+
+.Profile-Follower-Item{
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    padding: 20px;
+    align-items: center;
+    cursor: pointer;
+
+    .Follower-Name{
+        border-bottom: transparent;
+        box-sizing: border-box;
+        height: 30px;
+        padding-bottom: 15px;
+
+    }
+
+    &:hover{
+        .Follower-Name{
+            border-bottom: black solid;
+        }
+    }
+}
+
+
+
 .Follower-Count{
     font-size: 16px;
     color: #44445F;

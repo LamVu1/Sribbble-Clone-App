@@ -9,17 +9,19 @@ export const fetchPosts = () => {
     )
 };
 
-export const fetchPost = (post) => {
+export const fetchPost = (posts) => {
     return(
         $.ajax(
             {
                 method: 'GET',
-                data: {post},
-                url: `/api/posts/${post.id}`,
+                data: {posts},
+                url: `/api/posts/1`
             }
         )
     )
 };
+
+
 
 export const createPost = (formData) => {
     return(

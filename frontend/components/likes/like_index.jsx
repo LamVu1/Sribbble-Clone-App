@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import {createLike, deleteLike, fetchLikes} from '../../reducers/likes/likes_action';
 import {getUser} from '../../reducers/profile/profile_actions';
 
-import {fetchPosts} from '../../reducers/posts/posts_actions';
+import {fetchPost} from '../../reducers/posts/posts_actions';
 
 
 class Like extends React.Component{
@@ -22,9 +22,12 @@ class Like extends React.Component{
     handleLike(){
         this.props.createLike(this.props.post_id);
         if(Object.keys(this.props.profile).length!==0){
-            this.props.getUser(this.props.profile.id);
+            this.props.getUser(this.props.profile.id).then(
+                ()=>{
+                    this.props.fetchPost(this.props.profile.likes.map(likes => likes.post_id));
+                }
+            )
             
-            this.props.fetchPosts(this.props.profile.likes);
         }
 
     }
@@ -34,8 +37,10 @@ class Like extends React.Component{
         this.props.deleteLike(likeId[0].id)
 
         if(Object.keys(this.props.profile).length!==0){
-            this.props.getUser(this.props.profile.id)
+            this.props.getUser(this.props.profile.id).then(()=>
+                {this.props.fetchPost(this.props.profile.likes.map(likes => likes.post_id))}
 
+            )
         }
     }
      
@@ -77,7 +82,7 @@ const mapDispatchToProps=dispatch=>{
             deleteLike: (id) => dispatch( deleteLike(id)),
             fetchLikes: (post_id) => dispatch(fetchLikes(post_id)),
             getUser: (userId)=> dispatch(getUser(userId)),
-            fetchPosts: (post) => dispatch( fetchPosts(post))
+            fetchPost: (post) => dispatch( fetchPost(post))
 
 
         }
