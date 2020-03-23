@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import {getUser , exitProfile} from '../reducers/profile/profile_actions';
 import PostIndex from '../components/posts/post_index';
-import FollowingProfile from '../components/profiles/profile_follow';
+import FollowerProfile from '../components/profiles/profile_follow';
 import ProfileLikes from '../components/profiles/profile_like';
 
 class ProfilePage extends React.Component{
@@ -23,8 +23,6 @@ class ProfilePage extends React.Component{
 
     handleUpdate(n){
         this.setState({comp: n})
-        debugger
-        console.log(this.state.comp)
     }
 
     render(){
@@ -52,45 +50,49 @@ class ProfilePage extends React.Component{
             
             content = 
             
-            <div className="Profile-Summary">
-                <h1>{profile.username}</h1>
-                <p >{profile.location}</p>
-                <img  className="Profile-Picture" src={profile.imageURL} alt=""/>
+            <div className="Profile-Content">
+                <div className='Profile-Summary'>
+                    <h1>{profile.username}</h1>
+                    <p >{profile.location}</p>
+                    <img  className="Profile-Picture" src={profile.imageURL} alt=""/>
+                </div>
+                <div className="Profile-Posts">
                 <PostIndex posts={profile.posts} />
+                </div>
             </div>
             
 
         }
 
         if(this.state.comp===2){
-            content = <ProfileLikes posts={profile.likes}/>
+            content = <div className="Profile-Content">
+            <ProfileLikes 
+                posts={profile.likes}
+                authorId={this.props.profileId}
+            />
+                </div>
         }
 
-        if(this.state.comp===4){
-            content = <FollowingProfile authorId={this.props.profileId}/>
+        if(this.state.comp===3){
+            content = <div className="Profile-Content">
+            <FollowerProfile authorId={this.props.profileId}/>
+            </div>
         }
+        // <button onClick={()=>this.handleUpdate(3)}>followers:{followers}
+        // </button>
 
 
         return(
             <div className="Profile-Container">
-                <div className="Profile-Div">
-                    <div>
-                        <button onClick={()=>this.handleUpdate(2)}>liked:{likes}
-                        </button>
-                        <button onClick={()=>this.handleUpdate(3)}>followers:{followers}
-                        </button>
-                        <button onClick={()=>this.handleUpdate(4)}>authors:{authors}
-                        </button>
-                        <button onClick={()=>this.handleUpdate(1)}>posts:{posts}
-                        </button>
-                    </div>
-                    
-                    <div className="Profile-Posts">
-                        {content}
-                    </div>
-                    
+                <div className="Navigation-Div">
+                        <div className='Navigation-btn' onClick={()=>this.handleUpdate(2)}>Liked: {likes}
+                        </div>
+                        <div className='Navigation-btn' onClick={()=>this.handleUpdate(3)}>Followers: {authors}
+                        </div>
+                        <div className='Navigation-btn' onClick={()=>this.handleUpdate(1)}>Shots: {posts}
+                        </div>
                 </div>
-
+                {content}                   
             </div>
         )
     }

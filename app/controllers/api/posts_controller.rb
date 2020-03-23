@@ -21,7 +21,7 @@ class Api::PostsController < ApplicationController
 
     def show
         
-        @post = Post.where(author_id: params[:author_id])
+        @post = Post.where(id: params[:posts])
         if @post
             render :index
         else
