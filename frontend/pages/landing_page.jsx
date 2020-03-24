@@ -5,6 +5,8 @@ import { connect } from 'react-redux';
 
 import PostIndex from '../components/posts/post_index';
 import {fetchPosts} from '../reducers/posts/posts_actions';
+import { toggleLoader } from '../reducers/ui/loader_action';
+import Errors from '../components/errors/errors';
 
 
 class LandingPage extends React.Component {
@@ -17,6 +19,8 @@ class LandingPage extends React.Component {
   componentDidMount(){
     this.props.fetchPosts();
     this.idx= this.getImage()
+    this.props.toggleLoader()
+    setTimeout(()=>{this.props.toggleLoader()}, 500);
 }
 
 
@@ -41,6 +45,7 @@ class LandingPage extends React.Component {
               <i id="angellist" className="fab fa-angellist"></i>
             </a>     
 		      </div>
+       
         <div className="main-banner" style={{backgroundColor: image[this.idx].color}}>
           
           <div className="main-banner-container">
@@ -77,14 +82,17 @@ class LandingPage extends React.Component {
 const mapStateToProps = state =>{
 
   return({
-    posts: Object.values(state.entities.posts)
+    posts: Object.values(state.entities.posts),
+    error: state.errors.follow
+
 
   })
 }
 const mapDispatchToProps = dispatch => {
   
   return({
-    fetchPosts: () => dispatch( fetchPosts())
+    fetchPosts: () => dispatch( fetchPosts()),
+    toggleLoader: () => dispatch(toggleLoader())
     }
   )
 }

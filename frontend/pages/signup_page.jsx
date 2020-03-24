@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import ErrorsContainer from '../components/errors/errors_container';
+import Errors from '../components/errors/errors';
 
 import { connect } from 'react-redux';
 import { signup, clearErrors } from '../reducers/session/session_actions';
@@ -78,7 +78,7 @@ class SignupPage extends React.Component {
     return (
       <div className="signup-form-container">
         
-            <ErrorsContainer 
+            <Errors 
           errors={this.props.errors}
           />
           

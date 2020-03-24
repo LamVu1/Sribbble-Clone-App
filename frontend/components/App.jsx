@@ -15,7 +15,7 @@ import Navcontainer from './nav/main_nav';
 import { AuthRoute, ProtectedRoute } from '../utils/route_util';
 import CreatePostForm from './posts/create_post_form';
 import Modal from './modal/modal';
-import AwesomeComponent from './loading';
+import Loader from './loading';
 import ProfilePage from '../pages/profile_pages';
 
 
@@ -26,6 +26,7 @@ const App = () => (
       
       <Navcontainer/>
       <Modal/>
+      <Loader />
       < Switch>
           < AuthRoute exact path="/login" component={SigninPage}/>
           < AuthRoute exact path="/signup" component={SignupPage} />
