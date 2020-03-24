@@ -52,8 +52,8 @@
         width: 80px;
         height: 80px;
         border-radius: 40pt;
-        margin-top: 20px;
         align-self: center;
+        margin: 20px 0px 0px 0px;
     }
 
     .Profile-Summary img {
@@ -141,12 +141,13 @@
     display: flex;
     margin-top: 10px;
     flex-direction: column;     
-    align-items: flex-end;
+    align-items: center;
     height: 100%;
+    width: 30%;
 }
 
 .Profile-Message-Container form {
-    border: #999 solid thin;
+    border: black solid thin;
     width: 90%;
     height: 100%;
     margin: 0px 15px 15px 15px;
@@ -157,16 +158,24 @@
     padding: 5px;
 }
 
-.Profile-Message-Form button{
+.Profile-Message-Form input{
     align-self: flex-end;
     text-align: center;
-    width: 100px;
+    width: 100%;
+    background-color: white;
+    border-radius: 4pt;
+    border: rgb(197, 194, 194) solid thin;
+    cursor: pointer;
+
+    &:hover{
+        border: black solid thin;
+    }
 }
 
 .Profile-Message{
    
     height: 100px;
-    width: 90%;
+    width: 100%;
     margin: 15px;
     text-align: center;
     font-size: 15px;
@@ -178,7 +187,32 @@
 
 .Profile-Message-Btn{
     width: 50px;
-    margin-right: 15px;
+    margin-right: 21px;
     text-align: center;
-    float: left;
+    align-self: flex-end;
 }
+
+
+.Follow-div{
+   margin-top: 10px;;
+}
+
+
+
+@media only screen and (max-width: 1200px) {
+
+    .Profile-Message-Container{
+        display: flex;
+        margin-top: 10px;
+        flex-direction: column;     
+        align-items: center;
+        height: 100%;
+        width: 100%;
+    }
+
+    .Post-index-item{
+        height: 600px;
+        width: 100%;
+    }
+}
+

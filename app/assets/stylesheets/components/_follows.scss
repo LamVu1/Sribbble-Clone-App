@@ -1,41 +1,51 @@
-
 .Follow-btn{
     font-weight: bold;
-    background-color: transparent;
     color: #ea4c89;
+    background-color: white;
+    border: #ea4c89 solid thin;
+    border-radius: 3pt;
     display: inline;
+    padding: 4px;
+    line-height: inherit;
     font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 14px;
-    padding: 0;
-    line-height: inherit;
     overflow: visible;
     position: relative;
     margin: 0px 5px;  
 }
 
 .Follow-btn:hover{
-    color: #ea4c89;
-    background-color: transparent;
+    color: #f373a4cb;
+    background-color: white;;
     text-decoration: none;
+    border: #f373a4cb solid thin;
+
 }
 
 .Unfollow-btn{
 
     font-weight: bold;
-    background-color: transparent;
-    color: #999;
+    color: white;
+    background-color: #ea4c89;
+    border: #ea4c89 solid thick;
+    border-radius: 3pt;
     display: inline;
-    padding: 0;
-    line-height: inherit;
     font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 14px;
+    padding: 0;
+    line-height: inherit;
     overflow: visible;
     position: relative;
     margin: 0px 5px;  
+
+
+
+    
 }
 
 .Unfollow-btn:hover{
-    color: #ea4c89;
-    background-color: transparent;
+    color: white;
+    background-color: #f373a4cb;;
     text-decoration: none;
+    border: #f373a4cb solid thick;
 }

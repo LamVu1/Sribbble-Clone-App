@@ -20,15 +20,19 @@
     display: flex;
     flex-direction: row;
 
-    .Post-ProfilePicture{
-        height: 50px;
-        width: 50px;
-        border-radius: 250pt;
-        margin-right: 15px;
+    .Author-Image-Container{
 
-        &:hover{
-            opacity: .7;
-        }
+        .Post-ProfilePicture{
+            height: 50px;
+            width: 50px;
+            border-radius: 250pt;
+            margin-right: 15px;
+            cursor: pointer;
+    
+            &:hover{
+                opacity: .7;
+            }
+    }
     }
 
     .Author-Title{
@@ -42,6 +46,11 @@
             line-height: 1.4;
             font-weight: normal;
             color: #6e6d7a;
+
+            .by-author{
+                display: flex;
+                align-items: center;
+            }
         }
 
     

@@ -58,7 +58,9 @@ class ProfilePage extends React.Component{
                     <h1>{profile.username}</h1>
                     <p >{profile.location}</p>
                     <img  className="Profile-Picture" src={profile.imageURL} alt=""/>
-                    <Follow AuthorId = {this.props.profileId}/>
+                    <div className='Follow-div'>
+                        <Follow AuthorId = {this.props.profileId}/>
+                    </div>
                     <ProfileMessage />
                 </div>
                 <div className="Profile-Posts">
