@@ -35,7 +35,7 @@ class ProfileMessage extends React.Component{
         
         if(this.showform){
             f[0].style.display = "none";
-            message[0].style.display = "block";
+            message[0].style.display = "flex";
             btn[0].style.display = "block";
             btn[0].innerHTML = "Edit"
             this.showform=false;
@@ -68,9 +68,9 @@ class ProfileMessage extends React.Component{
     
         return(
             <div className="Profile-Message-Container">
+                {btn}
                 {form}
                 {message}
-                {btn}
             </div>
         )
     }

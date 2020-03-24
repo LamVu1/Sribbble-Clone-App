@@ -1,9 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link , withRouter} from 'react-router-dom';
 import Comment from '../comments/comment_index';
 import Like from '../likes/like_index';
 import Follow from '../follows/follow';
-import {withRouter} from 'react-router-dom';
 import {calcTime} from '../../utils/calc';
 import {updateTime} from '../../utils/updatetime';
 import {getUser} from '../../reducers/profile/profile_actions';
@@ -56,9 +55,14 @@ class PostDetail extends React.Component{
     //     this.props.closeModal()
     // }
 
-    handleLink(){
-        this.props.closeModal()
-    }
+
+
+   handleLink(id){
+    this.props.history.push(`/profile/${id}`);
+     this.props.closeModal()
+ }
+
+ 
 
     render(){
         let {post, user_id} = this.props
@@ -152,17 +156,20 @@ class PostDetail extends React.Component{
             <div className='Post-index'>
                 <div className='Top-Container'>
                     <div className='Author-Container'>
-                        <Link to={`/profile/${post.author_id}`} onClick={this.handleLink}>
+                        <div className='Author-Image-Container' onClick={()=>{this.handleLink(post.author_id)}}>
                             <img className="Post-ProfilePicture" src={post.profile_picture}/>
-                        </Link>            
+                        </div>
+                              
                         <div className='Author-Title'>
                             <h1 className="Post-index-title">{post.title}</h1>
                             <div className='By-Author-Link'>
                                 <p className="by-author">by</p>  
-                                <Link to={`/profile/${post.author_id}`} onClick={this.handleLink}>
-                                    <div className='Post-index-author'>{post.author} |</div>
-                                </Link> 
+                                <div className='Post-index-author' onClick={()=>{this.handleLink(post.author_id)}}>
+                                    {post.author}
+                                </div>
+                                
                                 <Follow AuthorId = {post.author_id}/>
+                               
                             </div>
                         </div>
                     </div>
@@ -221,5 +228,5 @@ const mapDispatchToProps = dispatch => {
     )
 };
   
-export default connect(mapStateToProps, mapDispatchToProps)(PostDetail);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(PostDetail));
   
