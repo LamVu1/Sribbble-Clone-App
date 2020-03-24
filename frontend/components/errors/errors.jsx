@@ -7,28 +7,39 @@ import {clearErrors } from '../../reducers/session/session_actions';
 class ErrorsIndex extends React.Component{
     constructor(props) {
         super(props);
+        // this.state ={errors: []}
         this.close = this.close.bind(this)
-                
     }
+
+
+    // componentDidMount(){
+    //     this.setState({errors: this.props.error})
+    // }
 
     close(){
         this.props.clearErrors()
     }
 
+
     render(){
 
         let ErrorMessage;
         
+        let {errors} = this.props
         
-        if(this.props.errors.length !== 0){
+        // if(this.state.errors ===undefined){
+        //     return null
+        // }
+        
+        if(errors.length > 0){
             let banner=document.getElementsByClassName('Errors-Banner')
             banner[0].style.display = "block";
             ErrorMessage=
             <div>
-                <h1>Please enter the correct information:</h1>
                 <button className="Close-Bannerbtn" onClick={this.close}>X</button>
+                <h1>Please enter the correct information:</h1>
                 <ul className='Errors-Container'>
-                    {this.props.errors.map((error, i) => (
+                    {errors.map((error, i) => (
 
                     <li className='eerrors' key={`error-${i}`}>
                     
@@ -41,6 +52,7 @@ class ErrorsIndex extends React.Component{
             </div>
           
         }
+    
         return(
             <div className="Errors-Banner">
                 
@@ -55,11 +67,11 @@ class ErrorsIndex extends React.Component{
 
 
 
-const mapStateToProps=(state, ownProps)=>{
-  
+const mapStateToProps=(state)=>{
+    
     return(
         {
-          
+          errors: state.errors
         }
     )
 }

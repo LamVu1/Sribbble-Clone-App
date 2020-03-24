@@ -1,21 +1,21 @@
-import {
-    RECEIVE_POST_ERRORS,
-    CLEAR_ERRORS
-  } from '../posts/posts_actions';
+// import {
+//     RECEIVE_POST_ERRORS,
+//     CLEAR_ERRORS
+//   } from '../posts/posts_actions';
 
 
 
-  const postErrorsReducer = (state = [], action) => {
+//   const postErrorsReducer = (state = [], action) => {
     
-    Object.freeze(state);
-    switch(action.type) {
-      case RECEIVE_POST_ERRORS:
-        return action.errors;
-      case CLEAR_ERRORS:
-        return [];
-      default:
-        return state;
-    }
-  };
+//     Object.freeze(state);
+//     switch(action.type) {
+//       case RECEIVE_POST_ERRORS:
+//         return action.errors;
+//       case CLEAR_ERRORS:
+//         return [];
+//       default:
+//         return state;
+//     }
+//   };
   
-  export default postErrorsReducer;
+//   export default postErrorsReducer;

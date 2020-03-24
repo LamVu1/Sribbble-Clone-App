@@ -130,9 +130,7 @@ return (
   
   
   <div className="CreateForm-Container">
-  <Errors 
-   errors = {this.props.errors}
-  />
+
           <div className="lds-facebook"><div></div><div></div><div></div></div>
             <h1 className="CreateForm-Header">Publish your Shot</h1>
 
@@ -237,7 +235,6 @@ const mapStateToProps = state => {
     return(
         {   
             post: {title:"", description:""},
-            errors: state.errors.post
     
         }
     )

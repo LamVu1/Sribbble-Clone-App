@@ -3,7 +3,7 @@ import * as APIUtil from './likes_api_util';
 export const RECEIVE_ALL_LIKES = 'RECEIVE_ALL_LIKES';
 export const RECEIVE_LIKE = 'RECEIVE_LIKE';
 export const REMOVE_LIKE ='REMOVE_LIKE';
-export const RECEIVE_LIKE_ERRORS = 'RECEIVE_LIKE_ERRORS';
+export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
 export const CLEAR_ERRORS = 'CLEAR_ERRORS'
 
 
@@ -23,7 +23,7 @@ const removeLike = (like)=>({
 })
 
 export const receiveErrors = errors => ({
-    type: RECEIVE_LIKE_ERRORS,
+    type: RECEIVE_ERRORS,
     errors
 });
 

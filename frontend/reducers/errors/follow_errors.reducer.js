@@ -1,22 +1,22 @@
 
-import {
-    RECEIVE_FOLLOW_ERRORS,
-    CLEAR_ERRORS
-  } from '../follows/follows_action';
+// import {
+//   RECEIVE_ERRORS,
+//     CLEAR_ERRORS
+//   } from './errors_action';
 
 
 
-  const followErrorsReducer = (state = [], action) => {
+//   const ErrorsReducer = (state = [], action) => {
     
-    Object.freeze(state);
-    switch(action.type) {
-      case RECEIVE_FOLLOW_ERRORS:
-        return action.errors;
-      case CLEAR_ERRORS:
-        return [];
-      default:
-        return state;
-    }
-  };
+//     Object.freeze(state);
+//     switch(action.type) {
+//       case RECEIVE_ERRORS:
+//         return action.errors;
+//       case CLEAR_ERRORS:
+//         return [];
+//       default:
+//         return state;
+//     }
+//   };
   
-  export default followErrorsReducer;
+//   export default ErrorsReducer;

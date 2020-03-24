@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Errors from '../components/errors/errors';
 
 import { connect } from 'react-redux';
 
-import { login, clearErrors } from '../reducers/session/session_actions';
+import { login } from '../reducers/session/session_actions';
 
+import {clearErrors} from '../reducers/errors/errors_action';
 
 
 class SigninPage extends React.Component {
@@ -62,9 +62,7 @@ class SigninPage extends React.Component {
     return (
 
       <div className="signin-form-container">
-          <Errors 
-          errors = {this.props.errors}
-          />
+         
 
           <div className="NAV-BAR">
             <a href="https://www.linkedin.com/in/lam-vu-4b49a5117/">
@@ -128,15 +126,15 @@ class SigninPage extends React.Component {
 
 
 
-const mapStateToProps = ({ errors }) => {
+// const mapStateToProps = () => {
 
-  return(
-      {
-        errors: errors.session      
-    }
-  );
+//   return(
+//       {
+            
+//     }
+//   );
 
-};
+// };
 
 
 const mapDispatchToProps = dispatch => {
@@ -150,4 +148,4 @@ const mapDispatchToProps = dispatch => {
 };
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(SigninPage);
+export default connect(null, mapDispatchToProps)(SigninPage);

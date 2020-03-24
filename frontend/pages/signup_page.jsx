@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Errors from '../components/errors/errors';
 
 import { connect } from 'react-redux';
-import { signup, clearErrors } from '../reducers/session/session_actions';
+import { signup } from '../reducers/session/session_actions';
+import {clearErrors} from '../reducers/errors/errors_action';
 
 class SignupPage extends React.Component {
   
@@ -77,10 +77,7 @@ class SignupPage extends React.Component {
 
     return (
       <div className="signup-form-container">
-        
-            <Errors 
-          errors={this.props.errors}
-          />
+         
           
           <div className="NAV-BAR">
             <a href="https://www.linkedin.com/in/lam-vu-4b49a5117/">
@@ -167,11 +164,11 @@ class SignupPage extends React.Component {
 }
 
 
-const mapStateToProps = ({ errors }) => {
+const mapStateToProps = () => {
 
   return (
     {
-        errors: errors.session,
+      
         formType: 'Sign Up',
         navLink: <Link to="/login">log in instead</Link>,
     }

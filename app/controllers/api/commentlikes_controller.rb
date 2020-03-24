@@ -5,13 +5,19 @@ class Api::CommentlikesController < ApplicationController
         @comment_like = CommentLike.new
         @comment_like.comment_id = params[:commentLike][:comment_id]
         @comment_like.post_id = params[:commentLike][:post_id]
-        @comment_like.user_id = current_user.id
-        
-        if @comment_like.save
-            render "api/comment_likes/show"
+
+        if current_user ==nil
+            render json: ['Please log in'], status: 422
         else
-            render json:
-            @comment_like.errors.full_messages, status: 422
+
+            @comment_like.user_id = current_user.id
+            
+            if @comment_like.save
+                render "api/comment_likes/show"
+            else
+                render json:
+                @comment_like.errors.full_messages, status: 422
+            end
         end
     end
 

@@ -17,7 +17,9 @@ import CreatePostForm from './posts/create_post_form';
 import Modal from './modal/modal';
 import Loader from './loading';
 import ProfilePage from '../pages/profile_pages';
+import Error from '../components/errors/errors';
 
+{/* <Error /> */}
 
 const App = () => (
   
@@ -26,7 +28,8 @@ const App = () => (
       
       <Navcontainer/>
       <Modal/>
-      <Loader />
+      <Error />
+  <Loader />
       < Switch>
           < AuthRoute exact path="/login" component={SigninPage}/>
           < AuthRoute exact path="/signup" component={SignupPage} />
