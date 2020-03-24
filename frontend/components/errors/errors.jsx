@@ -1,6 +1,8 @@
 import React from 'react';
-import {withRouter} from 'react-router-dom';
-import {calcTime} from '../../utils/calculate_time';
+import { connect, withRouter } from 'react-redux';
+import {clearErrors } from '../../reducers/session/session_actions';
+
+
 
 class ErrorsIndex extends React.Component{
     constructor(props) {
@@ -16,6 +18,8 @@ class ErrorsIndex extends React.Component{
     render(){
 
         let ErrorMessage;
+        
+        
         if(this.props.errors.length !== 0){
             let banner=document.getElementsByClassName('Errors-Banner')
             banner[0].style.display = "block";
@@ -26,16 +30,14 @@ class ErrorsIndex extends React.Component{
                 <ul className='Errors-Container'>
                     {this.props.errors.map((error, i) => (
 
-                <li className='eerrors' key={`error-${i}`}>
-                  
-                  {error}
+                    <li className='eerrors' key={`error-${i}`}>
+                    
+                        {error}
 
-                </li>
+                    </li>
 
-            ))}
-          </ul>
-
-
+                    ))}
+                </ul>
             </div>
           
         }
@@ -48,4 +50,27 @@ class ErrorsIndex extends React.Component{
     }
 }
 
-export default withRouter(ErrorsIndex);
+
+
+
+
+
+const mapStateToProps=(state, ownProps)=>{
+  
+    return(
+        {
+          
+        }
+    )
+}
+
+const mapDispatchToProps=dispatch=>{
+    
+    return(
+        {
+            clearErrors: ()=>dispatch(clearErrors())
+        }
+    )
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ErrorsIndex)

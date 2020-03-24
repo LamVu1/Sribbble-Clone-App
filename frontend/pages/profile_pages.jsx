@@ -6,6 +6,8 @@ import FollowerProfile from '../components/profiles/profile_follow';
 import ProfileLikes from '../components/profiles/profile_like';
 import ProfileMessage from '../components/profiles/message';
 import Follow from '../components/follows/follow';
+import { toggleLoader } from '../reducers/ui/loader_action';
+
 
 
 class ProfilePage extends React.Component{
@@ -18,8 +20,11 @@ class ProfilePage extends React.Component{
     }
 
     componentDidMount(){
-        this.props.getUser(this.props.profileId)
+        this.props.getUser(this.props.profileId);
+        this.props.toggleLoader()
+        setTimeout(()=>{this.props.toggleLoader()}, 500);
     }
+
     componentWillUnmount(){
         this.props.exitProfile();
     }
@@ -57,7 +62,7 @@ class ProfilePage extends React.Component{
                 <div className='Profile-Summary'>
                     <h1>{profile.username}</h1>
                     <p >{profile.location}</p>
-                    <img  className="Profile-Picture" src={profile.imageURL} alt=""/>
+                    <img  className="Profile-Pic" src={profile.imageURL} alt=""/>
                     <div className='Follow-div'>
                         <Follow AuthorId = {this.props.profileId}/>
                     </div>
@@ -123,6 +128,8 @@ const mapDispatchToProps=dispatch=>{
             getUser: (userId)=> dispatch(getUser(userId)),
 
             exitProfile: ()=> dispatch(exitProfile()),
+            toggleLoader: () => dispatch(toggleLoader())
+
 
         }
         )

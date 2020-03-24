@@ -1,10 +1,12 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
-import ErrorsContainer from '../errors/errors_container';
+import {Link, withRouter} from 'react-router-dom';
+import Errors from '../errors/errors';
 
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
 import { createPost } from '../../reducers/posts/posts_actions';
+import { toggleLoader } from '../../reducers/ui/loader_action';
+
+
 
 
 
@@ -13,7 +15,7 @@ class CreatePostForm extends React.Component {
  
   constructor(props){
     super(props);
-    this.state = {title:'', description:'', image:null, errors: []};
+    this.state = {title:'', description:'', image:null, errors: [], message: ''};
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleFile = this.handleFile.bind(this);
     this.handleDrop = this.handleDrop.bind(this);
@@ -23,7 +25,17 @@ class CreatePostForm extends React.Component {
     this.handleCancel = this.handleCancel.bind(this);
     this.preview = "";
     this.removeImage = this.removeImage.bind(this);
+    this.imageError ='';
+    this.handleMessage = this.handleMessage.bind(this)
   }
+
+
+  componentDidMount(){
+    
+    this.props.toggleLoader()
+    setTimeout(()=>{this.props.toggleLoader()}, 500);
+}
+
 
   handleUpdate(field){
     return e => this.setState({[field]: e.target.value})
@@ -31,8 +43,8 @@ class CreatePostForm extends React.Component {
 
   handleSubmit(e){
     e.preventDefault();
-    if(this.state.title==='' || this.state.description===''|| this.state.image===null){
-      // this.setState({errors: this.state.errors.push('yes')})
+    if(this.state.image===null){
+      this.setState({message: 'You must upload an image.'})
       return
     }
     const formData = new FormData() ;
@@ -47,14 +59,18 @@ class CreatePostForm extends React.Component {
   }
 
   handleFile(e){  
-    let loader = document.getElementsByClassName('lds-ring')
-    loader[0].style.display = "block"
-    setTimeout(function(){  loader[0].style.display = "none" }, 3000);
+    this.props.toggleLoader()
+    setTimeout(()=>{this.props.toggleLoader()}, 500);
+    // let loader = document.getElementsByClassName('lds-ring')
+    // loader[0].style.display = "block"
+    // setTimeout(function(){  loader[0].style.display = "none" }, 3000);
     this.setState({image: e.currentTarget.files[0]});
     let Sucess = document.getElementsByClassName('Sucess')
     setTimeout(function(){  Sucess[0].style.display = "block" }, 3000);
     var file= document.querySelector('input[type=file]').files[0];    
     this.preview = URL.createObjectURL(file)
+    this.setState({message: ''})
+
   }
 
 
@@ -62,13 +78,15 @@ class CreatePostForm extends React.Component {
     e.preventDefault()
     e.stopPropagation()
 
-    let loader = document.getElementsByClassName('lds-ring')
-    loader[0].style.display = "block"
-    setTimeout(function(){  loader[0].style.display = "none" }, 3000);
+    this.props.toggleLoader()
+    setTimeout(()=>{this.props.toggleLoader()}, 500);
+
     this.setState({image: e.dataTransfer.files[0]});
     let Sucess = document.getElementsByClassName('Sucess')
+
     setTimeout(function(){  Sucess[0].style.display = "block" }, 500);
     var file= e.dataTransfer.files[0];
+    this.setState({message: ''})
     this.preview = URL.createObjectURL(file)
   }
 
@@ -93,16 +111,28 @@ class CreatePostForm extends React.Component {
     this.props.history.push('/')
 }
 
+handleMessage(){
+  this.setState({message: ''})
+}
+
                 
   render () {
 
+//     <div className="lds-ring">
+//     <div></div>
+//     <div></div>
+//     <div></div>
+//     <div></div>
+//  </div>
 
    
-    return (
-
-
-        <div className="CreateForm-Container">
-         
+return (
+  
+  
+  <div className="CreateForm-Container">
+  <Errors 
+   errors = {this.props.errors}
+  />
           <div className="lds-facebook"><div></div><div></div><div></div></div>
             <h1 className="CreateForm-Header">Publish your Shot</h1>
 
@@ -123,12 +153,7 @@ class CreatePostForm extends React.Component {
                 
                 <div className="box-dragndrop" onDrop={this.handleDrop}  onDragEnter={this.onDragEnter}
                   onDragOver={this.onDragOver}>
-                 <div className="lds-ring">
-                   <div></div>
-                   <div></div>
-                   <div></div>
-                   <div></div>
-                </div>
+                
 
                 {(this.state.image == null) 
 
@@ -176,6 +201,16 @@ class CreatePostForm extends React.Component {
                         <button onClick={this.removeImage}>Delete Image</button>
                         </div>
                     }
+
+                    {
+                      this.state.message !== ''
+                    ? 
+                    <div className='Form-Error-Message'>
+                      <button onClick={this.handleMessage}>x</button>
+                      <p>{this.state.message}</p>
+                    </div>
+                    :null
+                    }
                 </div>
                 <div className="Form-footer">
                   <button className="cancel-button" onClick={this.handleCancel}>Cancel</button>
@@ -201,7 +236,9 @@ const mapStateToProps = state => {
     
     return(
         {   
-            post: {title:"", description:""}
+            post: {title:"", description:""},
+            errors: state.errors.post
+    
         }
     )
 }
@@ -211,7 +248,9 @@ const mapDispatchToProps = dispatch => {
     return(
         {
             createPost: (formData) => dispatch(createPost(formData)),
-            clearErrors: () => dispatch( clearErrors())
+            clearErrors: () => dispatch( clearErrors()),
+            toggleLoader: () => dispatch(toggleLoader())
+
 
         }
     )

@@ -2,14 +2,20 @@ class Api::LikesController < ApplicationController
 
     def create
         @like = Like.new
-        @like.post_id = params[:post_id]
-        @like.user_id = current_user.id
         
-        if @like.save
-            render "api/likes/show"
+        @like.post_id = params[:post_id]
+        
+        if current_user==nil
+            render json: ['Please log in'], status: 422
         else
-            render json:
-            @like.errors.full_messages, status: 422
+            @like.user_id = current_user.id
+
+            if @like.save
+                render "api/likes/show"
+            else
+                render json:
+                @like.errors.full_messages, status: 422
+            end
         end
     end
 

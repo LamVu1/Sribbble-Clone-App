@@ -28,8 +28,8 @@ class Modal extends React.Component{
         }
        else{
            content=
-           <div className='modal-background'>
-               <div className='modal-child' onClick={closeModal}>
+           <div className='modal-background' scroll='no'>
+               <div className='modal-child' scroll='no' onClick={closeModal}>
                    <div onClick={ e => e.stopPropagation()}>
                     <PostDetail post={post}/>
                    </div>

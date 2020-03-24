@@ -41,13 +41,17 @@ export const fetchPost = (posts)=>(dispatch)=>(
     APIUtil.fetchPost(posts).then( posts => dispatch(receivePosts(posts)))
 )
 
-export const createPost = (post)=>(dispatch)=>(
-    APIUtil.createPost(post).then( post => (
+export const createPost = (post)=>(dispatch)=>{
+return(
+    APIUtil.createPost(post).then( post => {
         dispatch(receivepost(post))
-    ), err=>{
+    }, err=>{
+        
         dispatch(receiveErrors(err.responseJSON))
     })
-);
+)
+}
+
 
 export const updatePost =(post)=>(dispatch)=>(
     APIUtil.updatePost(post).then( post => dispatch(receivepost(post)))

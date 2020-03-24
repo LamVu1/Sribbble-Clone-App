@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import ErrorsContainer from '../components/errors/errors_container';
+import Errors from '../components/errors/errors';
 
 import { connect } from 'react-redux';
 
@@ -36,22 +36,22 @@ class SigninPage extends React.Component {
     this.props.signin(demo)
   }
 
-  renderErrors(){
+  // renderErrors(){
 
-    return(
-        <ul>
+  //   return(
+  //       <ul>
           
-          {this.props.errors.map((error, i) =>(
+  //         {this.props.errors.map((error, i) =>(
              
-              <li className="errors" key={`error-${i}`}>
-                  {error}
-              </li>
+  //             <li className="errors" key={`error-${i}`}>
+  //                 {error}
+  //             </li>
 
-          ))}
+  //         ))}
 
-        </ul>
-    );
-  }
+  //       </ul>
+  //   );
+  // }
 
   componentWillUnmount(){
     this.props.clearErrors();
@@ -62,9 +62,9 @@ class SigninPage extends React.Component {
     return (
 
       <div className="signin-form-container">
-        <ErrorsContainer 
-        errors = {this.props.errors}
-        />
+          <Errors 
+          errors = {this.props.errors}
+          />
 
           <div className="NAV-BAR">
             <a href="https://www.linkedin.com/in/lam-vu-4b49a5117/">

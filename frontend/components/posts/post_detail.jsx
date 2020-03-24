@@ -48,12 +48,10 @@ class PostDetail extends React.Component{
             this.props.getUser(this.props.profile.id)
 
         }
+        this.props.closeModal()
     }   
 
-    // handleProfile(){
-    //     this.props.history.push({pathname: `/profile/${this.props.post.author_id}`})
-    //     this.props.closeModal()
-    // }
+  
 
 
 
