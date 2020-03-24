@@ -3,12 +3,17 @@ class Api::CommentsController < ApplicationController
     def create 
         @comment = Comment.new(comment_params)
         @comment.post_id = params[:post_id]
-        @comment.user_id = current_user.id
-        if @comment.save
-            render "api/comments/show"
+
+        if current_user == nil 
+            render json: ['Please log in'], status: 422
         else
-            render json:
-            @comment.errors.full_messages, status: 422
+            @comment.user_id = current_user.id
+            if @comment.save
+                render "api/comments/show"
+            else
+                render json:
+                @comment.errors.full_messages, status: 422
+            end
         end
     end
 

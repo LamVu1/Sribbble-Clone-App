@@ -29,6 +29,7 @@ class Loader extends React.Component{
 }
 
 const mapStateToProps = (state)=>{
+    
    return(
        {ui: state.ui.modal.loader}
    )

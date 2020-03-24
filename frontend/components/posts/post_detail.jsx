@@ -15,6 +15,8 @@ import {deletePost} from '../../reducers/posts/posts_actions';
 import {closeModal} from '../../reducers/ui/modal_action';
 // import {updatePost} from '../../actions/posts_actions';
 
+import ErrorsIndex from '../errors/errors';
+import {clearErrors} from '../../reducers/errors/errors_action';
 
 
 
@@ -41,6 +43,11 @@ class PostDetail extends React.Component{
     //     }
     // }
   
+
+    componentWillUnmount(){
+        this.props.clearErrors();
+      }
+    
 
     handleDelete(){
         this.props.deletePost(this.props.post.id);
@@ -153,6 +160,7 @@ class PostDetail extends React.Component{
         return(
             <div className='Post-index'>
                 <div className='Top-Container'>
+            
                     <div className='Author-Container'>
                         <div className='Author-Image-Container' onClick={()=>{this.handleLink(post.author_id)}}>
                             <img className="Post-ProfilePicture" src={post.profile_picture}/>
@@ -220,7 +228,9 @@ const mapDispatchToProps = dispatch => {
           deletePost: (id)=>dispatch(deletePost(id)),
           closeModal: () => dispatch( closeModal()),
           updatePost: (post)=>dispatch(updatePost(post)),
-          getUser: (userId)=> dispatch(getUser(userId))
+          getUser: (userId)=> dispatch(getUser(userId)),
+          clearErrors: () => dispatch( clearErrors())
+
 
       }
     )

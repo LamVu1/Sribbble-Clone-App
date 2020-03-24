@@ -3,8 +3,8 @@ import * as APIUtil from './follows_api_util';
 export const RECEIVE_ALL_FOLLOWS= 'RECEIVE_ALL_FOLLOWS';
 export const RECEIVE_FOLLOW = 'RECEIVE_FOLLOW';
 export const REMOVE_FOLLOW ='REMOVE_FOLLOW';
-export const RECEIVE_FOLLOW_ERRORS = 'RECEIVE_FOLLOW_ERRORS';
-export const CLEAR_ERRORS = 'CLEAR_ERRORS'
+export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
+export const CLEAR_ERRORS = 'CLEAR_ERRORS';
 
 const receiveFollows = (follows)=>({
     follows: follows,
@@ -23,13 +23,14 @@ const removeFollow = (follow)=>({
 })
 
 export const receiveErrors = errors => ({
-    type: RECEIVE_FOLLOW_ERRORS,
+    type: RECEIVE_ERRORS,
     errors
 });
 
 export const clearErrors = ()=>({
     type: CLEAR_ERRORS
 })
+
 
 
 export const fetchFollows = (author_id)=>(dispatch)=>(
