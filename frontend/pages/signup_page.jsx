@@ -80,10 +80,10 @@ class SignupPage extends React.Component {
          
           
           <div className="NAV-BAR">
-            <a href="https://www.linkedin.com/in/lam-vu-4b49a5117/">
+            <a href="https://www.linkedin.com/in/lam-vu-4b49a5117/" target="_blank">
               <i id="linkedin" className="fab fa-linkedin"></i>
             </a>
-            <a href="https://github.com/LamVu1" target="_blank">
+            <a href="https://github.com/LamVu1/Sribbble-Clone-App" target="_blank">
               <i id="github" className="fab fa-github"></i>
             </a>
             <a href="https://angel.co/lam-vu-2" target="_blank">

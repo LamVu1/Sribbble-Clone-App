@@ -125,8 +125,11 @@
 .Delete-Btn{
     margin-left: 15px;
     width: 40px;
-    text-align: center;
     margin-top: 20px;
+    display: flex;
+    text-align: center;
+    flex-direction: row;
+    justify-content: cente  r;
     
     &:hover{
     background-color: red;

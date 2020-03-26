@@ -53,7 +53,7 @@ class CreatePostForm extends React.Component {
     formData.append('post[image]', this.state.image);
     let submitloader = document.getElementsByClassName('lds-facebook')
     submitloader[0].style.display = "block"
-    setTimeout(function(){  submitloader[0].style.display = "none" }, 3000);
+    setTimeout(function(){  submitloader[0].style.display = "none" }, 1300);
     this.props.createPost(formData).then(()=> {
       this.props.history.push('/')})
   }
@@ -66,7 +66,7 @@ class CreatePostForm extends React.Component {
     // setTimeout(function(){  loader[0].style.display = "none" }, 3000);
     this.setState({image: e.currentTarget.files[0]});
     let Sucess = document.getElementsByClassName('Sucess')
-    setTimeout(function(){  Sucess[0].style.display = "block" }, 3000);
+    setTimeout(function(){  Sucess[0].style.display = "block" }, 1000);
     var file= document.querySelector('input[type=file]').files[0];    
     this.preview = URL.createObjectURL(file)
     this.setState({message: ''})

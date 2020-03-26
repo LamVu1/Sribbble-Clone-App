@@ -36,23 +36,7 @@ class SigninPage extends React.Component {
     this.props.signin(demo)
   }
 
-  // renderErrors(){
-
-  //   return(
-  //       <ul>
-          
-  //         {this.props.errors.map((error, i) =>(
-             
-  //             <li className="errors" key={`error-${i}`}>
-  //                 {error}
-  //             </li>
-
-  //         ))}
-
-  //       </ul>
-  //   );
-  // }
-
+  
   componentWillUnmount(){
     this.props.clearErrors();
   }
@@ -64,11 +48,11 @@ class SigninPage extends React.Component {
       <div className="signin-form-container">
          
 
-          <div className="NAV-BAR">
-            <a href="https://www.linkedin.com/in/lam-vu-4b49a5117/">
+         <div className="NAV-BAR">
+            <a href="https://www.linkedin.com/in/lam-vu-4b49a5117/" target="_blank">
               <i id="linkedin" className="fab fa-linkedin"></i>
             </a>
-            <a href="https://github.com/LamVu1" target="_blank">
+            <a href="https://github.com/LamVu1/Sribbble-Clone-App" target="_blank">
               <i id="github" className="fab fa-github"></i>
             </a>
             <a href="https://angel.co/lam-vu-2" target="_blank">
@@ -107,7 +91,7 @@ class SigninPage extends React.Component {
                   </label>
 
                   <br/>
-                  <input className="session-submit" type="submit"  />
+                  <input className="session-submit" type="submit" value='Submit' />
                  
                   <button onClick={this.handleDemo} className="signin-demo-btn">Demo Login</button>
                   <p className="signin-redirect-link-cont">

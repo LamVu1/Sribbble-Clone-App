@@ -35,7 +35,7 @@ class ProfileMessage extends React.Component{
         
         if(this.showform){
             f[0].style.display = "none";
-            message[0].style.display = "flex";
+            message[0].style.display = "block";
             btn[0].style.display = "block";
             btn[0].innerHTML = "Edit"
             this.showform=false;

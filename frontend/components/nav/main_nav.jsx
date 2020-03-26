@@ -46,7 +46,7 @@ class Nav extends React.Component {
                    <div className="nav-button">
                              <Link to="/posts/new" style={{ textDecoration: 'none', color: '#999' }}>
                     <button className="Upload-btn">
-                             <i className="fas fa-cloud-upload-alt"></i> Upload
+                             <i className="fas fa-cloud-upload-alt"/> Upload
                     </button>
 
                              </Link>                        
@@ -66,8 +66,10 @@ class Nav extends React.Component {
         {
             sessionLinks= 
             <nav className="nav-group">
-                <Link to="/login" className="nav-signin">
-                    Sign In
+                <Link to="/login" className="main-nav-signup">
+                    <button className="nav-signup-btn">
+                        Sign In
+                    </button>
                 </Link>
                
                 <Link to="/signup"  style={{ textDecoration: 'none', color: '#999' }}className="main-nav-signup">
