@@ -62,3 +62,19 @@ Posts the user liked.
 List of the user's followers.
 
 ![alt text](https://app-ecommerce-seeds.s3-us-west-1.amazonaws.com/followers.png)
+
+
+## Error Handling
+User must be logged in to like a post, follow another user, comment on a post, or liking a comment.
+
+![alt text](https://app-ecommerce-seeds.s3-us-west-1.amazonaws.com/errors.png)
+
+
+User must enter the correct information to sign up or log in to the website.
+
+![alt text](https://app-ecommerce-seeds.s3-us-west-1.amazonaws.com/errors2.png)
+
+User must enter the required information to publish a post.
+
+![alt text](https://app-ecommerce-seeds.s3-us-west-1.amazonaws.com/error2.png)
+
