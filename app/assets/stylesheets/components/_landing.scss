@@ -94,6 +94,26 @@
 }
 
 
+@media only screen and (max-width: 1400px) {
+ 
+    // .Post-index-item {
+    //     background-color: white;
+    //     height: 300px;
+    //     width: 50%;
+    //     padding: 20px;
+    //     margin: 20px;
+    //     box-sizing: border-box;
+    // }
+
+
+    .Post-index-item{
+        height: 400px;
+        width: 45%;
+    }
+
+}
+
+
 @media only screen and (max-width: 1200px) {
     .main-banner{
         max-height: 400px;

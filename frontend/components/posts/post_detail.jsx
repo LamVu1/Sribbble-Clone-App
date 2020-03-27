@@ -9,11 +9,10 @@ import {getUser} from '../../reducers/profile/profile_actions';
 
 
 import { connect } from 'react-redux';
-import {deletePost} from '../../reducers/posts/posts_actions';
+import {deletePost, updatePost} from '../../reducers/posts/posts_actions';
 // import {withRouter} from 'react-router-dom';
 
 import {closeModal} from '../../reducers/ui/modal_action';
-// import {updatePost} from '../../actions/posts_actions';
 
 import ErrorsIndex from '../errors/errors';
 import {clearErrors} from '../../reducers/errors/errors_action';
@@ -24,24 +23,18 @@ class PostDetail extends React.Component{
 
     constructor(props){
         super(props);
-        // this.handleProfile = this.handleProfile.bind(this);
         this.handleDelete = this.handleDelete.bind(this);
         this.handleLink = this.handleLink.bind(this);  
+        this.updated = false
         
     }
 
-    // componentDidMount(){
-    //     // if(!this.updated){
-    //     //     this.props.post.view +=1;
-    //     //     this.props.updatePost(this.props.post);
-    //     //     this.updated = true;
-    //     // }
-    //     // else{
-    //         if(updateTime(this.props.post.updated_at)){
-    //         this.props.post.view +=1;
-    //         this.props.updatePost(this.props.post);
-    //     }
-    // }
+    componentDidMount(){     
+        if(updateTime(this.props.post.updated_at)){
+            this.props.post.view +=1;
+            this.props.updatePost(this.props.post);
+        }  
+    }
   
 
     componentWillUnmount(){

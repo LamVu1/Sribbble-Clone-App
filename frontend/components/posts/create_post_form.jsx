@@ -77,13 +77,10 @@ class CreatePostForm extends React.Component {
   handleDrop(e){  
     e.preventDefault()
     e.stopPropagation()
-
     this.props.toggleLoader()
     setTimeout(()=>{this.props.toggleLoader()}, 500);
-
     this.setState({image: e.dataTransfer.files[0]});
     let Sucess = document.getElementsByClassName('Sucess')
-
     setTimeout(function(){  Sucess[0].style.display = "block" }, 500);
     var file= e.dataTransfer.files[0];
     this.setState({message: ''})
