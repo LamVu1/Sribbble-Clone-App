@@ -27,7 +27,7 @@ class SignupPage extends React.Component {
   }
 
   handleFile(e){
-    e.stopPropagation()
+    e.stopPropagation();
     this.setState({profile_picture: e.currentTarget.files[0]});
     var file= e.currentTarget.files[0];
     this.preview = URL.createObjectURL(file)
@@ -49,8 +49,8 @@ class SignupPage extends React.Component {
     formData.append('user[email]', this.state.email);
     formData.append('user[location]', this.state.location);
     formData.append('user[profile_picture]', this.state.profile_picture);
-    
     this.props.signup(formData);
+    
   }
 
   // renderErrors(){
