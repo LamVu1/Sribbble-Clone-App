@@ -1,5 +1,5 @@
 # [Scribbblez](https://scribbblez.herokuapp.com/#/)
-![alt text](https://app-ecommerce-seeds.s3-us-west-1.amazonaws.com/Peek+2020-03-26+21-28.gif)
+![alt text](https://app-ecommerce-seeds.s3-us-west-1.amazonaws.com/landing.png)
 # Overview
 Scribbblez is a web application inspired by Dribbble a social media platform for designers and artists to share their artwork.
 
@@ -35,7 +35,9 @@ Allow the users to post images by either browsing file or drag and drop.
 ![alt text](https://github.com/LamVu1/Sribbble-Clone-App/blob/master/app/assets/images/Posting.gif)
 ![alt text](https://app-ecommerce-seeds.s3-us-west-1.amazonaws.com/handleDrop.png)
 ![alt text](https://app-ecommerce-seeds.s3-us-west-1.amazonaws.com/postexample.png)
+
 Each post opens up at modal.
+
 ![alt text](https://app-ecommerce-seeds.s3-us-west-1.amazonaws.com/modal.png)
 
 ## Likes and Comments
@@ -52,5 +54,11 @@ A posts status detail will show the total likes and views this post received.
 User's can view their posts, liked posts, and other users they followed. User's can also leave a profile message or introduction for other user's to see.
 
 ![alt text](https://app-ecommerce-seeds.s3-us-west-1.amazonaws.com/profile.png)
+
+Posts the user liked.
+
 ![alt text](https://app-ecommerce-seeds.s3-us-west-1.amazonaws.com/likedposts.png)
+
+List of the user's followers.
+
 ![alt text](https://app-ecommerce-seeds.s3-us-west-1.amazonaws.com/followers.png)
