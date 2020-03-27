@@ -79,7 +79,9 @@
 .signup-form-box-inner{
     font-size: 15px;
     line-height: 1;
-    width: 50%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
     margin: 0 0 30px 0;
     padding: 50px;
     margin-top: -60px;
@@ -87,6 +89,11 @@
     background-color: white;
     // border:red solid;
     
+}
+
+.signup-form{
+    width: 50%;
+    margin-right: 20px;
 }
 
 .signup-form-h2{
@@ -144,13 +151,12 @@
 }
 
 .signup-profilepicture{
-    border: white solid 4px;
+    border-left: #eeececc2 solid thin;
     border-radius: 4pt;
     padding: 10px;  
-    position: absolute;
     background-color: white;
-    right: 15%;
-    top: 25%;
+   
+    width: 50%;
     font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 500;
     

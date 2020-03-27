@@ -137,6 +137,10 @@ class SignupPage extends React.Component {
                          <input type="text" value={this.state.location} onChange={this.handleUpdate('location')} className="signup-input"/> 
                       </label>
                       <br/>
+                      
+                      <input className="session-submit" type="submit" value='Create Account' />
+                      
+                    </div>
                       <div className="signup-profilepicture">
                         <h1>Add a profile picture</h1>
                           
@@ -151,10 +155,6 @@ class SignupPage extends React.Component {
                           </div>
                       
                       </div>
-                      
-                      <input className="session-submit" type="submit" value='Create Account' />
-                      
-                    </div>
                   </div>
               </div>
           </form>
