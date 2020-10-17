@@ -9,4 +9,4 @@ export const image={0:{
 2:{img: "https://app-ecommerce-seeds.s3-us-west-1.amazonaws.com/link.png", 
 color: "#F5EBC9", tcolor1: "#37055A", tcolor2: "#E63F4B", author: "Marie Bergeron in Montreal, Qc, Canada"},
 3:{img: "https://app-ecommerce-seeds.s3-us-west-1.amazonaws.com/romainbriaux.png", color: "#F9F8FD", tcolor1: "#333333", tcolor2: "#333333", author: "Romain Briaux"},
-4:{img: "https://app-ecommerce-seeds.s3-us-west-1.amazonaws.com/alicjacolon.jpg", color: "#D4D8DB", tcolor1: "#A49086", tcolor2:"#C37865", author: "Alicja Colon / Thrice Studio in Savannah, Georgia"}}
+4:{img: "https://app-ecommerce-seeds.s3-us-west-1.amazonaws.com/newp.jpg", color: "#DFEBEB", tcolor1: "#A49086", tcolor2:"#C37865", author: "Alicja Colon / Thrice Studio in Savannah, Georgia"}}
